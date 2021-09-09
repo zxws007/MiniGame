@@ -17,7 +17,7 @@ public class FirstManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (change == 2)
+        if (change == 3)
         {
             SceneManager.LoadScene("1");
         }
