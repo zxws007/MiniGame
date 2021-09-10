@@ -7,7 +7,9 @@ public class FirstManager : MonoBehaviour
 {
 
     public static int change = 0;
-
+    public GameObject show;
+    public GameObject hide;
+    public GameObject button;
     // Use this for initialization
     void Start()
     {
@@ -19,7 +21,10 @@ public class FirstManager : MonoBehaviour
     {
         if (change == 3)
         {
-            SceneManager.LoadScene("1");
+            show.SetActive(true);
+            button.SetActive(true);
+            hide.SetActive(false);
+            //SceneManager.LoadScene("1");
         }
     }
 }
