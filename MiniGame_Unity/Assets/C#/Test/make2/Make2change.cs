@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class Firstchange : MonoBehaviour {
+public class Make2change : MonoBehaviour {
 
-    // Use this for initialization
     void Start()
     {
         this.GetComponent<Button>().onClick.AddListener(OnClick);
