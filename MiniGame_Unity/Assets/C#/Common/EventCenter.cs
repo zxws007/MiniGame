@@ -6,6 +6,8 @@ using UnityEngine;
 public class EventCenter
 {
     private static Dictionary<EventType, Delegate> eventTable = new Dictionary<EventType, Delegate>();
+
+    // 添加事件监听
     private static void OnLinstenerAdding(EventType eventType, Delegate callBack)
     {
         //如果没有 新建一个委托

@@ -48,7 +48,7 @@ public class Animate : MonoBehaviour {
 	}
 
     // 播放动画
-    void Play()
+    public void Play()
     {
         // 如果是重复播放类型的，则从第一帧开始重新播放；否则，从上次停止的帧开始播放
         if (IsPlaying == false)
@@ -61,7 +61,7 @@ public class Animate : MonoBehaviour {
     }
 
     // 停止动画
-    void Stop()
+    public void Stop()
     {
         IsPlaying = false;
     }
