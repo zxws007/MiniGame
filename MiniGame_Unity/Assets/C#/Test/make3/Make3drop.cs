@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Make2Drop : MonoBehaviour
-{
+public class Make3drop : MonoBehaviour {
 
     private Vector2 startPos;
     [SerializeField] private Transform correctTrans;
@@ -19,6 +18,7 @@ public class Make2Drop : MonoBehaviour
 
     private void OnMouseDrag()
     {
+        
         if (!isFinished)
         {
             transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
@@ -34,9 +34,6 @@ public class Make2Drop : MonoBehaviour
         {
             transform.position = new Vector2(correctTrans.position.x, correctTrans.position.y);
             isFinished = true;
-            Make2Manager.change = Make2Manager.change + 1;
-
-
             //Debug.Log(FirstManager.change);
         }
         else

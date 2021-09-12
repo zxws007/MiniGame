@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Make2Drop : MonoBehaviour
-{
+public class qiege : MonoBehaviour {
 
+    // Use this for initialization
     private Vector2 startPos;
     [SerializeField] private Transform correctTrans;
     [SerializeField] private bool isFinished;
@@ -19,6 +19,7 @@ public class Make2Drop : MonoBehaviour
 
     private void OnMouseDrag()
     {
+
         if (!isFinished)
         {
             transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
@@ -33,11 +34,8 @@ public class Make2Drop : MonoBehaviour
             Mathf.Abs(transform.position.y - correctTrans.position.y) <= 0.5f)
         {
             transform.position = new Vector2(correctTrans.position.x, correctTrans.position.y);
-            isFinished = true;
-            Make2Manager.change = Make2Manager.change + 1;
-
-
-            //Debug.Log(FirstManager.change);
+            Make3Manager.change = Make3Manager.change + 1;
+            Debug.Log(Make3Manager.change);
         }
         else
         {
