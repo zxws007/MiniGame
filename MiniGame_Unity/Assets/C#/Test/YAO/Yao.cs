@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Yao : MonoBehaviour
 {
@@ -14,8 +15,12 @@ public class Yao : MonoBehaviour
     public GameObject huangdong;
     public GameObject cjingzhi;
     public GameObject chuangdong;
-    int i = 0;
+    public static int i = 0;
     bool C = false;
+    public GameObject textp;
+    public static bool isshake = false;
+    public GameObject text;
+    public GameObject textc;
     void Update()
     {
         if (Move.isOK)
@@ -29,15 +34,15 @@ public class Yao : MonoBehaviour
                 {
                     jingzhi.SetActive(false);
                     huangdong.SetActive(true);
-                    StartCoroutine(Wait());
                     i++;
                 }
                 else
                 {
                     cjingzhi.SetActive(false);
                     chuangdong.SetActive(true);
-                    StartCoroutine(Wait());
+                    textp.SetActive(false);
                 }
+                isshake = true;
             }
             else
             {
@@ -45,22 +50,28 @@ public class Yao : MonoBehaviour
                 {
                     jingzhi.SetActive(true);
                     huangdong.SetActive(false);
+                    cjingzhi.SetActive(false);
+                    chuangdong.SetActive(false);
                 }
                 else
                 {
                     cjingzhi.SetActive(true);
                     chuangdong.SetActive(false);
+                    jingzhi.SetActive(false);
+                    huangdong.SetActive(false);
+                    textp.SetActive(false);
                 }
-
             }
             if (i >= 100)
             {
                 C = true;
+                textc.SetActive(true);
             }
         }
-    }
-    IEnumerator Wait()
-    {
-        yield return new WaitForSeconds(1);
+        if (i != 0 && i < 200 && Move.isOK)
+        {
+            textp.SetActive(true);
+            text.SetActive(false);
+        }
     }
 }
