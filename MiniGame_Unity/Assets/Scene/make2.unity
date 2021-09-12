@@ -309,7 +309,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 2293ea4d04edc4e41ad89d2ffe000892, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e1c04f1decc8e5a46a1fdf9c36d4c02f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -745,7 +745,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.8455882, g: 0.8455882, b: 0.8455882, a: 0}
+  m_BackGroundColor: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
