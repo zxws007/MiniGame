@@ -21,6 +21,12 @@ public class Yao : MonoBehaviour
     public static bool isshake = false;
     public GameObject text;
     public GameObject textc;
+
+    public Animator animator;
+    void Start()
+    {
+        animator.speed = 0;
+    }
     void Update()
     {
         if (Move.isOK)
@@ -73,5 +79,11 @@ public class Yao : MonoBehaviour
             textp.SetActive(true);
             text.SetActive(false);
         }
+    }
+    public void Moni()
+    {
+        i += 50;
+        animator.speed = 1;
+        animator.Play("xvliezhen1");
     }
 }
