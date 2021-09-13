@@ -2,25 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shuitong : MonoBehaviour {
+public class Washdrop : MonoBehaviour {
 
     // Use this for initialization
     private Vector2 startPos;
     [SerializeField] private Transform correctTrans;
     [SerializeField] private bool isFinished;
 
-    public GameObject show1;
-    public GameObject hide1;
+    public Animator animator1;
+    public Animator animator2;
 
     // Use this for initialization
     private void Start()
     {
         startPos = transform.position;
-
+        
     }
 
     private void OnMouseDrag()
     {
+        if (WashManager.change ==1)
+        {
+            animator1.speed = 1;
+        }
+        if (WashManager.change == 2)
+        {
+            animator2.speed = 1;
+        }
+
         if (!isFinished)
         {
             transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
@@ -36,9 +45,8 @@ public class shuitong : MonoBehaviour {
         {
             transform.position = new Vector2(correctTrans.position.x, correctTrans.position.y);
             isFinished = true;
-            show1.SetActive(true);
-            hide1.SetActive(false);
-
+            WashManager.change = WashManager.change + 1;
+            //Debug.Log(FirstManager.change);
         }
         else
         {

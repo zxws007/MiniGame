@@ -1,54 +1,55 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class Make2Manager : MonoBehaviour
-{
+public class WashManager : MonoBehaviour {
 
     public static int change = 0;
     public GameObject show1;
-    public GameObject show2;
-    public GameObject show3;
     public GameObject hide1;
-    public GameObject hide2;
-    public GameObject button1;
-    public GameObject button2;
 
+    public GameObject show2;
+    public GameObject hide2;
+
+    public GameObject show3;
     public GameObject show5;
     public GameObject hide5;
 
     public GameObject showtext;
+
+    public Animator animator1;
+    public Animator animator2;
     // Use this for initialization
     void Start()
     {
+        animator1.speed = 0;
+        animator2.speed = 0;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (change == 2)
+        if (change == 1)
         {
+            //animator1.speed = 1;
             show1.SetActive(true);
             hide1.SetActive(false);
 
         }
-        if (change == 3)
+        if (change == 2)
         {
             show2.SetActive(true);
             hide2.SetActive(false);
-            button1.SetActive(true);
             //SceneManager.LoadScene("1");
         }
 
-        if (change == 4)
+        if (change == 3)
         {
-            button1.SetActive(false);
-            button2.SetActive(true);
-            hide5.SetActive(false);
-            show5.SetActive(true);
-            showtext.SetActive(true);
+            
+            //animator2.speed=1;
+            
+            
         }
 
 

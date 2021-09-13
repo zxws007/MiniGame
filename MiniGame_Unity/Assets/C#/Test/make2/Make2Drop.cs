@@ -36,7 +36,6 @@ public class Make2Drop : MonoBehaviour
             isFinished = true;
             Make2Manager.change = Make2Manager.change + 1;
 
-
             //Debug.Log(FirstManager.change);
         }
         else
