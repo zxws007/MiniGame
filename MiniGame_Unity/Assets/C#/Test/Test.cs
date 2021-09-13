@@ -67,7 +67,7 @@ public class Test : MonoBehaviour
         else if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp)
         {
             sucesstime = 0;
-            text.SetActive(true);
+            //text.SetActive(true);
             StartCoroutine(CloseText());
         }
         else if (((b1 && !b2 && !b3) || (!b1 && b2 && !b3) || (!b1 && !b2 && b3) || (b1 && b2 && !b3) || (!b1 && b2 && b3) || (b1 && !b2 && b3)) && Bamai.isp)
@@ -91,6 +91,11 @@ public class Test : MonoBehaviour
     IEnumerator CloseText()
     {
         yield return new WaitForSeconds(1);
+        text.SetActive(false);
+    }
+    public void XYB()
+    {
+        xdt.SetActive(true);
         text.SetActive(false);
     }
 }
