@@ -289,7 +289,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &569566614
 Animator:
   serializedVersion: 3
@@ -899,9 +899,11 @@ GameObject:
   - component: {fileID: 982935826}
   - component: {fileID: 982935827}
   - component: {fileID: 982935825}
+  - component: {fileID: 982935828}
+  - component: {fileID: 982935829}
   m_Layer: 5
   m_Name: "\u836F\u6750"
-  m_TagString: Untagged
+  m_TagString: shaizi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -969,6 +971,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yaocao1: {fileID: 583280581}
   text: {fileID: 211997161}
+--- !u!61 &982935828
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982935823}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.5812988, y: -2.453186}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 336.3457, y: 230.16101}
+  m_EdgeRadius: 0
+--- !u!50 &982935829
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 982935823}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1219673204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1436,7 @@ MonoBehaviour:
   distance: 1
   jingzhi: {fileID: 583280581}
   huangdong: {fileID: 1598492043}
+  huangdong1: {fileID: 1598492043}
   cjingzhi: {fileID: 718159569}
   chuangdong: {fileID: 647112937}
   textp: {fileID: 1993494449}
@@ -1405,9 +1453,11 @@ GameObject:
   - component: {fileID: 1876170434}
   - component: {fileID: 1876170436}
   - component: {fileID: 1876170435}
+  - component: {fileID: 1876170437}
+  - component: {fileID: 1876170438}
   m_Layer: 5
   m_Name: "\u7B5B\u5B502"
-  m_TagString: Untagged
+  m_TagString: shaizi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1463,6 +1513,51 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1876170433}
+--- !u!61 &1876170437
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876170433}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 29.746613, y: -7.410553}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1175.8179, y: 781.1368}
+  m_EdgeRadius: 0
+--- !u!50 &1876170438
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1876170433}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 0.0001
+  m_LinearDrag: 0
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1993494449
 GameObject:
   m_ObjectHideFlags: 0

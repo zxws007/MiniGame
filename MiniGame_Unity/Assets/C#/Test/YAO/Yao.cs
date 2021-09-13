@@ -13,6 +13,7 @@ public class Yao : MonoBehaviour
     public float distance = 1;
     public GameObject jingzhi;
     public GameObject huangdong;
+    public GameObject huangdong1;
     public GameObject cjingzhi;
     public GameObject chuangdong;
     public static int i = 0;
@@ -21,8 +22,8 @@ public class Yao : MonoBehaviour
     public static bool isshake = false;
     public GameObject text;
     public GameObject textc;
-
     public Animator animator;
+    bool b = true;
     void Start()
     {
         animator.speed = 0;
@@ -72,12 +73,15 @@ public class Yao : MonoBehaviour
             {
                 C = true;
                 textc.SetActive(true);
+                huangdong.SetActive(false);
+                huangdong1.SetActive(false);
             }
         }
-        if (i != 0 && i < 200 && Move.isOK)
+        if (i != 0 && i < 100 && Move.isOK)
         {
             textp.SetActive(true);
             text.SetActive(false);
+            huangdong1.SetActive(true);
         }
     }
     public void Moni()
