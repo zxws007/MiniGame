@@ -87,7 +87,7 @@ public class Handle : MonoBehaviour {
             var dragPosition = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
             var correctPos = CorrectTransform.position;
             // 如果到达正确区域，则点火
-            if (Mathf.Abs(correctPos.x - dragPosition.x) <= 0.5f && Mathf.Abs(correctPos.y - dragPosition.y) <= 0.5f)
+            if (Mathf.Abs(correctPos.x - dragPosition.x) <= 1f && Mathf.Abs(correctPos.y - dragPosition.y) <= 1f)
             {
                 HandleOut();
             }
