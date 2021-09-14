@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class shuitong : MonoBehaviour {
+public class Shuitong : MonoBehaviour {
 
     // Use this for initialization
     private Vector2 startPos;

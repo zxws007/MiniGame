@@ -19,6 +19,7 @@ public class Make2Manager : MonoBehaviour
     public GameObject hide5;
 
     public GameObject showtext;
+    public GameObject showtext1;
     // Use this for initialization
     void Start()
     {
@@ -49,6 +50,7 @@ public class Make2Manager : MonoBehaviour
             hide5.SetActive(false);
             show5.SetActive(true);
             showtext.SetActive(true);
+            showtext1.SetActive(true);
         }
 
 

@@ -11,6 +11,10 @@ public class Shovel : MonoBehaviour {
     private bool IsMoving = false; // 是否正在移动
     private Collider2D CollisionDomain; // 与轨迹点的碰撞区域
 
+    private int num = 0;
+    public GameObject show1;
+    public GameObject show2;
+
     private void RegisterCallbacks()
     {
         EventCenter.AddListener(EventType.FRY_HANDLE_OVER_TIMES, SetCanMove);
@@ -90,6 +94,12 @@ public class Shovel : MonoBehaviour {
         {
             Debug.Log("轨迹正确");
             EventCenter.BroadCast(EventType.FRY_SHOVEL_DRAG_CORRECT);
+            num = num + 1;
+            if (num == 3)
+            {
+                show1.SetActive(true);
+                show2.SetActive(true);
+            }
         }
     }
 

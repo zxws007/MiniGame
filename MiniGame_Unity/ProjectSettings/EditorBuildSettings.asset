@@ -35,3 +35,33 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/wash.unity
     guid: 737543f5971e0754e85c8fd84446b85b
+  - enabled: 1
+    path: Assets/Scene/2.unity
+    guid: fa2a0170b2a174d488c93c69d56b12ce
+  - enabled: 1
+    path: Assets/Scene/result1.unity
+    guid: 94a6ce372a8de7345bc4ee5e24d2a16c
+  - enabled: 1
+    path: Assets/Scene/3.unity
+    guid: 8e12940db994bf841862ad41c0a44c72
+  - enabled: 1
+    path: Assets/Scene/4.unity
+    guid: f40740e7f14e61c4ea7c03fe8cfa2c45
+  - enabled: 1
+    path: Assets/Scene/bamai1.unity
+    guid: 06f9cd4ee7b39534eb4297d05c801f94
+  - enabled: 1
+    path: Assets/Scene/bamai2.unity
+    guid: 669a3353014b60f4a87ad5c528641a36
+  - enabled: 1
+    path: Assets/Scene/play2.unity
+    guid: b0db0611edce4744694311f7ab7a8772
+  - enabled: 1
+    path: Assets/Scene/play3.unity
+    guid: a13f2a78e95f9294da0e9a0136811b39
+  - enabled: 1
+    path: Assets/Scene/result2.unity
+    guid: 10ebb2834d71e8647afcf2a7b40ed355
+  - enabled: 1
+    path: Assets/Scene/result3.unity
+    guid: e2929ff87922f48448bea48793e2cb58

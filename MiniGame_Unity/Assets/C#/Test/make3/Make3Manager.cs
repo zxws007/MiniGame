@@ -30,8 +30,7 @@ public class Make3Manager : MonoBehaviour {
     public GameObject show42;
     public GameObject show43;
     public GameObject hide4;
-    public GameObject hide42;
-    public GameObject hide43;
+
 
     public Animator animator1;
     public Animator animator2;
@@ -93,7 +92,10 @@ public class Make3Manager : MonoBehaviour {
             show4.SetActive(true);
             show42.SetActive(true);
             hide4.SetActive(false);//旧药材片
-            hide42.SetActive(false);//新药材片
+            show43.SetActive(true);
+            button.SetActive(true);
+
+
             //SceneManager.LoadScene("1");
         }
     }

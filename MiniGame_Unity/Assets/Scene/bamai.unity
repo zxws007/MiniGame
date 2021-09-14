@@ -1188,6 +1188,7 @@ GameObject:
   - component: {fileID: 1351490035}
   - component: {fileID: 1351490034}
   - component: {fileID: 1351490033}
+  - component: {fileID: 1351490036}
   m_Layer: 5
   m_Name: Button (3)
   m_TagString: Untagged
@@ -1211,8 +1212,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 538, y: -315}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 467.2, y: -300.1}
+  m_SizeDelta: {x: 112.08, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1351490033
 MonoBehaviour:
@@ -1299,6 +1300,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1351490031}
+--- !u!114 &1351490036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1351490031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28f500cfe35f6ff40b6b4744d7e2d526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator1: {fileID: 959518621}
+  animator2: {fileID: 828426003}
+  hide: {fileID: 959518619}
+  hide2: {fileID: 828426001}
+  scene: result1
+  text1: {fileID: 1642727840}
 --- !u!1 &1642727838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1366,7 +1384,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u4E0B\u4E00\u6B65"
+  m_Text: "\u6B63\u786E\u89E6\u6478"
 --- !u!222 &1642727841
 CanvasRenderer:
   m_ObjectHideFlags: 0

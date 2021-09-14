@@ -17,7 +17,7 @@ public class Make2change : MonoBehaviour {
         
         if (Make2Manager.change == 5)
         {
-            SceneManager.LoadScene("0");//level1为我们要切换到的场景
+            SceneManager.LoadScene("4");//level1为我们要切换到的场景
         }
     }
 

@@ -13,6 +13,13 @@ public class YaoChu : MonoBehaviour {
     private bool IsFinished = false;
     private int DownTimes = 0; // 捣的次数
 
+    public GameObject show1;
+    public GameObject show2;
+    public GameObject show3;
+    public GameObject hide1;
+    public GameObject hide2;
+    public GameObject hide3;
+
     public void RegisterCallbacks()
     {
     }
@@ -84,7 +91,12 @@ public class YaoChu : MonoBehaviour {
         DownTimes++;
         if (DownTimes == TimesToOver)
         {
-            IsFinished = true;
+            hide1.SetActive(false);
+            hide2.SetActive(false);
+            hide3.SetActive(false);
+            show1.SetActive(true);
+            show2.SetActive(true);
+            show3.SetActive(true);
         }
     }
 }

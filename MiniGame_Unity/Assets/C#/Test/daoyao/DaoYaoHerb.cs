@@ -36,6 +36,7 @@ public class DaoYaoHerb : MonoBehaviour {
         {
             //消失
             IsFinished = true;
+            Daoyaomanager.change = Daoyaomanager.change + 1;
             Hide();
             MoveBack();
         }

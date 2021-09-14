@@ -14,7 +14,7 @@ public class Firstchange : MonoBehaviour {
 
     void OnClick()
     {
-        SceneManager.LoadScene("make2");//level1为我们要切换到的场景
+        SceneManager.LoadScene("bamai");//level1为我们要切换到的场景
     }
 
     // Update is called once per frame

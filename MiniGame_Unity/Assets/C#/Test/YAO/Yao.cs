@@ -22,6 +22,10 @@ public class Yao : MonoBehaviour
     public static bool isshake = false;
     public GameObject text;
     public GameObject textc;
+
+    public GameObject button1;
+    public GameObject button2;
+
     public Animator animator;
     bool b = true;
     void Start()
@@ -75,6 +79,8 @@ public class Yao : MonoBehaviour
                 textc.SetActive(true);
                 huangdong.SetActive(false);
                 huangdong1.SetActive(false);
+                button1.SetActive(false);
+                button2.SetActive(true);
             }
         }
         if (i != 0 && i < 100 && Move.isOK)
