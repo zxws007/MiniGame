@@ -32,7 +32,7 @@ public class Bamai : Button
     // 长按需要的变量参数
     private bool my_isStartPress = false;
     private float my_curPointDownTime = 0f;
-    private float my_longPressTime = 0.6f;
+    public static float my_longPressTime = 0.6f;
     private bool my_longPressTrigger = false;
 
 
