@@ -11,6 +11,7 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     private bool isDown = false;
     public GameObject tishi;
     public Text text;
+    public static bool tuodongfalse = false;
     public void OnPointerEnter(PointerEventData eventData)
     {
     }
@@ -36,6 +37,10 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
             animatorEnter.SetBool("IsDown", true);
             animatorEnter.SetBool("IsUp", false);
             isDown = false;
+            tishi.SetActive(false);
+        }
+        if (tuodongfalse)
+        {
             tishi.SetActive(false);
         }
     }
@@ -73,6 +78,7 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.5f);
+        tuodongfalse = false;
         tishi.SetActive(true);
         ChangeText(gameObject);
     }

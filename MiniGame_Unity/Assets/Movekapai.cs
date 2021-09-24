@@ -37,6 +37,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         gameObject.GetComponent<Animator>().enabled = false;
         //将鼠标的位置坐标进行钳制，然后加上位置差再赋值给图片position
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
+        Kapai.tuodongfalse = true;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
