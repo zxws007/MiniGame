@@ -12,6 +12,9 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     public GameObject tishi;
     public Text text;
     public static bool tuodongfalse = false;
+    public Text daixuan;
+    public GameObject dui;
+    public GameObject cuo;
     public void OnPointerEnter(PointerEventData eventData)
     {
     }
@@ -20,7 +23,7 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     }
     void Start()
     {
-        Bamai.my_longPressTime = 0.01f;
+        Bamai.my_longPressTime = 0.1f;
         myButton1.OnLongPress.AddListener(() =>
         {
             animatorEnter.SetBool("IsUp", true);
@@ -32,6 +35,7 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     }
     void Update()
     {
+        daixuan.text = string.Format("待选({0}/3)", Movekapai.count);
         if (!Bamai.isp && isDown)
         {
             animatorEnter.SetBool("IsDown", true);
@@ -42,6 +46,11 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         if (tuodongfalse)
         {
             tishi.SetActive(false);
+        }
+        if (Movekapai.pengzhuagn == true)
+        {
+            StartCoroutine(WaitClose());
+            Movekapai.pengzhuagn = false;
         }
     }
     void ChangeText(GameObject _gameObject)
@@ -81,5 +90,11 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         tuodongfalse = false;
         tishi.SetActive(true);
         ChangeText(gameObject);
+    }
+    IEnumerator WaitClose()
+    {
+        yield return new WaitForSeconds(1f);
+        dui.SetActive(false);
+        cuo.SetActive(false);
     }
 }

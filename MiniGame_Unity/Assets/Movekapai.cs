@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-
+    static List<string> successList = new List<string>() { "1", "2", "4" };
     private RawImage img;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
     public GameObject yaocao1;
@@ -19,7 +19,10 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public GameObject danggui_7;
     public GameObject dihuang_8;
     private Vector3 beginTrans;
-    private int count = 0;
+    public static int count = 0;
+    public GameObject dui;
+    public GameObject cuo;
+    public static bool pengzhuagn = false;
     void Start()
     {
         beginTrans = gameObject.transform.position;
@@ -31,6 +34,15 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         fuling_6.SetActive(false);
         danggui_7.SetActive(false);
         dihuang_8.SetActive(false);
+        dui.SetActive(false);
+        cuo.SetActive(false);
+    }
+    void Update()
+    {
+        if (count == 3)
+        {
+            Debug.Log("结束！");
+        }
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -42,64 +54,257 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public void OnPointerDown(PointerEventData eventData)
     {
         offsetPos = img.rectTransform.position - Input.mousePosition;
+        Kapai.tuodongfalse = true;
     }
     public void OnPointerUp(PointerEventData eventData)
     {
         gameObject.transform.position = beginTrans;
-        Debug.Log(gameObject.transform.position);
+        Kapai.tuodongfalse = true;
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "shaizi")
         {
+            pengzhuagn = true;
             if (gameObject.name == "1")
             {
-                chaihu_1.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(chaihu_1, count);
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(chaihu_1, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(chaihu_1, count);
+                        chaihu_1.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
             if (gameObject.name == "2")
             {
-                huagnqin_2.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(huagnqin_2, count);
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(huagnqin_2, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(huagnqin_2, count);
+                        huagnqin_2.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
             if (gameObject.name == "4")
             {
-                renshen_4.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(renshen_4, count);
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(renshen_4, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(renshen_4, count);
+                        renshen_4.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
             if (gameObject.name == "5")
             {
-                baishu_5.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(baishu_5, count);
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(baishu_5, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(baishu_5, count);
+                        baishu_5.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        Debug.Log("fail" + index);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
             if (gameObject.name == "6")
             {
-                fuling_6.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(fuling_6, count);
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(fuling_6, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(fuling_6, count);
+                        fuling_6.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
             if (gameObject.name == "7")
             {
-                danggui_7.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(danggui_7, count);
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(danggui_7, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(danggui_7, count);
+                        danggui_7.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
             if (gameObject.name == "8")
             {
-                dihuang_8.SetActive(true);
-                gameObject.SetActive(false);
-                count++;
-                AddPos(dihuang_8, count);
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(dihuang_8, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(dihuang_8, count);
+                        dihuang_8.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
             }
         }
     }
@@ -111,11 +316,11 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         }
         else if (index == 2)
         {
-            _gameObject.transform.position = new Vector3(0, 0, 0);
+            _gameObject.transform.localPosition = new Vector3(0, 0, 0);
         }
         else if (index == 3)
         {
-            _gameObject.transform.position = new Vector3(30, 0, 0);
+            _gameObject.transform.localPosition = new Vector3(30, 0, 0);
         }
     }
 }

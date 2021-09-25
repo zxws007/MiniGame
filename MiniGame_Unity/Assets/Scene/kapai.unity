@@ -113,6 +113,74 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &4741518
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4741519}
+  - component: {fileID: 4741521}
+  - component: {fileID: 4741520}
+  m_Layer: 5
+  m_Name: "\u5BF9"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4741519
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 4741518}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 809103522}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -152, y: 404}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &4741520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 4741518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 7e4714b2d4fb5d9428250d1792b903d9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &4741521
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 4741518}
 --- !u!1 &75459298
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,13 +248,87 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: sadlfhaosdhfosdifhsdofhsdofihsdofishdf
 --- !u!222 &75459301
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 75459298}
+--- !u!1 &91306174
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 91306175}
+  - component: {fileID: 91306177}
+  - component: {fileID: 91306176}
+  m_Layer: 5
+  m_Name: "\u5F85\u9009"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &91306175
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91306174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 809103522}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 460, y: 482}
+  m_SizeDelta: {x: 258.48, y: 48.5}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &91306176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91306174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
+    m_FontSize: 39
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "\u5F85\u9009(0/3)"
+--- !u!222 &91306177
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91306174}
 --- !u!1 &124938673
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +578,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &278362613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -528,6 +672,9 @@ MonoBehaviour:
   myButton1: {fileID: 278362614}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &278362616
 Animator:
   serializedVersion: 3
@@ -755,6 +902,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &355995883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -847,6 +996,9 @@ MonoBehaviour:
   myButton1: {fileID: 355995884}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &355995886
 Animator:
   serializedVersion: 3
@@ -1090,6 +1242,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &506788686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,6 +1336,9 @@ MonoBehaviour:
   myButton1: {fileID: 506788687}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &506788689
 Animator:
   serializedVersion: 3
@@ -1341,6 +1498,74 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 653338217}
+--- !u!1 &674298488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 674298489}
+  - component: {fileID: 674298491}
+  - component: {fileID: 674298490}
+  m_Layer: 5
+  m_Name: "\u9519"
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &674298489
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674298488}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 809103522}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -150, y: 404}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &674298490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674298488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 21300000, guid: 32d473ea93a4d084aa4e6a97dba8deb7, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &674298491
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 674298488}
 --- !u!1 &752559667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,7 +1595,7 @@ RectTransform:
   m_Children:
   - {fileID: 75459299}
   m_Father: {fileID: 809103522}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -1389,7 +1614,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.391}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1645,8 +1870,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 1226250851}
-  - {fileID: 752559668}
   - {fileID: 1857628668}
+  - {fileID: 752559668}
   - {fileID: 355995881}
   - {fileID: 914967899}
   - {fileID: 1209841314}
@@ -1655,6 +1880,9 @@ RectTransform:
   - {fileID: 1969293531}
   - {fileID: 1802107757}
   - {fileID: 1884730035}
+  - {fileID: 91306175}
+  - {fileID: 4741519}
+  - {fileID: 674298489}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1912,6 +2140,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &914967903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2004,6 +2234,9 @@ MonoBehaviour:
   myButton1: {fileID: 914967904}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &914967906
 Animator:
   serializedVersion: 3
@@ -2427,8 +2660,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animatorEnter: {fileID: 1209841317}
   myButton1: {fileID: 1209841315}
-  tishi: {fileID: 0}
-  text: {fileID: 0}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 0}
+  cuo: {fileID: 0}
 --- !u!95 &1209841317
 Animator:
   serializedVersion: 3
@@ -3210,6 +3446,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &1802107761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3302,6 +3540,9 @@ MonoBehaviour:
   myButton1: {fileID: 1802107762}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &1802107764
 Animator:
   serializedVersion: 3
@@ -3493,7 +3734,7 @@ RectTransform:
   - {fileID: 193832775}
   - {fileID: 1676543886}
   m_Father: {fileID: 809103522}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
@@ -3685,6 +3926,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &1884730039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3777,6 +4020,9 @@ MonoBehaviour:
   myButton1: {fileID: 1884730040}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &1884730042
 Animator:
   serializedVersion: 3
@@ -3907,6 +4153,8 @@ MonoBehaviour:
   fuling_6: {fileID: 531003495}
   danggui_7: {fileID: 193832774}
   dihuang_8: {fileID: 1676543885}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!114 &1969293535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3999,6 +4247,9 @@ MonoBehaviour:
   myButton1: {fileID: 1969293536}
   tishi: {fileID: 752559667}
   text: {fileID: 75459300}
+  daixuan: {fileID: 91306176}
+  dui: {fileID: 4741518}
+  cuo: {fileID: 674298488}
 --- !u!95 &1969293538
 Animator:
   serializedVersion: 3
