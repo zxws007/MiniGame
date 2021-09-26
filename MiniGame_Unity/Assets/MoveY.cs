@@ -1,0 +1,57 @@
+﻿using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using UnityEngine;
+using System.Collections;
+
+public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
+{
+
+    private RawImage img;
+    Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
+    public static bool isOK = false;
+    public Vector3 positionY = Vector3.zero;
+    public Vector3 beginPos = Vector3.zero;
+    bool legnque = false;
+    void Start()
+    {
+        img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
+        beginPos = gameObject.transform.localPosition;
+    }
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (legnque)
+        {
+            return;
+        }
+        //将鼠标的位置坐标进行钳制，然后加上位置差再赋值给图片position
+        positionY = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
+        img.rectTransform.position = new Vector3(img.rectTransform.position.x, positionY.y, 0);
+    }
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        offsetPos = img.rectTransform.position - Input.mousePosition;
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        gameObject.transform.localPosition = beginPos;
+    }
+
+    void OnCollisionStay2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "shaizi")
+        {
+            legnque = true;
+            gameObject.transform.localPosition = beginPos;
+            if (DaoPanding.success)
+            {
+                Debug.Log("ok");
+            }
+            StartCoroutine(Wait());
+        }
+    }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        legnque = false;
+    }
+}
