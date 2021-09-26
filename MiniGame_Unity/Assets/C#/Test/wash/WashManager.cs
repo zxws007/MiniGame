@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WashManager : MonoBehaviour {
+public class WashManager : MonoBehaviour
+{
 
     public static int change = 0;
     public GameObject show1;
@@ -47,6 +48,7 @@ public class WashManager : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+
         if (change == 1)
         {
             //animator1.speed = 1;
