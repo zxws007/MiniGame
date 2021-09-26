@@ -2,15 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class YaoChu : MonoBehaviour {
     [SerializeField] public int TimesToOver; // 拉手拉完的次数
-    [SerializeField] public float distanceToChange; // 变换状态的滑动距离
+    [SerializeField] public float herbNum; 
     [SerializeField] public Sprite[] Sprites; // 精灵图
-    private SpriteRenderer SpriteRenderer; // renderer对象
-    private Vector3 mouseDownPos; // 鼠标按下的位置，用于判断距离
-    private bool IsUp = true;
-    private bool IsFinished = false;
     private int DownTimes = 0; // 捣的次数
 
     public GameObject show1;
@@ -20,6 +17,14 @@ public class YaoChu : MonoBehaviour {
     public GameObject hide2;
     public GameObject hide3;
 
+    public Image condition;
+    public Text hint;
+    public Button act;
+    private float speed = 1F;
+    private bool mouseDown = false;
+    private bool pause = false;
+    private int cnt = 0;
+
     public void RegisterCallbacks()
     {
     }
@@ -27,70 +32,65 @@ public class YaoChu : MonoBehaviour {
 	void Start ()
     {
         RegisterCallbacks();
-        SpriteRenderer = GetComponent<SpriteRenderer>();
-        SpriteRenderer.sprite = Sprites[0];
+        act.onClick.AddListener(OnClick);
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	}
-
-    
-    // 按下时记下当前位置
-    private void OnMouseDown()
-    {
-        mouseDownPos = Input.mousePosition;
-    }
-
-    private void OnMouseDrag()
-    {
-        if (!IsFinished) {
-            // up 状态判断下的距离
-            var currMousePos = Input.mousePosition;
-            Debug.Log(currMousePos);
-            if (IsUp)
+        if (DaoYaoHerb.inCnt == 0)
+        {
+            transform.position = Vector3.zero;
+            condition.fillAmount = 0.1f;
+        }
+        else
+        {
+            if (pause && cnt > 1)
             {
-                var distance = mouseDownPos.y - currMousePos.y;
-                Debug.Log(distance);
-                // 大于距离，改变状态
-                if (distance > distanceToChange)
-                {
-                    SetDown();
-                }
+                pause = false;
+                cnt = 0;
+                System.Threading.Thread.Sleep(1500);
             }
-            else
+            transform.position += Vector3.up * speed * Time.deltaTime;
+            condition.fillAmount = transform.position.y / 3.0f * 0.7f + 0.1f;
+            if (transform.position.y >= 3)
             {
-                var distance = currMousePos.y - mouseDownPos.y;
-                Debug.Log(distance);
-                // 大于距离，改变状态
-                if (distance > distanceToChange)
-                {
-                    SetUp();
-                }
+                SetDown();
+            }
+            if (pause)
+            {
+                cnt += 1;
             }
         }
+        
+        
+	}
+
+    public void OnClick()
+    {
+        SetDown();
     }
 
-    // Update is called once per frame
-    private void OnMouseUp()
-    {
-    }
-
-    // 设置为up状态
-    private void SetUp()
-    {
-        IsUp = true;
-        SpriteRenderer.sprite = Sprites[0];
-    }
 
     // 设置为down状态
     private void SetDown()
     {
-        IsUp = false;
-        SpriteRenderer.sprite = Sprites[1];
+        transform.position = Vector3.zero;
+        condition.fillAmount = 0.1f;
+        pause = true;
+
         DownTimes++;
         if (DownTimes == TimesToOver)
         {
+            Debug.Log("一种药完成");
+            hint.text = "捣药完成，继续完成下一药材";
+            DownTimes = 0;
+            DaoYaoHerb.inCnt = 0;
+            herbNum -= 1;
+        }
+        if (herbNum <= 0)
+        {
+            hint.text = "";
             hide1.SetActive(false);
             hide2.SetActive(false);
             hide3.SetActive(false);
