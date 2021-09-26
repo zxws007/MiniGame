@@ -13,6 +13,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public static bool isOK = false;
     public GameObject chaihu_1;
     public GameObject huagnqin_2;
+    public GameObject dangshen_3;
     public GameObject renshen_4;
     public GameObject baishu_5;
     public GameObject fuling_6;
@@ -29,6 +30,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         chaihu_1.SetActive(false);
         huagnqin_2.SetActive(false);
+        dangshen_3.SetActive(false);
         renshen_4.SetActive(false);
         baishu_5.SetActive(false);
         fuling_6.SetActive(false);
@@ -122,6 +124,40 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                         cuo.SetActive(false);
                         AddPos(huagnqin_2, count);
                         huagnqin_2.SetActive(true);
+                        gameObject.SetActive(false);
+                    }
+                }
+                else
+                {
+                    cuo.SetActive(true);
+                    dui.SetActive(false);
+                    gameObject.transform.position = beginTrans;
+                }
+            }
+            if (gameObject.name == "3")
+            {
+                pengzhuagn = true;
+
+                if (successList.Contains(gameObject.name))
+                {
+                    count++;
+                    AddPos(dangshen_3, count);
+                    int index = -1;
+                    for (int i = 0; i < successList.Count; i++)
+                    {
+                        if (successList[i] == gameObject.name)
+                        {
+                            index = i;
+                        }
+                    }
+                    successList.RemoveAt(index);
+                    if (index != -1)
+                    {
+                        Debug.Log(index);
+                        dui.SetActive(true);
+                        cuo.SetActive(false);
+                        AddPos(dangshen_3, count);
+                        dangshen_3.SetActive(true);
                         gameObject.SetActive(false);
                     }
                 }

@@ -12,10 +12,17 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     public Vector3 positionY = Vector3.zero;
     public Vector3 beginPos = Vector3.zero;
     bool legnque = false;
+    public GameObject dao;
+    public GameObject daoidle;
+    public GameObject texiao1;
+    public GameObject texiao2;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         beginPos = gameObject.transform.localPosition;
+        dao.SetActive(false);
+        texiao1.SetActive(false);
+        texiao2.SetActive(false);
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -42,6 +49,11 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         {
             legnque = true;
             gameObject.transform.localPosition = beginPos;
+            daoidle.GetComponent<Image>().enabled = false;
+            dao.SetActive(true);
+            daoidle.SetActive(false);
+            texiao1.SetActive(true);
+            texiao2.SetActive(true);
             if (DaoPanding.success)
             {
                 Debug.Log("ok");
@@ -53,5 +65,10 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     {
         yield return new WaitForSeconds(0.5f);
         legnque = false;
+        daoidle.GetComponent<Image>().enabled = true;
+        dao.SetActive(false);
+        daoidle.SetActive(true);
+        texiao1.SetActive(false);
+        texiao2.SetActive(false);
     }
 }
