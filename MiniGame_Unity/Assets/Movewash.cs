@@ -1,6 +1,7 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
+using System.Collections;
 
 public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -10,6 +11,13 @@ public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
     public GameObject yaocao1;
     public GameObject dangguijinzhi;
     public static bool pengzhuang = false;
+    public GameObject tishi1;
+    public GameObject qipao;
+    public GameObject qte;
+    public GameObject qte1;
+    public GameObject tishi2;
+    public GameObject shui;
+    public GameObject shui2;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -28,8 +36,15 @@ public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
     {
         if (pengzhuang)
         {
+            tishi1.SetActive(false);
             dangguijinzhi.SetActive(true);
             gameObject.SetActive(false);
+            qipao.SetActive(true);
+            qte.SetActive(true);
+            qte1.SetActive(true);
+            tishi2.SetActive(true);
+            shui.SetActive(false);
+            shui2.SetActive(true);
         }
     }
 

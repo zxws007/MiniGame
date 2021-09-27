@@ -9,9 +9,14 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public bool shuili = false;
     Vector3 v1 = Vector3.zero;
     Vector3 v2 = Vector3.zero;
+    public Animator shui2_anim;
+    public bool change = false;
+    float b, bb = .0f;
+    int index = 0;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
+        shui2_anim.speed = 0;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -22,6 +27,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         if (Zhizhen.begin && Movewash.pengzhuang)
         {
             Zhizhen.anxia = true;
+            shui2_anim.speed = 1;
         }
     }
     public void OnPointerDown(PointerEventData eventData)
@@ -31,6 +37,8 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public void OnPointerUp(PointerEventData eventData)
     {
         Zhizhen.taiqi = true;
+        change = true;
+        shui2_anim.speed = 0;
     }
     void OnCollisionStay2D(Collision2D coll)
     {
@@ -41,13 +49,20 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     void Update()
     {
-        if (Mathf.Abs(v1.x - v2.y) >= 5)
+        bb = b;
+        b = Mathf.Abs(v1.x - v2.x);
+        if (Mathf.Abs(b - bb) >= 5 && !change)
         {
             Zhizhen.begin = true;
         }
-        else
+        if (bb - b == 0 && Zhizhen.begin)
         {
-            Zhizhen.begin = false;
+            index++;
         }
+        if (index >= 10)
+        {
+            shui2_anim.speed = 0;
+        }
+        Debug.Log(Zhizhen.begin);
     }
 }

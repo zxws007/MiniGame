@@ -10,6 +10,10 @@ public class Zhizhen : MonoBehaviour
     public static bool begin = false;
     public float time = .0f;
     public static bool taiqi = false;
+    public GameObject youxiu;
+    public GameObject lianghao;
+    public GameObject putong;
+
     void Start()
     {
         zhizhen.speed = 0;
@@ -37,9 +41,19 @@ public class Zhizhen : MonoBehaviour
         {
             Debug.Log("ok");
             zhizhen.speed = 0;
+            youxiu.SetActive(true);
+            StartCoroutine(Wait());
         }
         taiqi = false;
         anxia = false;
         shiji = false;
     }
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        youxiu.SetActive(false);
+        lianghao.SetActive(false);
+        putong.SetActive(false);
+    }
+
 }
