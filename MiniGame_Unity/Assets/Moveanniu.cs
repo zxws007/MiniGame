@@ -55,14 +55,5 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         {
             Zhizhen.begin = true;
         }
-        if (bb - b == 0 && Zhizhen.begin)
-        {
-            index++;
-        }
-        if (index >= 10)
-        {
-            shui2_anim.speed = 0;
-        }
-        Debug.Log(Zhizhen.begin);
     }
 }
