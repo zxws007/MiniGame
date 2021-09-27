@@ -77,6 +77,20 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
                 lianghao.SetActive(false);
                 putong.SetActive(false);
             }
+            if (DaoPanding.lianghao)
+            {
+                Debug.Log("lh");
+                youxiu.SetActive(false);
+                lianghao.SetActive(true);
+                putong.SetActive(false);
+            }
+            if (DaoPanding.yiban)
+            {
+                Debug.Log("yb");
+                youxiu.SetActive(false);
+                lianghao.SetActive(false);
+                putong.SetActive(true);
+            }
             StartCoroutine(Wait());
         }
     }
