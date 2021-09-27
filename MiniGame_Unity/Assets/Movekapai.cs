@@ -149,6 +149,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnPointerUp(PointerEventData eventData)
     {
+        gameObject.GetComponent<Animator>().enabled = true;
         gameObject.transform.position = beginTrans;
         Kapai.tuodongfalse = true;
     }
