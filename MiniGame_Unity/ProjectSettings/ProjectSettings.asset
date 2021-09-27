@@ -638,9 +638,9 @@ PlayerSettings:
     UNet: 1
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: 21c7e00d-427d-4281-b0e4-845b58c328f5
-  projectName: MiniGame_Unity (1)
-  organizationId: zxw1
+  cloudProjectId: 770fef90-3b0d-4ff1-b945-edeaaa51bc75
+  projectName: MiniGame_Unity
+  organizationId: wechat_os_qy00skvitkzbz6hslatzevpxu
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
