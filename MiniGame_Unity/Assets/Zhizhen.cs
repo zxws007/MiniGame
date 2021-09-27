@@ -32,7 +32,7 @@ public class Zhizhen : MonoBehaviour
             time += Time.deltaTime;
             zhizhen.speed = 1;
         }
-        if (Movewash.pengzhuang && !shiji && taiqi)
+        if (!shiji && taiqi)
         {
             Debug.Log("no");
             zhizhen.speed = 0;
