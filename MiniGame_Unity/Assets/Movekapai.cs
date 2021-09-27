@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
-    static List<string> successList = new List<string>() { "1", "2", "4" };
+    static List<string> successList = new List<string>();
     private RawImage img;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
     public GameObject yaocao1;
@@ -24,6 +25,16 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public GameObject dui;
     public GameObject cuo;
     public static bool pengzhuagn = false;
+    public int liucheng = 0;
+    public GameObject xiaochaihutang;
+    public GameObject baizhusan;
+    public GameObject siwutang;
+    bool add = true;
+    public GameObject hongdui1;
+    public GameObject hongdui2;
+    public GameObject hongdui3;
+    public GameObject hongquan3;
+    public GameObject hongquan2;
     void Start()
     {
         beginTrans = gameObject.transform.position;
@@ -38,12 +49,90 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         dihuang_8.SetActive(false);
         dui.SetActive(false);
         cuo.SetActive(false);
+        xiaochaihutang.SetActive(false);
+        baizhusan.SetActive(false);
+        siwutang.SetActive(false);
+        hongquan3.SetActive(false);
+        hongquan2.SetActive(false);
+        hongdui1.SetActive(false);
+        hongdui2.SetActive(false);
+        hongdui3.SetActive(false);
     }
     void Update()
     {
-        if (count == 3)
+        if (liucheng == 0 && add)
         {
-            Debug.Log("结束！");
+            count = 0;
+            hongdui1.SetActive(false);
+            hongdui2.SetActive(false);
+            hongdui3.SetActive(false);
+            xiaochaihutang.SetActive(true);
+            hongquan3.SetActive(true);
+            if (!successList.Contains("1"))
+            {
+                successList.Add("1");
+            }
+            if (!successList.Contains("2"))
+            {
+                successList.Add("2");
+            }
+            if (!successList.Contains("3"))
+            {
+                successList.Add("3");
+            }
+            add = false;
+        }
+        if (liucheng == 1 && add)
+        {
+           // SceneManager.LoadScene(5);
+            count = 0;
+            hongdui1.SetActive(false);
+            hongdui2.SetActive(false);
+            hongdui3.SetActive(false);
+            baizhusan.SetActive(true);
+            hongquan3.SetActive(true);
+            if (!successList.Contains("4"))
+            {
+                successList.Add("4");
+            }
+            if (!successList.Contains("5"))
+            {
+                successList.Add("5");
+            }
+            if (!successList.Contains("6"))
+            {
+                successList.Add("6");
+            }
+            add = false;
+        }
+        if (liucheng == 2 && add)
+        {
+            count = 0;
+            hongdui1.SetActive(false);
+            hongdui2.SetActive(false);
+            hongdui3.SetActive(false);
+            siwutang.SetActive(true);
+            hongquan3.SetActive(false);
+            hongquan2.SetActive(true);
+            if (!successList.Contains("7"))
+            {
+                successList.Add("7");
+            }
+            if (!successList.Contains("8"))
+            {
+                successList.Add("8");
+            }
+            add = false;
+        }
+        if (successList.Count == 0 && liucheng == 1)
+        {
+            liucheng++;
+            add = true;
+        }
+        if (successList.Count == 0 && liucheng == 0)
+        {
+            liucheng++;
+            add = true;
         }
     }
     public void OnDrag(PointerEventData eventData)
@@ -85,7 +174,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(chaihu_1, count);
@@ -119,7 +208,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(huagnqin_2, count);
@@ -153,7 +242,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(dangshen_3, count);
@@ -187,7 +276,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(renshen_4, count);
@@ -221,7 +310,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(baishu_5, count);
@@ -259,7 +348,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(fuling_6, count);
@@ -293,7 +382,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(danggui_7, count);
@@ -327,7 +416,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     successList.RemoveAt(index);
                     if (index != -1)
                     {
-                        Debug.Log(index);
+                        Debug.Log(successList.Count);
                         dui.SetActive(true);
                         cuo.SetActive(false);
                         AddPos(dihuang_8, count);
@@ -348,15 +437,18 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     {
         if (index == 1)
         {
-            _gameObject.transform.localPosition = new Vector3(-30, 0, 0);
+            _gameObject.transform.localPosition = new Vector3(-50, 0, 0);
+            hongdui1.SetActive(true);
         }
         else if (index == 2)
         {
             _gameObject.transform.localPosition = new Vector3(0, 0, 0);
+            hongdui2.SetActive(true);
         }
         else if (index == 3)
         {
-            _gameObject.transform.localPosition = new Vector3(30, 0, 0);
+            _gameObject.transform.localPosition = new Vector3(50, 0, 0);
+            hongdui3.SetActive(true);
         }
     }
 }
