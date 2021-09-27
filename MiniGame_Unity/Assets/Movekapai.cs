@@ -84,7 +84,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         }
         if (liucheng == 1 && add)
         {
-           // SceneManager.LoadScene(5);
+            // SceneManager.LoadScene(5);
             count = 0;
             hongdui1.SetActive(false);
             hongdui2.SetActive(false);
@@ -437,7 +437,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     {
         if (index == 1)
         {
-            _gameObject.transform.localPosition = new Vector3(-50, 0, 0);
+            _gameObject.transform.localPosition = new Vector3(-325, 0, 0);
             hongdui1.SetActive(true);
         }
         else if (index == 2)
@@ -447,7 +447,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         }
         else if (index == 3)
         {
-            _gameObject.transform.localPosition = new Vector3(50, 0, 0);
+            _gameObject.transform.localPosition = new Vector3(325, 0, 0);
             hongdui3.SetActive(true);
         }
     }
