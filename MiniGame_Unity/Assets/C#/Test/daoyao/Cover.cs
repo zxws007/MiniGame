@@ -3,39 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DaoYaoHerb : MonoBehaviour {
-    public Text hint;
+public class Cover : MonoBehaviour {
     [SerializeField] public Transform correctTrans;
+    public GameObject whole;
+    public GameObject pointer;
+    public GameObject arrowLeft;
+    public GameObject arrowRight;
+    public GameObject bar;
+    public GameObject bottom;
+    public Text hint;
+
     private Vector3 OriginalPos;
     private bool IsFinished = false;
     private Renderer Renderer;
 
-    public static int inCnt = 0;
-
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         OriginalPos = transform.position;
         Renderer = GetComponent<Renderer>();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
+		
 	}
 
     private void OnMouseDrag()
     {
-        if (inCnt != 0)
+        if (DaoYaoHerb.inCnt==0)
         {
-            Debug.Log("请先完成捣药步骤");
-            hint.text = "请依次完成捣药";
-        }else if (!IsFinished)
+            hint.text = "请放入药材";
+        }
+        else if (!IsFinished)
         {
             transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
-                                             Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+                                            Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+
         }
+
     }
 
-    // Update is called once per frame
     private void OnMouseUp()
     {
         if (Mathf.Abs(transform.position.x - correctTrans.position.x) <= 2f &&
@@ -43,10 +50,9 @@ public class DaoYaoHerb : MonoBehaviour {
         {
             //消失
             IsFinished = true;
-            Daoyaomanager.change = Daoyaomanager.change + 1;
-            inCnt += 1;
             Hide();
             MoveBack();
+            whole.GetComponent<Renderer>().enabled = true;
         }
         else
         {
@@ -61,6 +67,15 @@ public class DaoYaoHerb : MonoBehaviour {
 
     public void Hide()
     {
+        
+        whole.GetComponent<Renderer>().enabled = true;
+        bar.SetActive(true);
+        pointer.SetActive(true);
+
+        arrowLeft.SetActive(false);
+        arrowRight.SetActive(false);
+        bottom.SetActive(false);
         Renderer.enabled = false;
     }
+
 }

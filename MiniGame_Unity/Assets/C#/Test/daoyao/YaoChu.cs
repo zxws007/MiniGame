@@ -10,18 +10,21 @@ public class YaoChu : MonoBehaviour {
     [SerializeField] public Sprite[] Sprites; // 精灵图
     private int DownTimes = 0; // 捣的次数
 
-    public GameObject show1;
-    public GameObject show2;
-    public GameObject show3;
-    public GameObject hide1;
-    public GameObject hide2;
-    public GameObject hide3;
+    
+    public GameObject pointer;
+    public GameObject cover;
+    public GameObject arrowLeft;
+    public GameObject arrowRight;
+    public GameObject bar;
+    public GameObject bottom;
 
-    public Image condition;
+    public Image best;
+    public Image good;
+    public Image normal;
+
     public Text hint;
     public Button act;
     private float speed = 1F;
-    private bool mouseDown = false;
     private bool pause = false;
     private int cnt = 0;
 
@@ -33,35 +36,40 @@ public class YaoChu : MonoBehaviour {
     {
         RegisterCallbacks();
         act.onClick.AddListener(OnClick);
+        showResting();
+        best.enabled = false;
+        good.enabled = false;
+        normal.enabled = false;
         
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (DaoYaoHerb.inCnt == 0)
-        {
-            transform.position = Vector3.zero;
-            condition.fillAmount = 0.1f;
-        }
-        else
-        {
-            if (pause && cnt > 1)
-            {
-                pause = false;
-                cnt = 0;
-                System.Threading.Thread.Sleep(1500);
-            }
-            transform.position += Vector3.up * speed * Time.deltaTime;
-            condition.fillAmount = transform.position.y / 3.0f * 0.7f + 0.1f;
-            if (transform.position.y >= 3)
-            {
-                SetDown();
-            }
-            if (pause)
-            {
-                cnt += 1;
-            }
-        }
+        //if (DaoYaoHerb.inCnt == 0)
+        //{
+        //    transform.position = Vector3.zero;
+        //    pointer.transform.position = Vector3.zero + Vector3.right * 7 + Vector3.down * 1;
+        //}
+        //else
+        //{
+        //    if (pause && cnt > 1)
+        //    {
+        //        pause = false;
+        //        cnt = 0;
+        //        System.Threading.Thread.Sleep(1000);
+        //    }
+        //    transform.position += Vector3.up * speed * Time.deltaTime;
+        //    pointer.transform.position += Vector3.up * 2 * speed * Time.deltaTime;
+        //    if (transform.position.y >= 3)
+        //    {
+        //        SetDown();
+        //    }
+        //
+        //    if (pause)
+        //    {
+        //        cnt += 1;
+        //    }
+        //}
         
         
 	}
@@ -75,8 +83,9 @@ public class YaoChu : MonoBehaviour {
     // 设置为down状态
     private void SetDown()
     {
+        Debug.LogFormat("The score is {0}", Score.daoyao_score);
         transform.position = Vector3.zero;
-        condition.fillAmount = 0.1f;
+        pointer.transform.position = Vector3.zero + Vector3.right * 7 + Vector3.down * 1;
         pause = true;
 
         DownTimes++;
@@ -90,13 +99,32 @@ public class YaoChu : MonoBehaviour {
         }
         if (herbNum <= 0)
         {
-            hint.text = "";
-            hide1.SetActive(false);
-            hide2.SetActive(false);
-            hide3.SetActive(false);
-            show1.SetActive(true);
-            show2.SetActive(true);
-            show3.SetActive(true);
+            hint.text = "药材全部处理完毕";
         }
+    }
+
+    // 工作状态展示
+    void showWorking()
+    {
+        this.GetComponent<Renderer>().enabled = true;
+        bar.SetActive(true);
+        pointer.SetActive(true);
+
+        arrowLeft.SetActive(false);
+        arrowRight.SetActive(false);
+        bottom.SetActive(false);
+        cover.SetActive(false);
+    }
+
+    void showResting()
+    {
+        this.GetComponent<Renderer>().enabled = false;
+        bar.SetActive(false);
+        pointer.SetActive(false);
+
+        arrowLeft.SetActive(true);
+        arrowRight.SetActive(true);
+        bottom.SetActive(true);
+        cover.SetActive(true);
     }
 }
