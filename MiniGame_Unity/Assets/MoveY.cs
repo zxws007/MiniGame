@@ -16,6 +16,12 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     public GameObject daoidle;
     public GameObject texiao1;
     public GameObject texiao2;
+    public GameObject mask;
+    public GameObject yao;
+    public GameObject pianpian;
+    public GameObject youxiu;
+    public GameObject lianghao;
+    public GameObject putong;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -23,6 +29,11 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         dao.SetActive(false);
         texiao1.SetActive(false);
         texiao2.SetActive(false);
+        mask.SetActive(false);
+        pianpian.SetActive(false);
+        youxiu.SetActive(false);
+        lianghao.SetActive(false);
+        putong.SetActive(false);
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -54,9 +65,17 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
             daoidle.SetActive(false);
             texiao1.SetActive(true);
             texiao2.SetActive(true);
+            pianpian.SetActive(true);
+            var g = Instantiate(mask, new Vector3(0, 0, 0), Quaternion.identity);
+            g.SetActive(true);
+            g.transform.localPosition = new Vector3(2000, 650, 0);
+            g.transform.parent = yao.transform;
             if (DaoPanding.success)
             {
                 Debug.Log("ok");
+                youxiu.SetActive(true);
+                lianghao.SetActive(false);
+                putong.SetActive(false);
             }
             StartCoroutine(Wait());
         }
@@ -70,5 +89,9 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         daoidle.SetActive(true);
         texiao1.SetActive(false);
         texiao2.SetActive(false);
+        pianpian.SetActive(false);
+        youxiu.SetActive(false);
+        lianghao.SetActive(false);
+        putong.SetActive(false);
     }
 }
