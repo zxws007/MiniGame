@@ -22,6 +22,9 @@ public class Zhizhen : MonoBehaviour
     }
     void OnCollisionStay2D(Collision2D coll)
     {
+        shiji = false;
+        lh = false;
+        pt = false;
         if (coll.gameObject.tag == "shaizi")
         {
             shiji = true;
@@ -37,7 +40,7 @@ public class Zhizhen : MonoBehaviour
     }
     void Update()
     {
-        if (anxia && Movewash.pengzhuang)
+        if (anxia && Movewash.pengzhuang && !Zhizhen.taiqi)
         {
             time += Time.deltaTime;
             zhizhen.speed = 1;
@@ -47,6 +50,7 @@ public class Zhizhen : MonoBehaviour
             zhizhen.speed = 0;
             putong.SetActive(true);
             StartCoroutine(Wait());
+            anxia = false;
         }
         if (shiji && taiqi)
         {
@@ -54,18 +58,17 @@ public class Zhizhen : MonoBehaviour
             youxiu.SetActive(true);
             lss.SetActive(true);
             StartCoroutine(Wait());
+            anxia = false;
         }
         if (lh && taiqi)
         {
             zhizhen.speed = 0;
             lianghao.SetActive(true);
             StartCoroutine(Wait());
+            anxia = false;
         }
         taiqi = false;
         anxia = false;
-        shiji = false;
-        lh = false;
-        pt = false;
     }
     IEnumerator Wait()
     {

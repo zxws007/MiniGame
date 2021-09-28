@@ -10,7 +10,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     Vector3 v1 = Vector3.zero;
     Vector3 v2 = Vector3.zero;
     public Animator shui2_anim;
-    public bool change = false;
+    public static bool change = false;
     float b, bb = .0f;
     int index = 0;
     void Start()
