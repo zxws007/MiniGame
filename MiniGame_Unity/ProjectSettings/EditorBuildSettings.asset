@@ -17,13 +17,13 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scene/play1.unity
     guid: daf5e6bae355fa847ac5e4dbd96c1d6e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scene/yaoyiyao.unity
     guid: 7ec6e9a90fcd73e4daf43eafc067687a
   - enabled: 0
     path: Assets/Scene/qie.unity
     guid: 3e9f11e71565cf249bd76c18d1c0850f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scene/bamai.unity
     guid: 35f3d110366643f40a9f02f950ec4984
   - enabled: 0
