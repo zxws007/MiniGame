@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Test : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class Test : MonoBehaviour
     float tishitime = .0f;
     int i = 0;
     float sucesstime = .0f;
+    public GameObject tiaozhegn1;
+    public GameObject tiaozhegn2;
+    public GameObject tiaozhegn3;
+    public Slider slider;
+    public GameObject wanchegn;
     void Start()
     {
         Input.multiTouchEnabled = true;
@@ -46,39 +52,80 @@ public class Test : MonoBehaviour
         if (!Bamai.isp)
         {
             b1 = b2 = b3 = false;
+            text.SetActive(true);
         }
-        time += Time.deltaTime;
-        if (b1 && b2 && b3 && Bamai.isp && time > 2.0f)
+        if (b1)
+        {
+            time += Time.deltaTime;
+        }
+        else
         {
             time = 0;
+        }
+        if (b1 && Bamai.isp && time > 2.0f)
+        {
             sucesstime += Time.deltaTime;
+            slider.value = sucesstime / 10f;
             xdt.SetActive(true);
             Handheld.Vibrate();
             text.SetActive(false);
             img.SetActive(false);
             textzt.SetActive(false);
             texts.SetActive(false);
+            tiaozhegn1.SetActive(false);
+            tiaozhegn2.SetActive(false);
+            tiaozhegn3.SetActive(false);
             tishitime = 0;
-            if (sucesstime >= 10.0f)
+            if (slider.value == 1)
             {
-                //完成
+                wanchegn.SetActive(true);
+                text.SetActive(false);
+                xdt.SetActive(false);
             }
         }
         else if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp)
         {
-            sucesstime = 0;
-            //text.SetActive(true);
+            text.SetActive(true);
             StartCoroutine(CloseText());
+            xdt.SetActive(false);
         }
-        else if (((b1 && !b2 && !b3) || (!b1 && b2 && !b3) || (!b1 && !b2 && b3) || (b1 && b2 && !b3) || (!b1 && b2 && b3) || (b1 && !b2 && b3)) && Bamai.isp)
+        else if ((b1 && !b2 && !b3) && Bamai.isp)
         {
-            sucesstime = 0;
-            text.SetActive(false);
-            textzt.SetActive(true);
+            tiaozhegn1.SetActive(false);
+            tiaozhegn2.SetActive(true);
+            tiaozhegn3.SetActive(true);
+
+            xdt.SetActive(false);
+        }
+        else if ((!b1 && b2 && !b3) && Bamai.isp)
+        {
+            tiaozhegn1.SetActive(true);
+            tiaozhegn2.SetActive(false);
+            tiaozhegn3.SetActive(true);
+        }
+        else if ((!b1 && !b2 && b3) && Bamai.isp)
+        {
+            tiaozhegn1.SetActive(true);
+            tiaozhegn2.SetActive(true);
+            tiaozhegn3.SetActive(false);
+            xdt.SetActive(false);
+        }
+        else if ((b1 && !b2 && b3) && Bamai.isp)
+        {
+            tiaozhegn1.SetActive(false);
+            tiaozhegn2.SetActive(true);
+            tiaozhegn3.SetActive(false);
+            xdt.SetActive(false);
+        }
+        else if ((!b1 && b2 && b3) && Bamai.isp)
+        {
+            tiaozhegn1.SetActive(true);
+            tiaozhegn2.SetActive(false);
+            tiaozhegn3.SetActive(false);
+            xdt.SetActive(false);
         }
         else
         {
-            sucesstime = 0;
             textzt.SetActive(false);
             tishitime += Time.deltaTime;
             if (tishitime > 10.0f)
@@ -86,6 +133,14 @@ public class Test : MonoBehaviour
                 img.SetActive(true);
                 texts.SetActive(true);
             }
+            xdt.SetActive(false);
+            tiaozhegn1.SetActive(false);
+            tiaozhegn2.SetActive(false);
+            tiaozhegn3.SetActive(false);
+        }
+        if (Bamai.isp && slider.value < 1)
+        {
+            text.SetActive(false);
         }
     }
     IEnumerator CloseText()
