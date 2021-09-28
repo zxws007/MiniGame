@@ -39,7 +39,6 @@ public class YaoChu : MonoBehaviour {
 	void Start ()
     {
         RegisterCallbacks();
-        act.onClick.AddListener(OnClick);
         showResting();
         
 	}
@@ -62,52 +61,20 @@ public class YaoChu : MonoBehaviour {
             DaoYaoHerb.inCnt -= 1;
             herbNum -= 1;
             cnt += 1;
-            
+            Score.isStarting = false;
             
         }
         if (herbNum <= 0)
         {
             showResting();
             hint.text = "药材全部处理完毕";
+            arrowLeft.SetActive(false);
             backButton.SetActive(true);
         }
-
-        
-        //Debug.LogFormat("cccccnnnnnnntttt {0}", cnt);
-        //if (DaoYaoHerb.inCnt == 0)
-        //{
-        //    transform.position = Vector3.zero;
-        //    pointer.transform.position = Vector3.zero + Vector3.right * 7 + Vector3.down * 1;
-        //}
-        //else
-        //{
-        //    if (pause && cnt > 1)
-        //    {
-        //        pause = false;
-        //        cnt = 0;
-        //        System.Threading.Thread.Sleep(1000);
-        //    }
-        //    transform.position += Vector3.up * speed * Time.deltaTime;
-        //    pointer.transform.position += Vector3.up * 2 * speed * Time.deltaTime;
-        //    if (transform.position.y >= 3)
-        //    {
-        //        SetDown();
-        //    }
-        //
-        //    if (pause)
-        //    {
-        //        cnt += 1;
-        //    }
-        //}
-        
         
 	}
 
-    public void OnClick()
-    {
-        //SetDown();
-        //transform.position = start;
-    }
+    
 
     public static Vector3 GetPoint(float t, Vector3 start, Vector3 end)
     {
@@ -126,8 +93,7 @@ public class YaoChu : MonoBehaviour {
         DownTimes++;
         if (DownTimes == TimesToOver)
         {
-            Debug.Log("一种药完成");
-            hint.text = "捣药完成，继续完成下一药材";
+            hint.text = "捣药完成，继续下一药材";
             DownTimes = 0;
             DaoYaoHerb.inCnt = 0;
             herbNum -= 1;
@@ -135,6 +101,8 @@ public class YaoChu : MonoBehaviour {
         if (herbNum <= 0)
         {
             hint.text = "药材全部处理完毕";
+            arrowLeft.SetActive(false);
+            arrowRight.SetActive(false);
         }
     }
 
@@ -162,7 +130,6 @@ public class YaoChu : MonoBehaviour {
         bottom.SetActive(false);
 
         arrowLeft.SetActive(true);
-        arrowRight.SetActive(true);
         halfBottom.SetActive(true);
         cover.GetComponent<Renderer>().enabled = true;
 

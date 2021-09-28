@@ -360,7 +360,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 240257108}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.57, y: 0.94, z: -7.664795}
+  m_LocalPosition: {x: -3.57, y: 0.839, z: -7.664795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -782,8 +782,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 579297525}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.78, y: -4.26, z: 0}
-  m_LocalScale: {x: 1.4520129, y: 1.4617862, z: 1}
+  m_LocalPosition: {x: 0.454, y: -4.26, z: 0}
+  m_LocalScale: {x: 1.5502051, y: 1.4617862, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -948,6 +948,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1525101235}
+  arrowLeft: {fileID: 847876972}
   correctTrans: {fileID: 1241717852}
 --- !u!61 &750411011
 BoxCollider2D:
@@ -1042,7 +1043,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 798360949}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.54, y: -1.44, z: -7.664795}
+  m_LocalPosition: {x: -3.487, y: -1.337, z: -7.664795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1526,6 +1527,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hint: {fileID: 1525101235}
+  arrowLeft: {fileID: 847876972}
   correctTrans: {fileID: 1241717852}
 --- !u!61 &934840473
 BoxCollider2D:
@@ -1694,7 +1696,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1194468128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.474, y: 1.904, z: -7.664795}
+  m_LocalPosition: {x: -3.474, y: 1.76, z: -7.664795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2229,7 +2231,7 @@ MonoBehaviour:
   normal: {fileID: 88721349}
   act: {fileID: 232404182}
   chu: {fileID: 1294809306}
-  audio: {fileID: 0}
+  audiosource: {fileID: 1247573861}
 --- !u!61 &1316027186
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2253,7 +2255,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 1
   serializedVersion: 2
-  m_Size: {x: 1.22, y: 0.63}
+  m_Size: {x: 1.05, y: 0.3}
   m_EdgeRadius: 0
 --- !u!1 &1518834457
 GameObject:
@@ -2384,19 +2386,19 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 60
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "\u8BF7\u653E\u5165\u836F\u6750"
 --- !u!222 &1525101236
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2797,7 +2799,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1990117182}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.58, y: -0.47, z: -7.664795}
+  m_LocalPosition: {x: -3.58, y: -0.37, z: -7.664795}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

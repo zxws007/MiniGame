@@ -23,11 +23,19 @@ public class Cover : MonoBehaviour {
     void Start () {
         OriginalPos = transform.position;
         Renderer = GetComponent<Renderer>();
+        arrowRight.SetActive(false);
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if (DaoYaoHerb.inCnt>0)
+        {
+            arrowRight.SetActive(true);
+        }
+        if (Renderer.enabled==false)
+        {
+            arrowRight.SetActive(false);
+        }
 	}
 
     private void OnMouseDrag()
@@ -47,11 +55,12 @@ public class Cover : MonoBehaviour {
 
     private void OnMouseUp()
     {
-        if (Mathf.Abs(transform.position.x - correctTrans.position.x) <= 2f &&
-            Mathf.Abs(transform.position.y - correctTrans.position.y) <= 2f)
+        if (Mathf.Abs(transform.position.x - correctTrans.position.x) <= 4f &&
+            Mathf.Abs(transform.position.y - correctTrans.position.y) <= 4f)
         {
             //消失
             //IsFinished = true;
+            hint.text = "点击按钮开始捣药";
             Hide();
             MoveBack();
         }

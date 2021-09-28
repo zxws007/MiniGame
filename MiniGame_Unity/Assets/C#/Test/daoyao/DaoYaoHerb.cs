@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DaoYaoHerb : MonoBehaviour {
     public Text hint;
+    public GameObject arrowLeft;
     [SerializeField] public Transform correctTrans;
     private Vector3 OriginalPos;
     private bool IsFinished = false;
@@ -26,7 +27,7 @@ public class DaoYaoHerb : MonoBehaviour {
     {
         if (inCnt != 0)
         {
-            Debug.Log("请先完成捣药步骤");
+            
             hint.text = "请依次完成捣药";
         }else if (!IsFinished)
         {
@@ -42,6 +43,8 @@ public class DaoYaoHerb : MonoBehaviour {
             Mathf.Abs(transform.position.y - correctTrans.position.y) <= 2f)
         {
             //消失
+            hint.text = "请合上盖子";
+            arrowLeft.SetActive(false);
             IsFinished = true;
             Daoyaomanager.change = Daoyaomanager.change + 1;
             inCnt += 1;

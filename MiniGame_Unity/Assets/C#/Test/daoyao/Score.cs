@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
     public Image normal;
     public Button act;
     public GameObject chu;
-    public AudioSource audio;
+    public AudioSource audiosource;
 
 
     private float cnt = 0;
@@ -31,7 +31,8 @@ public class Score : MonoBehaviour
     private float chuCnt = 0;
 
 
-    static public int daoyao_score = 0;
+    static public bool isStarting = false;
+    static public int daoyao_score = 5;
     static public bool pause = false;
     static public int pause_cnt = 0;
     static public int stop_cnt = 0;
@@ -58,8 +59,13 @@ public class Score : MonoBehaviour
             cnt += 1;
             showStop();
         }
+        if (!isStarting)
+        {
+            transform.position = start;
+            chu.transform.position = chuStart;
+        }
 
-        if (!pause)
+        if (!pause && isStarting)
         {
             cnt += 1;
             chuCnt += 1;
@@ -74,13 +80,11 @@ public class Score : MonoBehaviour
     {
         if (collider.name == "s4")
         {
-            daoyao_score = 1;
-            //Debug.LogFormat("trigger s4 score {0}", daoyao_score);
+            daoyao_score = 8;
         }
         else if (collider.name == "s3")
         {
-            daoyao_score = 2;
-            //Debug.LogFormat("trigger s3 score {0}", daoyao_score);
+            daoyao_score = 10;
         }
     }
 
@@ -88,13 +92,11 @@ public class Score : MonoBehaviour
     {
         if (collider.name == "s2")
         {
-            daoyao_score = 1;
-            //Debug.LogFormat("trigger s2 score {0}", daoyao_score);
+            daoyao_score = 8;
         }
         else if (collider.name == "s1")
         {
-            daoyao_score = 0;
-            //Debug.LogFormat("trigger s1 score {0}", daoyao_score);
+            daoyao_score = 5;
         }
     }
 
@@ -111,32 +113,38 @@ public class Score : MonoBehaviour
 
     public void OnClick()
     {
-        showStop();
+        if (isStarting)
+        {
+            showStop();
+        }
+        isStarting = true;
+        
     }
 
     private void showStop()
     {
         Debug.LogFormat("daoyao score is {0}", daoyao_score);
-        if (daoyao_score == 0)
+        if (daoyao_score == 5)
         {
             normal.enabled = true;
         }
-        else if (daoyao_score == 1)
+        else if (daoyao_score == 8)
         {
             good.enabled = true;
         }
-        else if (daoyao_score == 2)
+        else if (daoyao_score == 10)
         {
             best.enabled = true;
         }
-        daoyao_score = 0;
+        daoyao_score = 5;
         render.sprite = Sprites[1];
 
-        audio.Play();
+        audiosource.Play();
         
         pause = true;
         chuCnt = 0;
         chu.transform.position = chuStart;
+        act.interactable = false;
         StartCoroutine(Wait());
     }
 
@@ -144,7 +152,7 @@ public class Score : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(2f);
         cnt = 0;
         chuCnt = 0;
         pause = false;
@@ -153,5 +161,6 @@ public class Score : MonoBehaviour
         best.enabled = false;
         good.enabled = false;
         normal.enabled = false;
+        act.interactable = true;
     }
 }
