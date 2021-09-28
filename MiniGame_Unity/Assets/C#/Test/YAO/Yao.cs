@@ -10,7 +10,7 @@ public class Yao : MonoBehaviour
     private float new_y;
     private float currentDistance = 0;
 
-    public float distance = 1;
+    public float distance = 0.1f;
     public GameObject jingzhi;
     public GameObject huangdong;
     public GameObject huangdong1;
@@ -27,6 +27,8 @@ public class Yao : MonoBehaviour
 
     public Animator animator;
     bool b = true;
+    public Text debug;
+    public GameObject ljj;
     void Start()
     {
         animator.speed = 0;
@@ -72,7 +74,7 @@ public class Yao : MonoBehaviour
                     textp.SetActive(false);
                 }
             }
-            if (i >= 100)
+            if (i >= 20)
             {
                 C = true;
                 textc.SetActive(true);
@@ -80,6 +82,7 @@ public class Yao : MonoBehaviour
                 huangdong1.SetActive(false);
                 button1.SetActive(false);
                 button2.SetActive(true);
+                ljj.SetActive(true);
             }
         }
         if (i != 0 && i < 100 && Move.isOK)
@@ -87,6 +90,7 @@ public class Yao : MonoBehaviour
             textp.SetActive(true);
             huangdong1.SetActive(true);
         }
+        debug.text = "" + i;
     }
     public void Moni()
     {
