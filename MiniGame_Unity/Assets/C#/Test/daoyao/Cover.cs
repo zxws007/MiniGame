@@ -11,7 +11,9 @@ public class Cover : MonoBehaviour {
     public GameObject arrowRight;
     public GameObject bar;
     public GameObject bottom;
+    public GameObject halfBottom;
     public Text hint;
+    public Button act;
 
     private Vector3 OriginalPos;
     private bool IsFinished = false;
@@ -49,10 +51,9 @@ public class Cover : MonoBehaviour {
             Mathf.Abs(transform.position.y - correctTrans.position.y) <= 2f)
         {
             //消失
-            IsFinished = true;
+            //IsFinished = true;
             Hide();
             MoveBack();
-            whole.GetComponent<Renderer>().enabled = true;
         }
         else
         {
@@ -71,10 +72,12 @@ public class Cover : MonoBehaviour {
         whole.GetComponent<Renderer>().enabled = true;
         bar.SetActive(true);
         pointer.SetActive(true);
+        bottom.SetActive(true);
+        act.image.enabled = true;
 
         arrowLeft.SetActive(false);
         arrowRight.SetActive(false);
-        bottom.SetActive(false);
+        halfBottom.SetActive(false);
         Renderer.enabled = false;
     }
 
