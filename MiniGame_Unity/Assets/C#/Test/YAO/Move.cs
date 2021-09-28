@@ -8,8 +8,9 @@ public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler
     private RawImage img;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
     public GameObject yaocao1;
-    public GameObject text;
     public static bool isOK = false;
+    public GameObject jiantou;
+    public GameObject huagndong;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -30,7 +31,8 @@ public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler
             isOK = true;
             yaocao1.SetActive(true);
             gameObject.SetActive(false);
-            text.SetActive(true);
+            jiantou.SetActive(false);
+            huagndong.SetActive(true);
         }
     }
 }

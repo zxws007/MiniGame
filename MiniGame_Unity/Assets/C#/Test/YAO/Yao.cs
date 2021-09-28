@@ -20,7 +20,6 @@ public class Yao : MonoBehaviour
     bool C = false;
     public GameObject textp;
     public static bool isshake = false;
-    public GameObject text;
     public GameObject textc;
 
     public GameObject button1;
@@ -86,7 +85,6 @@ public class Yao : MonoBehaviour
         if (i != 0 && i < 100 && Move.isOK)
         {
             textp.SetActive(true);
-            text.SetActive(false);
             huangdong1.SetActive(true);
         }
     }
