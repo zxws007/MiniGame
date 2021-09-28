@@ -24,7 +24,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         v2 = img.rectTransform.position;
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
         v1 = img.rectTransform.position;
-        if (Zhizhen.begin && Movewash.pengzhuang)
+        if (Zhizhen.begin && Movewash.pengzhuang && !change)
         {
             Zhizhen.anxia = true;
             shui2_anim.speed = 1;
@@ -45,6 +45,15 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         if (coll.gameObject.tag == "shaizi")
         {
             shuili = true;
+        }
+    }
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.tag == "shaizi")
+        {
+            Zhizhen.taiqi = true;
+            change = true;
+            shui2_anim.speed = 0;
         }
     }
     void Update()
