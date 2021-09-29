@@ -15,7 +15,7 @@ public class qtemove : MonoBehaviour {
     public GameObject common;
     public GameObject good;
     public GameObject excellent;
-    private int stage = 0;
+    private int stage = 1;
     // Use this for initialization
     void Start () {
         qtewet = GameObject.Find("QTE滑块").GetComponent<Animator>();
