@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
@@ -100,5 +101,9 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
         yield return new WaitForSeconds(1f);
         dui.SetActive(false);
         cuo.SetActive(false);
+    }
+    public void Move06()
+    {
+        SceneManager.LoadScene("06");
     }
 }

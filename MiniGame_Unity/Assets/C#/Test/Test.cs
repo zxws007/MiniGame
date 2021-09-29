@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Test : MonoBehaviour
@@ -29,6 +30,7 @@ public class Test : MonoBehaviour
     public GameObject wanchegn;
     bool jieshu = false;
     public Text debug;
+    public GameObject jiesuan;
     void Start()
     {
         Input.multiTouchEnabled = true;
@@ -85,6 +87,7 @@ public class Test : MonoBehaviour
                 text.text = "";
                 xdt.SetActive(false);
                 jieshu = true;
+                jiesuan.SetActive(true);
             }
         }
         if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp && !jieshu)
@@ -160,7 +163,6 @@ public class Test : MonoBehaviour
     }
     public void XYB()
     {
-        xdt.SetActive(true);
-        text.enabled = false;
+        SceneManager.LoadScene("04");
     }
 }
