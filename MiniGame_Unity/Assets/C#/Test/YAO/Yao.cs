@@ -29,6 +29,7 @@ public class Yao : MonoBehaviour
     bool b = true;
     public Text debug;
     public GameObject ljj;
+    public AudioSource source;
     void Start()
     {
         animator.speed = 0;
@@ -47,6 +48,7 @@ public class Yao : MonoBehaviour
                     jingzhi.SetActive(false);
                     huangdong.SetActive(true);
                     i++;
+                    source.Play();
                 }
                 else
                 {

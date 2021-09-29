@@ -2132,7 +2132,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shuili: 0
   shui2_anim: {fileID: 372958339}
-  change: 0
 --- !u!61 &1234629613
 BoxCollider2D:
   m_ObjectHideFlags: 0

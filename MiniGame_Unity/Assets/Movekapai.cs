@@ -35,6 +35,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public GameObject hongdui3;
     public GameObject hongquan3;
     public GameObject hongquan2;
+    public AudioSource as_dui;
+    public AudioSource as_cuo;
     void Start()
     {
         beginTrans = gameObject.transform.position;
@@ -162,6 +164,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             {
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(chaihu_1, count);
                     int index = -1;
@@ -185,6 +188,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -196,6 +200,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(huagnqin_2, count);
                     int index = -1;
@@ -219,6 +224,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -230,6 +236,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(dangshen_3, count);
                     int index = -1;
@@ -253,6 +260,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -264,6 +272,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(renshen_4, count);
                     int index = -1;
@@ -287,6 +296,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -298,6 +308,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(baishu_5, count);
                     int index = -1;
@@ -325,6 +336,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -336,6 +348,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(fuling_6, count);
                     int index = -1;
@@ -359,6 +372,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -370,6 +384,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(danggui_7, count);
                     int index = -1;
@@ -393,6 +408,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;
@@ -404,6 +420,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 
                 if (successList.Contains(gameObject.name))
                 {
+                    as_dui.Play();
                     count++;
                     AddPos(dihuang_8, count);
                     int index = -1;
@@ -427,6 +444,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                 }
                 else
                 {
+                    as_cuo.Play();
                     cuo.SetActive(true);
                     dui.SetActive(false);
                     gameObject.transform.position = beginTrans;

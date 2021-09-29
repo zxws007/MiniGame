@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -22,6 +23,14 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     public GameObject youxiu;
     public GameObject lianghao;
     public GameObject putong;
+    public int youxiuScore;
+    public int lianghaoScore;
+    public int yibanScore;
+    public static int totleScore = 0;
+    public Text score;
+    public static int qiesidao = 0;
+    public Text shengyu;
+    public AudioSource qie;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -34,10 +43,11 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         youxiu.SetActive(false);
         lianghao.SetActive(false);
         putong.SetActive(false);
+        shengyu.text = "剩余切割次数: 4";
     }
     public void OnDrag(PointerEventData eventData)
     {
-        if (legnque)
+        if (legnque || qiesidao == 4)
         {
             return;
         }
@@ -70,27 +80,38 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
             g.SetActive(true);
             g.transform.localPosition = new Vector3(2000, 650, 0);
             g.transform.parent = yao.transform;
-            if (DaoPanding.success)
+            if (DaoPanding.success && qiesidao != 4)
             {
+                qiesidao++;
                 Debug.Log("ok");
                 youxiu.SetActive(true);
                 lianghao.SetActive(false);
                 putong.SetActive(false);
+                totleScore += youxiuScore;
+                qie.Play();
             }
-            if (DaoPanding.lianghao)
+            else if (DaoPanding.lianghao && qiesidao != 4)
             {
+                qiesidao++;
                 Debug.Log("lh");
                 youxiu.SetActive(false);
                 lianghao.SetActive(true);
                 putong.SetActive(false);
+                totleScore += lianghaoScore;
+                qie.Play();
             }
-            if (DaoPanding.yiban)
+            else if (DaoPanding.yiban && qiesidao != 4)
             {
+                qiesidao++;
                 Debug.Log("yb");
                 youxiu.SetActive(false);
                 lianghao.SetActive(false);
                 putong.SetActive(true);
+                totleScore += yibanScore;
+                qie.Play();
             }
+            score.text = "分数： " + totleScore;
+            shengyu.text = "剩余切割次数: " + (4 - qiesidao);
             StartCoroutine(Wait());
         }
     }
