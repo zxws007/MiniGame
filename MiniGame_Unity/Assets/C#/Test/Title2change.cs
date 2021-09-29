@@ -14,7 +14,7 @@ public class Title2change : MonoBehaviour {
 
     void OnClick()
     {
-        SceneManager.LoadScene("play1");//level1为我们要切换到的场景
+        SceneManager.LoadScene("02");//level1为我们要切换到的场景
     }
 
     // Update is called once per frame
