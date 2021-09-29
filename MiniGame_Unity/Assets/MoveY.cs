@@ -31,8 +31,10 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     public static int qiesidao = 0;
     public Text shengyu;
     public AudioSource qie;
+    public GameObject go;
     void Start()
     {
+        Time.timeScale = 0;
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         beginPos = gameObject.transform.localPosition;
         dao.SetActive(false);
@@ -128,5 +130,14 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         youxiu.SetActive(false);
         lianghao.SetActive(false);
         putong.SetActive(false);
+    }
+    public void Go()
+    {
+        Time.timeScale = 1;
+        go.SetActive(false);
+    }
+    public void Move07()
+    {
+        SceneManager.LoadScene("07");
     }
 }

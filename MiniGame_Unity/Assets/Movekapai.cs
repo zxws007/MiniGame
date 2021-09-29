@@ -37,6 +37,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public GameObject hongquan2;
     public AudioSource as_dui;
     public AudioSource as_cuo;
+    public GameObject next;
     void Start()
     {
         beginTrans = gameObject.transform.position;
@@ -126,12 +127,13 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             }
             add = false;
         }
-        if (successList.Count == 0 && liucheng == 1)
+        if (successList.Count == 0 && liucheng == 0)
         {
+            next.SetActive(true);
             liucheng++;
             add = true;
         }
-        if (successList.Count == 0 && liucheng == 0)
+        if (successList.Count == 0 && liucheng == 1)
         {
             liucheng++;
             add = true;
