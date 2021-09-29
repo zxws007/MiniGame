@@ -2,28 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class RunManager : MonoBehaviour {
-    public GameObject herbal_util;
-    public GameObject cloth_util;
-    public GameObject herbal;
-    public GameObject cloth;
-    public GameObject clothwet;
-    public GameObject isdone;
-    public GameObject bottle;
+using UnityEngine.UI;
+public class RunManager : MonoBehaviour
+{
     private bool herbready = false;
     private bool clothready = false;
     private bool bottleready = false;
     private bool isover = false;
+    private bool isGameOver = false;
+    private bool qteactive = false;
+    public GameObject ClothEnd;
+    public GameObject QTEslice;
+    public GameObject QTE;
+    public Text txt;
     private Camera mainCamera;
-	// Use this for initialization
-	void Start () {
+    public GameObject lux;
+    // Use this for initialization
+    float time = .0f;
+    void Start()
+    {
         mainCamera = Camera.main;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+
+        if (bottleready == true&&qteactive==false&&mousePos.x>1700&&mousePos.y<700)
+        {
+            if (Input.GetMouseButton(0))
+            {
+                time += Time.deltaTime;
+                if (time > 1.0f)
+                {
+                    txt.text = " ";
+                    QTE.SetActive(true);
+                    QTEslice.SetActive(true);
+                    qteactive = true;
+                }
+            }
+        }
+        //if (Input.GetMouseButton(0))
+        //{
+        //    time += Time.deltaTime;
+        //    Debug.Log(time);
+        //}
+
+        if (isover == true)
+        {
+            lux.SetActive(true);
+        }
+         //   Debug.Log(mousePos);
+
+    }
     public bool getHerbready()
     {
         return herbready;
@@ -55,6 +87,14 @@ public class RunManager : MonoBehaviour {
     public void setIsover(bool b)
     {
         isover = b;
+    }
+    public bool getIsGameOver()
+    {
+        return isGameOver;
+    }
+    public void setIsGameOver(bool b)
+    {
+        isGameOver = b;
     }
     public void Gameover()
     {

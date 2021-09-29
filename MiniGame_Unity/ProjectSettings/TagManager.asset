@@ -7,6 +7,12 @@ TagManager:
   - shaizi
   - HerbPosition
   - dis
+  - panzi
+  - Stage1
+  - Stage2
+  - Stage3
+  - Stage4
+  - Stage5
   layers:
   - Default
   - TransparentFX

@@ -3,42 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 public class dragbottle : MonoBehaviour {
-    private Vector3 targetCirclePos;
-    private Vector3 startpoint;
-    public GameObject bottle;
-    public GameObject clothwet;
-    public GameObject cloth;
+    public GameObject ArrowBottle;
+    public GameObject bottle2;
+    public GameObject drops;
+    public Text txt;
     // Use this for initialization
     void Start () {
-        startpoint = transform.position;
-        targetCirclePos = GameObject.Find("Target").transform.position;
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
     private void OnMouseDrag()
     {
-        transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getClothready()&&!GameObject.Find("GameManager").GetComponent<RunManager>().getBottleready())
+        {
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = new Vector2(cursorPos.x, cursorPos.y);
+        }
+    }
+    private void OnMouseEnter()
+    {
+        transform.localScale += Vector3.one * 0.07f;
+    }
+    private void OnMouseExit()
+    {
+        transform.localScale -= Vector3.one * 0.07f;
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "panzi")
+        {
+            // Debug.Log("OnCollisionEnter2D");
+            ArrowBottle.SetActive(false);
+            GameObject.Find("GameManager").GetComponent<RunManager>().setBottleready(true);
+            GameObject.Find("bottle1").GetComponent<Renderer>().enabled = false;
+            bottle2.SetActive(true);
+            drops.SetActive(true);
+            txt.text = "请长按水壶进行润药";
+        }
     }
 
-    // Update is called once per frame
-    private void OnMouseUp()
-    {
-        if (GameObject.Find("GameManager").GetComponent<RunManager>().getClothready() && Vector3.Distance(transform.position, targetCirclePos) < 1.5f)
-        {
-            bottle.SetActive(false);
-            cloth.SetActive(false);
-            clothwet.SetActive(true);
-            GameObject.Find("GameManager").GetComponent<RunManager>().setBottleready(true);
-            //GameObject.Find("lux").SetActive(true);
-            //lux.SetActive(true);
-        }
-        else
-        {
-            transform.position = startpoint;
-        }
-    }
 }

@@ -3,14 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class dragcloth : MonoBehaviour {
-    private Vector3 targetCirclePos;
-    private Vector3 startpoint;
-    public GameObject clothutil;
-    public GameObject cloth;
+    public GameObject ArrowCloth;
+    public GameObject PutCloth;
+    public GameObject ArrowBottle;
     // Use this for initialization
     void Start () {
-        startpoint = transform.position;
-        targetCirclePos = GameObject.Find("Target").transform.position;
     }
 	
 	// Update is called once per frame
@@ -19,22 +16,57 @@ public class dragcloth : MonoBehaviour {
 	}
     private void OnMouseDrag()
     {
-        transform.position = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x,
-            Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-    }
-
-    // Update is called once per frame
-    private void OnMouseUp()
-    {
-        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready()&&Vector3.Distance(transform.position, targetCirclePos) < 1f)
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready()&& !GameObject.Find("GameManager").GetComponent<RunManager>().getClothready())
         {
-            clothutil.SetActive(false);
-            cloth.SetActive(true);
-            GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(true);
+            Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            
+            if (cursorPos.x > GameObject.Find("ClothEnd").transform.position.x && cursorPos.y <GameObject.Find("ClothUpperBound").transform.position.y && cursorPos.y > GameObject.Find("ClothLowerBound").transform.position.y)
+            {
+                transform.position = new Vector2(cursorPos.x, cursorPos.y);
+            }
         }
-        else
+    }
+    private void OnMouseEnter()
+    {
+        if (!GameObject.Find("GameManager").GetComponent<RunManager>().getClothready())
         {
-            transform.position = startpoint;
+            transform.localScale += Vector3.one * 0.07f;
+        }
+    }
+    private void OnMouseExit()
+    {
+        if (!GameObject.Find("GameManager").GetComponent<RunManager>().getClothready())
+        {
+            transform.localScale -= Vector3.one * 0.07f;
+        }
+    }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "panzi")
+        {
+            // Debug.Log("OnCollisionEnter2D");
+            ArrowCloth.SetActive(false);
+            PutCloth.SetActive(false);
+        }
+    }
+    void OnMouseUp()
+    {
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getClothready() == false&&transform.position.x < 7 && transform.position.y >= -1.5 && transform.position.y <= 1.5)
+        {
+            GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(true);
+            ArrowBottle.SetActive(true);
+        }
+        
+    }
+    void OnCollisionExit2D(Collision2D col)
+    {
+        if (col.gameObject.tag == "panzi")
+        {
+            //Debug.Log("OnCollisionEnter2D");
+            ArrowCloth.SetActive(true);
+            PutCloth.SetActive(true);
+            GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(false);
+            ArrowBottle.SetActive(false);
         }
     }
 }
