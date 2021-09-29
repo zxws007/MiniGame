@@ -23,3 +23,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/FinalScene/06.unity
     guid: 3e9f11e71565cf249bd76c18d1c0850f
+  - enabled: 1
+    path: Assets/Scene/FinalScene/07.unity
+    guid: 52cda814e205c884c9ecb5be8e66020f
+  - enabled: 1
+    path: Assets/Scene/FinalScene/08.unity
+    guid: e2929ff87922f48448bea48793e2cb58
