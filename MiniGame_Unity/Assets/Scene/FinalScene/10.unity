@@ -389,7 +389,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: e2a3fa7715a3518429921b91234b7912, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e5ae4f98073aaff47b771b416be353d7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -436,8 +436,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 248598723}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.967, y: -2.72, z: 0}
-  m_LocalScale: {x: 1.5075395, y: 1.2995452, z: 1}
+  m_LocalPosition: {x: 1.205, y: -2.372, z: 0}
+  m_LocalScale: {x: 1.1646135, y: 1.2995452, z: 1}
   m_Children: []
   m_Father: {fileID: 1738491124}
   m_RootOrder: 1
@@ -523,7 +523,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 577289251}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.44, y: -0.518, z: 0}
+  m_LocalPosition: {x: -0.968, y: 0.131, z: 0}
   m_LocalScale: {x: 1.236442, y: 1.1881858, z: 1}
   m_Children: []
   m_Father: {fileID: 1738491124}
@@ -859,7 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da6c1bb5250804896f6b03d5cbbfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctTrans: {fileID: 1317257270}
+  correctTrans: {fileID: 0}
   isFinished: 0
 --- !u!61 &685526965
 BoxCollider2D:
@@ -972,7 +972,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da6c1bb5250804896f6b03d5cbbfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctTrans: {fileID: 248598724}
+  correctTrans: {fileID: 0}
   isFinished: 0
 --- !u!61 &709970400
 BoxCollider2D:
@@ -1049,7 +1049,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3b51094d5981ce244a129d975ae06452, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9bd34664c1ad6af48b7260876c54fc16, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1066,7 +1066,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 769480399}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: -0.26, z: 0}
+  m_LocalPosition: {x: 0.105, y: -0.09, z: 0}
   m_LocalScale: {x: 0.75066817, y: 0.6500092, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &871695063
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1192,10 +1192,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 871695062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb2e675bd0b06845be3162cdf966149, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e99eb4b83587a54c854a9e7af24e6ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene: bamai2
 --- !u!1 &872803789
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1332,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1317257269}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.626, y: 1.022, z: 0}
+  m_LocalPosition: {x: 2.1971, y: -1.088, z: 0}
   m_LocalScale: {x: 1.7351135, y: 1.7080823, z: 1}
   m_Children: []
   m_Father: {fileID: 1738491124}
@@ -1621,7 +1620,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 4b0307afc67566544b18b788c26a6ef0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 88caf9420ce106e439970a0c05b20b93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1690,6 +1689,14 @@ MonoBehaviour:
   show: {fileID: 1635832639}
   hide: {fileID: 202820230}
   button: {fileID: 871695062}
+  bing1: {fileID: 0}
+  bing2: {fileID: 0}
+  show1: {fileID: 0}
+  show2: {fileID: 0}
+  show3: {fileID: 0}
+  show4: {fileID: 0}
+  show5: {fileID: 0}
+  show6: {fileID: 0}
 --- !u!1 &1761754384
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,7 +1832,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1951,7 +1958,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da6c1bb5250804896f6b03d5cbbfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctTrans: {fileID: 577289252}
+  correctTrans: {fileID: 0}
   isFinished: 0
 --- !u!61 &2010511531
 BoxCollider2D:
@@ -2064,7 +2071,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0da6c1bb5250804896f6b03d5cbbfe9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  correctTrans: {fileID: 99832971}
+  correctTrans: {fileID: 0}
   isFinished: 0
 --- !u!61 &2129560682
 BoxCollider2D:

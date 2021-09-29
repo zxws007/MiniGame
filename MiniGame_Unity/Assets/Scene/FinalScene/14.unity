@@ -1290,7 +1290,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1504665675
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1578,7 +1578,6 @@ GameObject:
   - component: {fileID: 1636826821}
   - component: {fileID: 1636826820}
   - component: {fileID: 1636826819}
-  - component: {fileID: 1636826822}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -1645,7 +1644,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1851077622}
-        m_MethodName: Moni
+        m_MethodName: Move15
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1690,18 +1689,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1636826817}
---- !u!114 &1636826822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1636826817}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfb2e675bd0b06845be3162cdf966149, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scene: make2
 --- !u!1 &1786700881
 GameObject:
   m_ObjectHideFlags: 0

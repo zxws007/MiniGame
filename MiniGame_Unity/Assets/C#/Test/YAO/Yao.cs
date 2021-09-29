@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Yao : MonoBehaviour
@@ -34,6 +35,11 @@ public class Yao : MonoBehaviour
     {
         animator.speed = 0;
     }
+    public void Move15()
+    {
+        SceneManager.LoadScene("15");//level1为我们要切换到的场景
+    }
+
     void Update()
     {
         if (Move.isOK)

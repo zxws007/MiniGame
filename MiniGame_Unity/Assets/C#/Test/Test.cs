@@ -30,7 +30,6 @@ public class Test : MonoBehaviour
     public GameObject wanchegn;
     bool jieshu = false;
     public Text debug;
-    public GameObject jiesuan;
     void Start()
     {
         Input.multiTouchEnabled = true;
@@ -87,7 +86,6 @@ public class Test : MonoBehaviour
                 text.text = "";
                 xdt.SetActive(false);
                 jieshu = true;
-                jiesuan.SetActive(true);
             }
         }
         if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp && !jieshu)
@@ -164,5 +162,13 @@ public class Test : MonoBehaviour
     public void XYB()
     {
         SceneManager.LoadScene("04");
+    }
+    public void XYB1()
+    {
+        SceneManager.LoadScene("12");
+    }
+    public void XYB2()
+    {
+        SceneManager.LoadScene("20");
     }
 }

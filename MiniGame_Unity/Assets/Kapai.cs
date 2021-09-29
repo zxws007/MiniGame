@@ -106,4 +106,12 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     {
         SceneManager.LoadScene("06");
     }
+    public void Move14()
+    {
+        SceneManager.LoadScene("14");
+    }
+    public void Move22()
+    {
+        SceneManager.LoadScene("22");
+    }
 }

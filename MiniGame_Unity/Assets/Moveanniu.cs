@@ -1,6 +1,7 @@
 ﻿using UnityEngine.EventSystems;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -13,6 +14,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public static bool change = false;
     float b, bb = .0f;
     int index = 0;
+    public GameObject jiesuan;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -39,6 +41,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         Zhizhen.taiqi = true;
         change = true;
         shui2_anim.speed = 0;
+        jiesuan.SetActive(true);
     }
     void OnCollisionStay2D(Collision2D coll)
     {
@@ -54,6 +57,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             Zhizhen.taiqi = true;
             change = true;
             shui2_anim.speed = 0;
+            jiesuan.SetActive(true);
         }
     }
     void Update()
@@ -64,5 +68,9 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         {
             Zhizhen.begin = true;
         }
+    }
+    public void OnClick()
+    {
+        SceneManager.LoadScene("23");//level1为我们要切换到的场景
     }
 }
