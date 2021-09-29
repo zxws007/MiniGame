@@ -137,5 +137,6 @@ public class YaoChu : MonoBehaviour {
         good.enabled = false;
         normal.enabled = false;
         act.image.enabled = false;
+        GameObject.Find("action/Text").GetComponent<Text>().enabled = false;
     }
 }

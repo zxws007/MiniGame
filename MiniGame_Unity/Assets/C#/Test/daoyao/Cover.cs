@@ -83,6 +83,7 @@ public class Cover : MonoBehaviour {
         pointer.SetActive(true);
         bottom.SetActive(true);
         act.image.enabled = true;
+        GameObject.Find("action/Text").GetComponent<Text>().enabled = true;
 
         arrowLeft.SetActive(false);
         arrowRight.SetActive(false);

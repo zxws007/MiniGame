@@ -44,6 +44,7 @@ public class Score : MonoBehaviour
     void Start()
     {
         act.image.enabled = true;
+        GameObject.Find("action/Text").GetComponent<Text>().enabled = true;
         act.onClick.AddListener(OnClick);
         render = GetComponent<SpriteRenderer>();
         render.sprite = Sprites[0];
