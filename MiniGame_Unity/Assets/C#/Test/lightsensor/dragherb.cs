@@ -8,6 +8,8 @@ public class dragherb : MonoBehaviour {
     private GameObject PutHerb;
     public GameObject ArrowCloth;
     public GameObject PutCloth;
+    public GameObject popherb;
+    public GameObject popcloth;
     public bool HerbReady = false;
     void Start () {
         ArrowHerb = GameObject.Find("ArrowHerb");
@@ -45,6 +47,7 @@ public class dragherb : MonoBehaviour {
             // Debug.Log("OnCollisionEnter2D");
             PutHerb.SetActive(false);
             ArrowHerb.SetActive(false);
+            popherb.SetActive(false);
         }
     }
     void OnMouseUp()
@@ -53,6 +56,7 @@ public class dragherb : MonoBehaviour {
         {
             ArrowCloth.SetActive(true);
             PutCloth.SetActive(true);
+            popcloth.SetActive(true);
             GameObject.Find("GameManager").GetComponent<RunManager>().setHerbready(true);
         }
 
@@ -64,6 +68,7 @@ public class dragherb : MonoBehaviour {
             //Debug.Log("OnCollisionEnter2D");
             PutHerb.SetActive(true);
             ArrowHerb.SetActive(true);
+            popherb.SetActive(true);
             //ArrowCloth.SetActive(false);
             //PutCloth.SetActive(false);
             //GameObject.Find("GameManager").GetComponent<RunManager>().setHerbready(false);

@@ -7,9 +7,12 @@ public class dragcloth : MonoBehaviour
     public GameObject ArrowCloth;
     public GameObject PutCloth;
     public GameObject ArrowBottle;
+    private Vector3 startPoint;
+    public GameObject popcloth;
     // Use this for initialization
     void Start()
     {
+        startPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -50,16 +53,23 @@ public class dragcloth : MonoBehaviour
             // Debug.Log("OnCollisionEnter2D");
             ArrowCloth.SetActive(false);
             PutCloth.SetActive(false);
+            popcloth.SetActive(false);
         }
     }
     void OnMouseUp()
     {
-        if (GameObject.Find("GameManager").GetComponent<RunManager>().getClothready() == false && transform.position.x < 7 && transform.position.y >= -1.5 && transform.position.y <= 1.5)
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getClothready() == false)
         {
-            GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(true);
-            ArrowBottle.SetActive(true);
+            if (transform.position.x < 7 && transform.position.y >= -1.5 && transform.position.y <= 1.5)
+            {
+                GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(true);
+                ArrowBottle.SetActive(true);
+            }
+            else
+            {
+                transform.position = startPoint;
+            }
         }
-
     }
     void OnCollisionExit2D(Collision2D col)
     {
@@ -68,8 +78,13 @@ public class dragcloth : MonoBehaviour
             //Debug.Log("OnCollisionEnter2D");
             ArrowCloth.SetActive(true);
             PutCloth.SetActive(true);
+            popcloth.SetActive(true);
             GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(false);
             ArrowBottle.SetActive(false);
         }
+    }
+    public void OnClick()
+    {
+        Debug.Log("1111");
     }
 }

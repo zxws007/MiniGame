@@ -13,6 +13,7 @@ public class TestLightSensor : MonoBehaviour
     public Text text;
     // public Text luxtext;
     private int cnt = 400;
+    public GameObject popbottle;
     private bool easymode = false;
     // Use this for initialization
     void Start()
@@ -29,10 +30,11 @@ public class TestLightSensor : MonoBehaviour
     {
         if (!GameObject.Find("GameManager").GetComponent<RunManager>().getIsGameOver())
         {
+            popbottle.SetActive(true);
             text.text = "请将药材置于阴暗处";
             if (cnt <= 0)
             {
-                text.text = "可以试着用手盖住整个屏幕";
+                text.text = "试着用手盖住整个屏幕";
                 if (easymode == false)
                 {
                     threshold = threshold / 2.0f;

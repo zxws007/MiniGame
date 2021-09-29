@@ -7,6 +7,7 @@ public class dragbottle : MonoBehaviour {
     public GameObject bottle2;
     public GameObject drops;
     public Text txt;
+    public GameObject popbottle;
     // Use this for initialization
     void Start () {
     }
@@ -41,6 +42,7 @@ public class dragbottle : MonoBehaviour {
             bottle2.SetActive(true);
             drops.SetActive(true);
             txt.text = "请长按水壶进行润药";
+            popbottle.SetActive(true);
         }
     }
 

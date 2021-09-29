@@ -17,6 +17,7 @@ public class RunManager : MonoBehaviour
     public Text txt;
     private Camera mainCamera;
     public GameObject lux;
+    public GameObject popbottle;
     // Use this for initialization
     float time = .0f;
     void Start()
@@ -37,6 +38,7 @@ public class RunManager : MonoBehaviour
                 if (time > 1.0f)
                 {
                     txt.text = " ";
+                    popbottle.SetActive(false);
                     QTE.SetActive(true);
                     QTEslice.SetActive(true);
                     qteactive = true;
@@ -98,6 +100,7 @@ public class RunManager : MonoBehaviour
     }
     public void Gameover()
     {
+
         StartCoroutine(GameOverAnimation());
     }
     IEnumerator GameOverAnimation()
