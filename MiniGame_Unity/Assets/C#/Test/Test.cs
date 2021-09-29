@@ -13,7 +13,7 @@ public class Test : MonoBehaviour
     bool b1 = false;
     bool b2 = false;
     bool b3 = false;
-    public GameObject text;
+    public Text text;
     public GameObject texts;
     public GameObject textzt;
     public GameObject xdt;
@@ -27,6 +27,8 @@ public class Test : MonoBehaviour
     public GameObject tiaozhegn3;
     public Slider slider;
     public GameObject wanchegn;
+    bool jieshu = false;
+    public Text debug;
     void Start()
     {
         Input.multiTouchEnabled = true;
@@ -49,12 +51,13 @@ public class Test : MonoBehaviour
 
     void Update()
     {
+        debug.text = "" + Input.touchCount;
         if (!Bamai.isp)
         {
             b1 = b2 = b3 = false;
-            text.SetActive(true);
+            text.enabled = true;
         }
-        if (b1)
+        if (b1 && b2 && b3)
         {
             time += Time.deltaTime;
         }
@@ -62,13 +65,13 @@ public class Test : MonoBehaviour
         {
             time = 0;
         }
-        if (b1 && Bamai.isp && time > 2.0f)
+        if (b1 && b2 && b3 && (Bamai.isp && time > 2.0f))
         {
             sucesstime += Time.deltaTime;
             slider.value = sucesstime / 10f;
             xdt.SetActive(true);
             Handheld.Vibrate();
-            text.SetActive(false);
+            text.enabled = false;
             img.SetActive(false);
             textzt.SetActive(false);
             texts.SetActive(false);
@@ -79,17 +82,17 @@ public class Test : MonoBehaviour
             if (slider.value == 1)
             {
                 wanchegn.SetActive(true);
-                text.SetActive(false);
+                text.text = "";
                 xdt.SetActive(false);
+                jieshu = true;
             }
         }
-        else if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp)
+        if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp && !jieshu)
         {
-            text.SetActive(true);
             StartCoroutine(CloseText());
             xdt.SetActive(false);
         }
-        else if ((b1 && !b2 && !b3) && Bamai.isp)
+        else if ((b1 && !b2 && !b3) && Bamai.isp)//1
         {
             tiaozhegn1.SetActive(false);
             tiaozhegn2.SetActive(true);
@@ -97,31 +100,38 @@ public class Test : MonoBehaviour
 
             xdt.SetActive(false);
         }
-        else if ((!b1 && b2 && !b3) && Bamai.isp)
+        else if ((!b1 && b2 && !b3) && Bamai.isp)//2
         {
             tiaozhegn1.SetActive(true);
             tiaozhegn2.SetActive(false);
             tiaozhegn3.SetActive(true);
         }
-        else if ((!b1 && !b2 && b3) && Bamai.isp)
+        else if ((!b1 && !b2 && b3) && Bamai.isp)//3
         {
             tiaozhegn1.SetActive(true);
             tiaozhegn2.SetActive(true);
             tiaozhegn3.SetActive(false);
             xdt.SetActive(false);
         }
-        else if ((b1 && !b2 && b3) && Bamai.isp)
+        else if ((b1 && !b2 && b3) && Bamai.isp)//13
         {
             tiaozhegn1.SetActive(false);
             tiaozhegn2.SetActive(true);
             tiaozhegn3.SetActive(false);
             xdt.SetActive(false);
         }
-        else if ((!b1 && b2 && b3) && Bamai.isp)
+        else if ((!b1 && b2 && b3) && Bamai.isp)//23
         {
             tiaozhegn1.SetActive(true);
             tiaozhegn2.SetActive(false);
             tiaozhegn3.SetActive(false);
+            xdt.SetActive(false);
+        }
+        else if ((b1 && b2 && !b3) && Bamai.isp)//13
+        {
+            tiaozhegn1.SetActive(false);
+            tiaozhegn2.SetActive(false);
+            tiaozhegn3.SetActive(true);
             xdt.SetActive(false);
         }
         else
@@ -140,17 +150,17 @@ public class Test : MonoBehaviour
         }
         if (Bamai.isp && slider.value < 1)
         {
-            text.SetActive(false);
+            text.enabled = false;
         }
     }
     IEnumerator CloseText()
     {
         yield return new WaitForSeconds(1);
-        text.SetActive(false);
+        text.enabled = false;
     }
     public void XYB()
     {
         xdt.SetActive(true);
-        text.SetActive(false);
+        text.enabled = false;
     }
 }
