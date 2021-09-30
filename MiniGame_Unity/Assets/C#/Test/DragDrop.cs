@@ -33,8 +33,7 @@ public class DragDrop : MonoBehaviour
         {
             transform.position = new Vector2(correctTrans.position.x, correctTrans.position.y);
             isFinished = true;
-            FirstManager.change = FirstManager.change + 1;
-            Debug.Log(FirstManager.change);
+
         }
         else
         {
