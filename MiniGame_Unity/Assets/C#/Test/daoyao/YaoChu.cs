@@ -8,6 +8,7 @@ public class YaoChu : MonoBehaviour {
     [SerializeField] public int TimesToOver; // 拉手拉完的次数
     [SerializeField] public float herbNum; 
     [SerializeField] public Sprite[] Sprites; // 精灵图
+    public Sprite[] resultSprites;
     private int DownTimes = 0; // 捣的次数
 
     public GameObject backButton;
@@ -23,6 +24,7 @@ public class YaoChu : MonoBehaviour {
     public Image best;
     public Image good;
     public Image normal;
+    public Image resultImage;
 
     public Text hint;
     public Button act;
@@ -41,7 +43,7 @@ public class YaoChu : MonoBehaviour {
     {
         RegisterCallbacks();
         showResting();
-        
+        resultImage.enabled = false;
 	}
 	
 	// Update is called once per frame
@@ -69,19 +71,21 @@ public class YaoChu : MonoBehaviour {
         {
             showResting();
             //hint.text = "药材全部处理完毕";
-            Debug.LogFormat("totalscore is {0}", Score.totalScore);
+            //Debug.LogFormat("totalscore is {0}", Score.totalScore);
+            hint.text = "";
             if (Score.totalScore == 50)
             {
-                hint.text = "药材炮制非常完美";
+                resultImage.sprite = resultSprites[0];
             }
             else if (Score.totalScore >= 40 && Score.totalScore < 50)
             {
-                hint.text = "药材炮制精良，但是还有改进空间";
+                resultImage.sprite = resultSprites[1];
             }
             else
             {
-                hint.text = "药材炮制基本完成，不过品质较差";
+                resultImage.sprite = resultSprites[2];
             }
+            resultImage.enabled = true;
             arrowLeft.SetActive(false);
             backButton.SetActive(true);
             replayButton.SetActive(true);
@@ -97,44 +101,44 @@ public class YaoChu : MonoBehaviour {
     }
     
 
-    // 设置为down状态
-    private void SetDown()
-    {
-        Debug.LogFormat("The score is {0}", Score.daoyao_score);
-        transform.position = Vector3.zero;
-        pointer.transform.position = Vector3.zero + Vector3.right * 7 + Vector3.down * 1;
-        pause = true;
-
-        DownTimes++;
-        if (DownTimes == TimesToOver)
-        {
-            hint.text = "捣药完成，继续下一药材";
-            DownTimes = 0;
-            DaoYaoHerb.inCnt = 0;
-            herbNum -= 1;
-        }
-        if (herbNum <= 0)
-        {
-            hint.text = "药材全部处理完毕";
-            arrowLeft.SetActive(false);
-            arrowRight.SetActive(false);
-        }
-    }
-
-    // 工作状态展示
-    public void showWorking()
-    {
-        this.GetComponent<Renderer>().enabled = true;
-        isWorking = true;
-        bar.SetActive(true);
-        pointer.SetActive(true);
-        bottom.SetActive(true);
-
-        arrowLeft.SetActive(false);
-        arrowRight.SetActive(false);
-        halfBottom.SetActive(false);
-        cover.GetComponent<Renderer>().enabled = false;
-    }
+    //// 设置为down状态
+    //private void SetDown()
+    //{
+    //    Debug.LogFormat("The score is {0}", Score.daoyao_score);
+    //    transform.position = Vector3.zero;
+    //    pointer.transform.position = Vector3.zero + Vector3.right * 7 + Vector3.down * 1;
+    //    pause = true;
+    //
+    //    DownTimes++;
+    //    if (DownTimes == TimesToOver)
+    //    {
+    //        hint.text = "捣药完成，继续下一药材";
+    //        DownTimes = 0;
+    //        DaoYaoHerb.inCnt = 0;
+    //        herbNum -= 1;
+    //    }
+    //    if (herbNum <= 0)
+    //    {
+    //        hint.text = "药材全部处理完毕";
+    //        arrowLeft.SetActive(false);
+    //        arrowRight.SetActive(false);
+    //    }
+    //}
+    //
+    //// 工作状态展示
+    //public void showWorking()
+    //{
+    //    this.GetComponent<Renderer>().enabled = true;
+    //    isWorking = true;
+    //    bar.SetActive(true);
+    //    pointer.SetActive(true);
+    //    bottom.SetActive(true);
+    //
+    //    arrowLeft.SetActive(false);
+    //    arrowRight.SetActive(false);
+    //    halfBottom.SetActive(false);
+    //    cover.GetComponent<Renderer>().enabled = false;
+    //}
 
     public void showResting()
     {

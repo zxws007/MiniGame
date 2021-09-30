@@ -9,6 +9,7 @@ public class Point : MonoBehaviour {
     public GameObject s2;
     public GameObject s3;
     public GameObject s4;
+    public GameObject s5;
 
     static public int chao_score = 5;
 
@@ -49,6 +50,20 @@ public class Point : MonoBehaviour {
         }
     }
 
-    
-    
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.name == "s5" || other.name == "s1")
+        {
+            chao_score = 5;
+        }
+        else if (other.name == "s4" || other.name == "s2")
+        {
+            chao_score = 8;
+        }
+        else if (other.name == "s3")
+        {
+            chao_score = 10;
+        }
+    }
+
 }
