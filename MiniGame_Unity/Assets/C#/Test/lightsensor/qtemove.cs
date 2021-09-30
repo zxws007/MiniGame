@@ -15,7 +15,7 @@ public class qtemove : MonoBehaviour {
     public GameObject common;
     public GameObject good;
     public GameObject excellent;
-    private int stage = 1;
+    public int stage = 1;
     // Use this for initialization
     void Start () {
         qtewet = GameObject.Find("QTE滑块").GetComponent<Animator>();
@@ -30,6 +30,7 @@ public class qtemove : MonoBehaviour {
             littlebottle.SetActive(false);
             if (stage == 1 || stage == 5)
             {
+                
                 common.SetActive(true);
             }else if (stage == 2 || stage == 4)
             {
