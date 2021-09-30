@@ -21,6 +21,7 @@ public class ChaoChange : MonoBehaviour
 
     public void OnClick()
     {
+        GlobalScore.Instance.Score1 += Chao.totalScore;
         SceneManager.LoadScene("08");//level1为我们要切换到的场景
     }
 }

@@ -11,6 +11,7 @@ public class YaoChu : MonoBehaviour {
     private int DownTimes = 0; // 捣的次数
 
     public GameObject backButton;
+    public GameObject replayButton;
     public GameObject pointer;
     public GameObject cover;
     public GameObject arrowLeft;
@@ -67,9 +68,23 @@ public class YaoChu : MonoBehaviour {
         if (herbNum <= 0)
         {
             showResting();
-            hint.text = "药材全部处理完毕";
+            //hint.text = "药材全部处理完毕";
+            Debug.LogFormat("totalscore is {0}", Score.totalScore);
+            if (Score.totalScore == 50)
+            {
+                hint.text = "药材炮制非常完美";
+            }
+            else if (Score.totalScore >= 40 && Score.totalScore < 50)
+            {
+                hint.text = "药材炮制精良，但是还有改进空间";
+            }
+            else
+            {
+                hint.text = "药材炮制基本完成，不过品质较差";
+            }
             arrowLeft.SetActive(false);
             backButton.SetActive(true);
+            replayButton.SetActive(true);
         }
         
 	}

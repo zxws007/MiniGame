@@ -17,7 +17,9 @@ public class Chao : MonoBehaviour {
     public Image good;
     public Image normal;
     public Text chaoText;
+    public Text resultText;
     public GameObject backButton;
+    public GameObject replayButton;
     public int totalTimes;
 
     private SpriteRenderer render;
@@ -32,6 +34,7 @@ public class Chao : MonoBehaviour {
     private bool wantTrigerExit;
     private bool isMove = false;
     private int downTimes = 0;
+    static public int totalScore = 0;
     static public bool isWorking = false;
 
 	// Use this for initialization
@@ -43,6 +46,7 @@ public class Chao : MonoBehaviour {
         good.enabled = false;
         normal.enabled = false;
         pause = false;
+        totalScore = 0;
     }
 	
 	// Update is called once per frame
@@ -63,18 +67,18 @@ public class Chao : MonoBehaviour {
             if (isWorking)
             {
                 cnt++;
-                if (cnt > 300)
+                if (cnt > 200)
                 {
                     cnt = 0;
                 }
-                pointer.transform.position = GetBezierPoint(cnt / 300, pStart, pCenter, pEnd);
+                pointer.transform.position = GetBezierPoint(cnt / 200, pStart, pCenter, pEnd);
             }
 
             if (!isMove && lastPos != Vector3.zero)
             {
                 //deltaPos = lastPos - transform.position;
-                if (Mathf.Abs(transform.position.x - lastPos.x) >= 0.7f &&
-                Mathf.Abs(transform.position.y - lastPos.y) >= 0.7f)
+                if (Mathf.Abs(transform.position.x - lastPos.x) >= 0.4f &&
+                Mathf.Abs(transform.position.y - lastPos.y) >= 0.4f)
                 {
                     wantTrigerExit = true;
                     isWorking = true;
@@ -134,7 +138,6 @@ public class Chao : MonoBehaviour {
         }
         else if (!isWorking && chaoHerb.transform.position == correctTrans.position)
         {
-            Debug.Log("onmoouse debug");
             SetBack();
         }
         
@@ -142,7 +145,6 @@ public class Chao : MonoBehaviour {
 
     void SetBack()
     {
-        Debug.Log("SetBack......");
         isWorking = false;
         
         pointer.transform.position = pStart;
@@ -188,6 +190,7 @@ public class Chao : MonoBehaviour {
     {
         Debug.LogFormat("score is {0}", Point.chao_score);
         pointer.GetComponent<SpriteRenderer>().sprite = pointerSprites[1];
+        totalScore += Point.chao_score;
         if (Point.chao_score == 5)
         {
             normal.enabled = true;
@@ -211,11 +214,25 @@ public class Chao : MonoBehaviour {
     {
         transform.position = originPos;
         backButton.SetActive(true);
+        replayButton.SetActive(true);
         chaoArrow.SetActive(false);
         xunArrow.SetActive(false);
         bar.SetActive(false);
         pointer.SetActive(false);
-        chaoText.text = "<color=red>炒制完成</color>";
+        if (totalScore == 50)
+        {
+            resultText.text = "药材炮制非常完美";
+        }
+        else if (totalScore>=40 && totalScore < 50)
+        {
+            resultText.text = "药材炮制精良，但是还有改进空间";
+        }
+        else
+        {
+            resultText.text = "药材炮制基本完成，不过品质较差";
+        }
+        chaoText.text = "";
+        chaoHerb.GetComponent<SpriteRenderer>().sprite = herbSprites[1];
     }
 
     IEnumerator Wait()

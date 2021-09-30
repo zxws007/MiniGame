@@ -26,12 +26,12 @@ public class Point : MonoBehaviour {
         if (collider.name == "s1")
         {
             chao_score = 8;
-            Debug.Log("exit s1, score is 8");
+            //Debug.Log("exit s1, score is 8");
         }
         else if (collider.name == "s2")
         {
             chao_score = 10;
-            Debug.Log("exit s2, score is 10");
+            //Debug.Log("exit s2, score is 10");
         }
     }
 
@@ -40,12 +40,12 @@ public class Point : MonoBehaviour {
         if (collider.name == "s3")
         {
             chao_score = 8;
-            Debug.Log("enter s3, score is 8");
+            //Debug.Log("enter s3, score is 8");
         }
         else if (collider.name == "s4")
         {
             chao_score = 5;
-            Debug.Log("enter s4, score is 5");
+            //Debug.Log("enter s4, score is 5");
         }
     }
 

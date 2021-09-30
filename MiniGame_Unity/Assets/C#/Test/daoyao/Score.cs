@@ -33,6 +33,7 @@ public class Score : MonoBehaviour
 
     static public bool isStarting = false;
     static public int daoyao_score = 5;
+    static public int totalScore = 0;
     static public bool pause = false;
     static public int pause_cnt = 0;
     static public int stop_cnt = 0;
@@ -51,6 +52,7 @@ public class Score : MonoBehaviour
         best.enabled = false;
         good.enabled = false;
         normal.enabled = false;
+        totalScore = 0;
     }
     // Update is called once per frame
     void Update()
@@ -125,6 +127,7 @@ public class Score : MonoBehaviour
     private void showStop()
     {
         Debug.LogFormat("daoyao score is {0}", daoyao_score);
+        totalScore += daoyao_score;
         if (daoyao_score == 5)
         {
             normal.enabled = true;
