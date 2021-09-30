@@ -42,6 +42,7 @@ public class TestLightSensor : MonoBehaviour
                 }
             }
             curluxval = getLux();
+            //光感计算
             if (preluxval - curluxval >= threshold)
             {
                 GameObject.Find("GameManager").GetComponent<RunManager>().setIsGameOver(true);

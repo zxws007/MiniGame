@@ -121,6 +121,7 @@ public class RunManager : MonoBehaviour
     }
     public void PlayNext()
     {
+        //分数计算
         int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
         if (s==1||s==5)
         {
