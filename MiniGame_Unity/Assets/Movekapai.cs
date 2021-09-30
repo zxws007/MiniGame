@@ -40,6 +40,18 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public GameObject next;
     void Start()
     {
+        if (gameObject.scene.name == "05")
+        {
+            liucheng = 0;
+        }
+        if (gameObject.scene.name == "13")
+        {
+            liucheng = 1;
+        }
+        if (gameObject.scene.name == "21")
+        {
+            liucheng = 2;
+        }
         beginTrans = gameObject.transform.position;
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         chaihu_1.SetActive(false);
@@ -135,7 +147,13 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         }
         if (successList.Count == 0 && liucheng == 1)
         {
+            next.SetActive(true);
             liucheng++;
+            add = true;
+        }
+        if (successList.Count == 0 && liucheng == 2)
+        {
+            next.SetActive(true);
             add = true;
         }
     }

@@ -16,9 +16,12 @@ public class ChaoHerb : MonoBehaviour
     public Text herbText;
     public Text chaoText;
 
+    private Vector3 originPos;
+
     // Use this for initialization
     void Start()
     {
+        originPos = transform.position;
         herbArrow.SetActive(true);
         herbText.enabled = true;
 
@@ -56,6 +59,10 @@ public class ChaoHerb : MonoBehaviour
             chaoText.enabled = true;
             bar.GetComponent<SpriteRenderer>().enabled = true;
             pointer.GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else
+        {
+            transform.position = originPos;
         }
     }
 }

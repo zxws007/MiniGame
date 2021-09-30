@@ -15,7 +15,7 @@ public class Yaochange : MonoBehaviour
 
     void OnClick()
     {
-        SceneManager.LoadScene(scene);//level1为我们要切换到的场景
+        SceneManager.LoadScene("09");//level1为我们要切换到的场景
     }
 
     // Update is called once per frame

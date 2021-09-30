@@ -53,11 +53,10 @@ public class Chao : MonoBehaviour {
         }
         else
         {
-            if (pointer.transform.position == pEnd)
+            if (isWorking && pointer.transform.position == pEnd)
             {
                 isWorking = false;
                 pause = true;
-                //SetBack();
                 ShowScore();
                 StartCoroutine(Wait());
             }
@@ -73,8 +72,9 @@ public class Chao : MonoBehaviour {
 
             if (!isMove && lastPos != Vector3.zero)
             {
-                deltaPos = lastPos - transform.position;
-                if (deltaPos.magnitude > 0.5)
+                //deltaPos = lastPos - transform.position;
+                if (Mathf.Abs(transform.position.x - lastPos.x) >= 0.7f &&
+                Mathf.Abs(transform.position.y - lastPos.y) >= 0.7f)
                 {
                     wantTrigerExit = true;
                     isWorking = true;
@@ -97,10 +97,11 @@ public class Chao : MonoBehaviour {
             }
         }
         
-	}
+    }
 
     private void OnMouseDrag()
     {
+        
         if (!pause && chaoHerb.transform.position == correctTrans.position)
         {
             render.sprite = sprites[1];
@@ -119,7 +120,11 @@ public class Chao : MonoBehaviour {
 
     private void OnMouseUp()
     {
-        if (isWorking && transform.position != originPos)
+        if (transform.position == originPos)
+        {
+
+        }
+        else if (isWorking && transform.position != originPos)
         {
             isWorking = false;
             pause = true;
@@ -127,8 +132,9 @@ public class Chao : MonoBehaviour {
             ShowScore();
             StartCoroutine(Wait());
         }
-        if (!isWorking)
+        else if (!isWorking && chaoHerb.transform.position == correctTrans.position)
         {
+            Debug.Log("onmoouse debug");
             SetBack();
         }
         
@@ -136,8 +142,9 @@ public class Chao : MonoBehaviour {
 
     void SetBack()
     {
+        Debug.Log("SetBack......");
         isWorking = false;
-        wantTrigerExit = false;
+        
         pointer.transform.position = pStart;
         render.sprite = sprites[0];
         chaoArrow.SetActive(true);
@@ -195,6 +202,9 @@ public class Chao : MonoBehaviour {
         }
         Point.chao_score = 5;
         totalTimes--;
+        transform.position = originPos;
+        wantTrigerExit = false;
+        render.sprite = sprites[0];
     }
 
     void ShowFinish()
@@ -218,6 +228,10 @@ public class Chao : MonoBehaviour {
         isMove = false;
         lastPos = Vector3.zero;
         cnt = 0;
-        SetBack();
+        if (totalTimes > 0)
+        {
+            SetBack();
+        }
+        
     }
 }

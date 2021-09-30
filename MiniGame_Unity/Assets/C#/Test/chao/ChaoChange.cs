@@ -4,20 +4,23 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ChaoChange : MonoBehaviour {
+public class ChaoChange : MonoBehaviour
+{
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void OnClick()
+    // Use this for initialization
+    void Start()
     {
-        SceneManager.LoadScene("3");//level1为我们要切换到的场景
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void OnClick()
+    {
+        SceneManager.LoadScene("08");//level1为我们要切换到的场景
     }
 }
