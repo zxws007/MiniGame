@@ -7,6 +7,7 @@ public class Chao : MonoBehaviour {
     public Sprite[] sprites;
     public Sprite[] herbSprites;
     public Sprite[] pointerSprites;
+    public Sprite[] resultSprites;
     public GameObject chaoArrow;
     public GameObject xunArrow;
     public GameObject bar;
@@ -17,9 +18,9 @@ public class Chao : MonoBehaviour {
     public Image good;
     public Image normal;
     public Text chaoText;
-    public Text resultText;
     public GameObject backButton;
     public GameObject replayButton;
+    public Image resultImage;
     public int totalTimes;
 
     private SpriteRenderer render;
@@ -27,7 +28,7 @@ public class Chao : MonoBehaviour {
     private Vector3 lastPos = Vector3.zero;
     private Vector3 deltaPos;
     private float cnt = 0;
-    private Vector3 pStart = new Vector3(1, 3.7f, 0);
+    private Vector3 pStart = new Vector3(0.95f, 3.6f, 0);
     private Vector3 pEnd = new Vector3(9, 3.7f, 0);
     private Vector3 pCenter = new Vector3(5,5,0);
     private bool pause;
@@ -46,6 +47,7 @@ public class Chao : MonoBehaviour {
         good.enabled = false;
         normal.enabled = false;
         pause = false;
+        resultImage.enabled = false;
         totalScore = 0;
     }
 	
@@ -72,6 +74,8 @@ public class Chao : MonoBehaviour {
                     cnt = 0;
                 }
                 pointer.transform.position = GetBezierPoint(cnt / 200, pStart, pCenter, pEnd);
+                // isWorking 即炒的期间发出音效，但在update函数中有可能声音没放完就播放下一次声音，考虑下怎么做
+
             }
 
             if (!isMove && lastPos != Vector3.zero)
@@ -86,8 +90,8 @@ public class Chao : MonoBehaviour {
                     isMove = true;
                 }
             }
-            if (!isMove && Mathf.Abs(transform.position.x - correctTrans.position.x) <= 1f &&
-                Mathf.Abs(transform.position.y - correctTrans.position.y) <= 1f)
+            if (!isMove && Mathf.Abs(transform.position.x - correctTrans.position.x) <= 1.5f &&
+                Mathf.Abs(transform.position.y - correctTrans.position.y) <= 1.5f)
             {
                 if (lastPos == Vector3.zero)
                 {
@@ -158,16 +162,7 @@ public class Chao : MonoBehaviour {
     }
 
     
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    if (collision.name == "锅")
-    //    {
-    //        wantTrigerExit = true;
-    //        isWorking = true;
-    //        chaoHerb.GetComponent<SpriteRenderer>().sprite = herbSprites[0];
-    //    }
-    //}
+    
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -175,7 +170,6 @@ public class Chao : MonoBehaviour {
         {
             isWorking = false;
             pause = true;
-            //SetBack();
             ShowScore();
             StartCoroutine(Wait());
         }
@@ -213,6 +207,7 @@ public class Chao : MonoBehaviour {
     void ShowFinish()
     {
         transform.position = originPos;
+        render.sprite = sprites[0];
         backButton.SetActive(true);
         replayButton.SetActive(true);
         chaoArrow.SetActive(false);
@@ -221,16 +216,17 @@ public class Chao : MonoBehaviour {
         pointer.SetActive(false);
         if (totalScore == 50)
         {
-            resultText.text = "药材炮制非常完美";
+            resultImage.sprite = resultSprites[0];
         }
         else if (totalScore>=40 && totalScore < 50)
         {
-            resultText.text = "药材炮制精良，但是还有改进空间";
+            resultImage.sprite = resultSprites[1];
         }
         else
         {
-            resultText.text = "药材炮制基本完成，不过品质较差";
+            resultImage.sprite = resultSprites[2];
         }
+        resultImage.enabled = true;
         chaoText.text = "";
         chaoHerb.GetComponent<SpriteRenderer>().sprite = herbSprites[1];
     }

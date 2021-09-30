@@ -13,6 +13,7 @@ public class Score : MonoBehaviour
     public GameObject s2;
     public GameObject s3;
     public GameObject s4;
+    public GameObject s5;
     public Image best;
     public Image good;
     public Image normal;
@@ -79,30 +80,49 @@ public class Score : MonoBehaviour
     }
 
 
-    private void OnTriggerExit2D(Collider2D collider)
+    //private void OnTriggerExit2D(Collider2D collider)
+    //{
+    //    if (!pause && collider.name == "s4")
+    //    {
+    //        daoyao_score = 8;
+    //        Debug.Log("exit s4");
+    //    }
+    //    else if (collider.name == "s3")
+    //    {
+    //        daoyao_score = 10;
+    //        Debug.Log("exit s3");
+    //    }
+    //}
+    //
+    //private void OnTriggerEnter2D(Collider2D collider)
+    //{
+    //    if (collider.name == "s2")
+    //    {
+    //        daoyao_score = 8;
+    //        Debug.Log("enter s2");
+    //    }
+    //    else if (collider.name == "s1")
+    //    {
+    //        daoyao_score = 5;
+    //        Debug.Log("enter s1");
+    //    }
+    //}
+    private void OnTriggerStay2D(Collider2D other)
     {
-        if (collider.name == "s4")
+        if (other.name == "s5" || other.name == "s1")
+        {
+            daoyao_score = 5;
+        }
+        else if (other.name == "s4" || other.name == "s2")
         {
             daoyao_score = 8;
         }
-        else if (collider.name == "s3")
+        else if (other.name == "s3")
         {
             daoyao_score = 10;
         }
     }
-
-    private void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.name == "s2")
-        {
-            daoyao_score = 8;
-        }
-        else if (collider.name == "s1")
-        {
-            daoyao_score = 5;
-        }
-    }
-
+    
 
     public static Vector3 GetBezierPoint(float t, Vector3 start, Vector3 center, Vector3 end)
     {
@@ -166,5 +186,6 @@ public class Score : MonoBehaviour
         good.enabled = false;
         normal.enabled = false;
         act.interactable = true;
+        daoyao_score = 5;
     }
 }
