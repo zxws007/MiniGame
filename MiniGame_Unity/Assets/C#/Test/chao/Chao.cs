@@ -28,7 +28,7 @@ public class Chao : MonoBehaviour {
     private Vector3 lastPos = Vector3.zero;
     private Vector3 deltaPos;
     private float cnt = 0;
-    private Vector3 pStart = new Vector3(1, 3.7f, 0);
+    private Vector3 pStart = new Vector3(0.95f, 3.6f, 0);
     private Vector3 pEnd = new Vector3(9, 3.7f, 0);
     private Vector3 pCenter = new Vector3(5,5,0);
     private bool pause;
