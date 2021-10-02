@@ -2,7 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler
+public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
 
     private RawImage img;
@@ -11,9 +11,11 @@ public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler
     public static bool isOK = false;
     public GameObject jiantou;
     public GameObject huagndong;
+    Vector3 startPos = Vector3.zero;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
+        startPos = gameObject.transform.position;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -24,15 +26,21 @@ public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler
     {
         offsetPos = img.rectTransform.position - Input.mousePosition;
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    public void OnPointerUp(PointerEventData eventData)
     {
-        if (coll.gameObject.tag == "shaizi")
+        if (Mathf.Abs(gameObject.transform.position.x - yaocao1.transform.position.x) <= 50f &&
+            Mathf.Abs(gameObject.transform.position.y - yaocao1.transform.position.y) <= 50f)
         {
             isOK = true;
             yaocao1.SetActive(true);
             gameObject.SetActive(false);
             jiantou.SetActive(false);
             huagndong.SetActive(true);
+        }
+        else
+        {
+            gameObject.transform.position = startPos;
+            Debug.Log("1");
         }
     }
 }
