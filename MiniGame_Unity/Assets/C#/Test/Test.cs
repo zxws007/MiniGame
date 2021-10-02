@@ -30,8 +30,14 @@ public class Test : MonoBehaviour
     public GameObject wanchegn;
     bool jieshu = false;
     public Text debug;
+    public GameObject btn;
+    public GameObject mask;
     void Start()
     {
+        if (gameObject.scene.name == "03")
+        {
+            //do something
+        }
         Input.multiTouchEnabled = true;
         myButton1.OnLongPress.AddListener(() =>
         {
@@ -71,7 +77,7 @@ public class Test : MonoBehaviour
             sucesstime += Time.deltaTime;
             slider.value = sucesstime / 10f;
             xdt.SetActive(true);
-            Handheld.Vibrate();
+            StartCoroutine(Wiat1());
             text.enabled = false;
             img.SetActive(false);
             textzt.SetActive(false);
@@ -86,6 +92,8 @@ public class Test : MonoBehaviour
                 text.text = "";
                 xdt.SetActive(false);
                 jieshu = true;
+                btn.SetActive(true);
+                mask.SetActive(true);
             }
         }
         if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp && !jieshu)
@@ -144,7 +152,6 @@ public class Test : MonoBehaviour
                 img.SetActive(true);
                 texts.SetActive(true);
             }
-            xdt.SetActive(false);
             tiaozhegn1.SetActive(false);
             tiaozhegn2.SetActive(false);
             tiaozhegn3.SetActive(false);
@@ -171,4 +178,10 @@ public class Test : MonoBehaviour
     {
         SceneManager.LoadScene("20");
     }
+    IEnumerator Wiat1()
+    {
+        Handheld.Vibrate();
+        yield return new WaitForSeconds(1);
+    }
+
 }
