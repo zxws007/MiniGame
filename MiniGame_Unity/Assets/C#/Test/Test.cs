@@ -11,6 +11,9 @@ public class Test : MonoBehaviour
     public Bamai myButton2;
     public Bamai myButton3;
 
+    public GameObject myButton11;
+    public GameObject myButton21;
+    public GameObject myButton31;
     bool b1 = false;
     bool b2 = false;
     bool b3 = false;
@@ -32,6 +35,7 @@ public class Test : MonoBehaviour
     public Text debug;
     public GameObject btn;
     public GameObject mask;
+    bool finish = false;
     void Start()
     {
         if (gameObject.scene.name == "03")
@@ -72,12 +76,12 @@ public class Test : MonoBehaviour
         {
             time = 0;
         }
-        if (b1 && b2 && b3 && (Bamai.isp && time > 2.0f))
+        if (b1 && b2 && b3 && (Bamai.isp && time > 2.0f) && !finish)
         {
             sucesstime += Time.deltaTime;
             slider.value = sucesstime / 10f;
             xdt.SetActive(true);
-            StartCoroutine(Wiat1());
+            Handheld.Vibrate();
             text.enabled = false;
             img.SetActive(false);
             textzt.SetActive(false);
@@ -88,6 +92,7 @@ public class Test : MonoBehaviour
             tishitime = 0;
             if (slider.value == 1)
             {
+                finish = true;
                 wanchegn.SetActive(true);
                 text.text = "";
                 xdt.SetActive(false);
@@ -178,10 +183,8 @@ public class Test : MonoBehaviour
     {
         SceneManager.LoadScene("20");
     }
-    IEnumerator Wiat1()
+    public void ZWYC()
     {
-        Handheld.Vibrate();
-        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(gameObject.scene.name);
     }
-
 }
