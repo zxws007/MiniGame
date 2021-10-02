@@ -35,7 +35,6 @@ public class Animate : MonoBehaviour {
             long deltaTime = (DateTime.Now.Ticks - startTime)/10000;
             // 计算当前的帧index
             int currFrameIdx = (int)(((long)((deltaTime / ((1.0f / FPS)*1000))))%Frames.Count);
-            Debug.Log(currFrameIdx);
             if (currFrameIdx != CurrFrameIdx) {
                 SetCurrFrame(currFrameIdx);
             }
@@ -67,7 +66,7 @@ public class Animate : MonoBehaviour {
     }
 
     // 设置当前的显示帧
-    void SetCurrFrame(int idx)
+    public void SetCurrFrame(int idx)
     {
         spriteRenderer.sprite = Frames[idx];
         CurrFrameIdx = idx;

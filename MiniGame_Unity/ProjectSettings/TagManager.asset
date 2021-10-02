@@ -13,6 +13,8 @@ TagManager:
   - Stage3
   - Stage4
   - Stage5
+  - Undefined
+  - shenghuoQTE
   layers:
   - Default
   - TransparentFX
