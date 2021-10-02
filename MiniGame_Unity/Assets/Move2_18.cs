@@ -19,7 +19,7 @@ public class Move2_18 : MonoBehaviour
     }
     public void OnClick()
     {
-        SceneManager.LoadScene("18");//level1为我们要切换到的场景
+        SceneManager.LoadSceneAsync("18");//level1为我们要切换到的场景
     }
 
 }

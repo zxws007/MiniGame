@@ -39,6 +39,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public AudioSource as_cuo;
     public GameObject next;
     public GameObject mask;
+    public GameObject anban;
     void Start()
     {
         if (gameObject.scene.name == "05")
@@ -103,7 +104,7 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         }
         if (liucheng == 1 && add)
         {
-            // SceneManager.LoadScene(5);
+            // SceneManager.LoadSceneAsync(5);
             count = 0;
             hongdui1.SetActive(false);
             hongdui2.SetActive(false);
@@ -185,7 +186,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "shaizi")
+        if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
         {
             pengzhuagn = true;
             if (gameObject.name == "1")
@@ -222,7 +224,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "2")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 
@@ -258,7 +261,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "3")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 
@@ -294,7 +298,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "4")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 
@@ -330,7 +335,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "5")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 
@@ -370,7 +376,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "6")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 
@@ -406,7 +413,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "7")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 
@@ -442,7 +450,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
                     gameObject.transform.position = beginTrans;
                 }
             }
-            if (gameObject.name == "8")
+            if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+                Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
             {
                 pengzhuagn = true;
 

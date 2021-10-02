@@ -731,6 +731,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &203650718
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1040,6 +1041,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &278362613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1378,6 +1380,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &355995883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1846,6 +1849,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &506788686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2982,6 +2986,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &914967903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4806,6 +4811,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &1802107761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5301,6 +5307,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &1884730039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5610,6 +5617,7 @@ MonoBehaviour:
   as_cuo: {fileID: 1761028643}
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
+  anban: {fileID: 1857628667}
 --- !u!114 &1969293535
 MonoBehaviour:
   m_ObjectHideFlags: 0

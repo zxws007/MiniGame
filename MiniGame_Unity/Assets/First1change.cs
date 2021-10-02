@@ -15,7 +15,7 @@ public class First1change : MonoBehaviour
 
     void OnClick()
     {
-        SceneManager.LoadScene("11");//level1为我们要切换到的场景
+        SceneManager.LoadSceneAsync("11");//level1为我们要切换到的场景
     }
 
     // Update is called once per frame

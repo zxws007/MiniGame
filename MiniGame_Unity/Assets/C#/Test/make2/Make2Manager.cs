@@ -40,7 +40,7 @@ public class Make2Manager : MonoBehaviour
             show2.SetActive(true);
             hide2.SetActive(false);
             button1.SetActive(true);
-            //SceneManager.LoadScene("1");
+            //SceneManager.LoadSceneAsync("1");
         }
 
         if (change == 4)

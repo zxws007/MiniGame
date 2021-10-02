@@ -13,6 +13,14 @@ public class DaoPanding : MonoBehaviour
     public GameObject jiesuan;
     public Animator yaocai;
     public Animator tiao;
+    void Start()
+    {
+        MoveY.qiesidao = 0;
+        MoveY.totleScore = 0;
+        success = false;
+        lianghao = false;
+        yiban = false;
+    }
     void OnCollisionStay2D(Collision2D coll)
     {
         if (coll.gameObject.tag == "Player")

@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class dragherb : MonoBehaviour {
+public class dragherb : MonoBehaviour
+{
     // Use this for initialization
     private GameObject ArrowHerb;
     private GameObject PutHerb;
@@ -11,25 +13,27 @@ public class dragherb : MonoBehaviour {
     public GameObject popherb;
     public GameObject popcloth;
     public bool HerbReady = false;
-    void Start () {
+    public Text debug;
+    void Start()
+    {
         ArrowHerb = GameObject.Find("ArrowHerb");
         PutHerb = GameObject.Find("PutHerb");
     }
-	
-	// Update is called once per frame
+
+    // Update is called once per frame
     void Update()
     {
         //Debug.Log(transform.position);
     }
-	private void OnMouseDrag()
+    private void OnMouseDrag()
     {
-        if(GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready() == false)
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready() == false)
         {
             Vector2 cursorPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             if (cursorPos.x <= 6)
             {
                 transform.position = new Vector2(cursorPos.x, cursorPos.y);
-            }    
+            }
         }
     }
     private void OnMouseEnter()
@@ -45,6 +49,7 @@ public class dragherb : MonoBehaviour {
         if (col.gameObject.tag == "panzi")
         {
             // Debug.Log("OnCollisionEnter2D");
+            debug.text = "nmsl";
             PutHerb.SetActive(false);
             ArrowHerb.SetActive(false);
             popherb.SetActive(false);
@@ -52,7 +57,7 @@ public class dragherb : MonoBehaviour {
     }
     void OnMouseUp()
     {
-        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready() == false&&transform.position.x>0.7&&transform.position.y<1.8 &&transform.position.y > -1.3)
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready() == false && transform.position.x > 0.7 && transform.position.y < 1.8 && transform.position.y > -1.3)
         {
             ArrowCloth.SetActive(true);
             PutCloth.SetActive(true);
@@ -67,6 +72,7 @@ public class dragherb : MonoBehaviour {
         {
             //Debug.Log("OnCollisionEnter2D");
             PutHerb.SetActive(true);
+            debug.text = "nmsl2";
             ArrowHerb.SetActive(true);
             popherb.SetActive(true);
             //ArrowCloth.SetActive(false);

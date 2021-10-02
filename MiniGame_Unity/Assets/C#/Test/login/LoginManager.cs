@@ -45,7 +45,7 @@ public class LoginManager : MonoBehaviour {
         }
         else if (passwd.text == PlayerPrefs.GetString(user.text))
         {
-            SceneManager.LoadScene("01");
+            SceneManager.LoadSceneAsync("01");
         }
         else
         {

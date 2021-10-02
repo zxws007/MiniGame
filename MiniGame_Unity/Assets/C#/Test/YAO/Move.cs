@@ -16,6 +16,7 @@ public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         startPos = gameObject.transform.position;
+        isOK = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -28,8 +29,8 @@ public class Move : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUp
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Mathf.Abs(gameObject.transform.position.x - yaocao1.transform.position.x) <= 50f &&
-            Mathf.Abs(gameObject.transform.position.y - yaocao1.transform.position.y) <= 50f)
+        if (Mathf.Abs(gameObject.transform.position.x - yaocao1.transform.position.x) <= 100f &&
+            Mathf.Abs(gameObject.transform.position.y - yaocao1.transform.position.y) <= 100f)
         {
             isOK = true;
             yaocao1.SetActive(true);

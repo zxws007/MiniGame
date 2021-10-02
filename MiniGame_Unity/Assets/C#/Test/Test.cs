@@ -173,18 +173,18 @@ public class Test : MonoBehaviour
     }
     public void XYB()
     {
-        SceneManager.LoadScene("04");
+        SceneManager.LoadSceneAsync("04");
     }
     public void XYB1()
     {
-        SceneManager.LoadScene("12");
+        SceneManager.LoadSceneAsync("12");
     }
     public void XYB2()
     {
-        SceneManager.LoadScene("20");
+        SceneManager.LoadSceneAsync("20");
     }
     public void ZWYC()
     {
-        SceneManager.LoadScene(gameObject.scene.name);
+        SceneManager.LoadSceneAsync(gameObject.scene.name);
     }
 }

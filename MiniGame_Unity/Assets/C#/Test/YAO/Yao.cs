@@ -34,10 +34,23 @@ public class Yao : MonoBehaviour
     void Start()
     {
         animator.speed = 0;
+        button2.SetActive(false);
+        jingzhi.SetActive(false);
+        huangdong1.SetActive(false);
+        huangdong.SetActive(false);
+        chuangdong.SetActive(false);
+        cjingzhi.SetActive(false);
+        i = 0;
+        C = false;
+        isshake = false;
     }
     public void Move15()
     {
-        SceneManager.LoadScene("15");//level1为我们要切换到的场景
+        SceneManager.LoadSceneAsync("15");//level1为我们要切换到的场景
+    }
+    public void Moveagain()
+    {
+        SceneManager.LoadSceneAsync(gameObject.scene.name);//level1为我们要切换到的场景
     }
 
     void Update()
