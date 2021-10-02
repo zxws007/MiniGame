@@ -38,19 +38,23 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public AudioSource as_dui;
     public AudioSource as_cuo;
     public GameObject next;
+    public GameObject mask;
     void Start()
     {
         if (gameObject.scene.name == "05")
         {
             liucheng = 0;
+            successList.Clear();
         }
         if (gameObject.scene.name == "13")
         {
             liucheng = 1;
+            successList.Clear();
         }
         if (gameObject.scene.name == "21")
         {
             liucheng = 2;
+            successList.Clear();
         }
         beginTrans = gameObject.transform.position;
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -142,18 +146,22 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         if (successList.Count == 0 && liucheng == 0)
         {
             next.SetActive(true);
-            liucheng++;
+            Time.timeScale = 0;
+            mask.SetActive(true);
             add = true;
         }
         if (successList.Count == 0 && liucheng == 1)
         {
             next.SetActive(true);
-            liucheng++;
+            Time.timeScale = 0;
+            mask.SetActive(true);
             add = true;
         }
         if (successList.Count == 0 && liucheng == 2)
         {
             next.SetActive(true);
+            Time.timeScale = 0;
+            mask.SetActive(true);
             add = true;
         }
     }
