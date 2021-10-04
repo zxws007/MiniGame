@@ -2476,7 +2476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90d8581223f0f7b4eb8ef470221c64ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  successlist: []
   chaihu_1: {fileID: 355995880}
   huagnqin_2: {fileID: 914967898}
   dangshen_3: {fileID: 326055504}
@@ -3865,7 +3864,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 355995885}
-        m_MethodName: Move06
+        m_MethodName: Move14
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
