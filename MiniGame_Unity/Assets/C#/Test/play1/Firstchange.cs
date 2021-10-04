@@ -14,6 +14,7 @@ public class Firstchange : MonoBehaviour {
 
     void OnClick()
     {
+        Debug.Log("1");
         SceneManager.LoadSceneAsync("03");//level1为我们要切换到的场景
     }
 

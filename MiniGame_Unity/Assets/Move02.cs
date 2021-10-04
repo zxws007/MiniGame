@@ -6,7 +6,11 @@ using UnityEngine.UI;
 
 public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
+    int i = 0;
     public GameObject panding;
+    public GameObject panding2;
+    public GameObject hide;
+    public GameObject hide1;
     private Vector3 startPos;
     private RawImage img;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
@@ -19,8 +23,8 @@ public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
     {
         //将鼠标的位置坐标进行钳制，然后加上位置差再赋值给图片position
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
-        Debug.Log(gameObject.transform.position);
-        Debug.Log(panding.transform.position);
+        //Debug.Log(gameObject.transform.position);
+        //Debug.Log(panding.transform.position);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -30,15 +34,44 @@ public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Mathf.Abs(gameObject.transform.position.x - panding.transform.position.x) <= 10f &&
-            Mathf.Abs(gameObject.transform.position.y - panding.transform.position.y) <= 10f)
+        //判定1
+        if (i == 0)
         {
-            Debug.Log("2");
+            if (Mathf.Abs(gameObject.transform.position.x - panding.transform.position.x) <= 50f &&
+              Mathf.Abs(gameObject.transform.position.y - panding.transform.position.y) <= 50f)
+            {
+
+                gameObject.transform.position = panding.transform.position;
+                i = 1;
+                //hide.SetActive(false);
+            }
+            else
+            {
+                gameObject.transform.position = startPos;
+                Debug.Log("1");
+            }
         }
-        else
+        //判定2
+        if (i == 0)
         {
-            gameObject.transform.position = startPos;
-            Debug.Log("1");
+            if (Mathf.Abs(gameObject.transform.position.x - panding2.transform.position.x) <= 50f &&
+              Mathf.Abs(gameObject.transform.position.y - panding2.transform.position.y) <= 50f)
+            {
+                gameObject.transform.position = panding2.transform.position;
+                i = 1;
+                //hide.SetActive(false);
+            }
+            else
+            {
+                gameObject.transform.position = startPos;
+                Debug.Log("1");
+            }
+        }
+        if (i == 1)
+        {
+            Manager02.index++;
+            hide1.SetActive(false);
+            hide.SetActive(false);
         }
     }
 
