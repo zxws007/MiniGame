@@ -24,7 +24,7 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     }
     void Start()
     {
-        Bamai.my_longPressTime = 0.5f;
+        Bamai.my_longPressTime = 1f;
         myButton1.OnLongPress.AddListener(() =>
         {
             animatorEnter.SetBool("IsUp", true);
