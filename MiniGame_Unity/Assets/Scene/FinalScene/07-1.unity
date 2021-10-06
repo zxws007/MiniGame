@@ -280,15 +280,15 @@ RectTransform:
   m_GameObject: {fileID: 287229433}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.9010061, y: 0.6439083, z: 1.319127}
+  m_LocalScale: {x: 1, y: 1, z: 1.319127}
   m_Children: []
   m_Father: {fileID: 2147222426}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.40000153, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.3999939, y: 9.9}
+  m_SizeDelta: {x: 0, y: 30.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &287229435
 MonoBehaviour:
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.6901961, g: 0.43137255, b: 0.3019608, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -310,12 +310,12 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1625,6 +1625,7 @@ GameObject:
   - component: {fileID: 2147222428}
   - component: {fileID: 2147222427}
   - component: {fileID: 2147222430}
+  - component: {fileID: 2147222431}
   m_Layer: 5
   m_Name: SucceedButton
   m_TagString: Untagged
@@ -1640,7 +1641,7 @@ RectTransform:
   m_GameObject: {fileID: 2147222425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2.0298684, y: 3.4016228, z: 0.8722109}
+  m_LocalScale: {x: 1, y: 1, z: 0.8722109}
   m_Children:
   - {fileID: 287229434}
   m_Father: {fileID: 1115030612}
@@ -1649,7 +1650,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 745.4, y: -26.7}
-  m_SizeDelta: {x: 160, y: 30}
+  m_SizeDelta: {x: 524, y: 195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2147222427
 MonoBehaviour:
@@ -1748,3 +1749,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textToShow: "\u751F\u706B\u6210\u529F!\u7092\u836F\u53BB"
+--- !u!95 &2147222431
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2147222425}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4b505f02a240a24e8be402af3d66d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

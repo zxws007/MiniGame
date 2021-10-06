@@ -1292,6 +1292,7 @@ GameObject:
   - component: {fileID: 690794978}
   - component: {fileID: 690794977}
   - component: {fileID: 690794976}
+  - component: {fileID: 690794979}
   m_Layer: 5
   m_Name: Button (4)
   m_TagString: Untagged
@@ -1403,6 +1404,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 690794974}
+--- !u!95 &690794979
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 690794974}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4b505f02a240a24e8be402af3d66d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &695061172
 GameObject:
   m_ObjectHideFlags: 0
@@ -3747,6 +3765,7 @@ GameObject:
   - component: {fileID: 1728387151}
   - component: {fileID: 1728387150}
   - component: {fileID: 1728387149}
+  - component: {fileID: 1728387152}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -3858,6 +3877,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1728387147}
+--- !u!95 &1728387152
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1728387147}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4b505f02a240a24e8be402af3d66d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1739278430
 GameObject:
   m_ObjectHideFlags: 0

@@ -140,7 +140,7 @@ public class KapaiManager : MonoBehaviour
         if (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !b8)
         {
             next.SetActive(true);
-            Time.timeScale = 0;
+            //Time.timeScale = 0;
             mask.SetActive(true);
         }
         if (Mathf.Abs(chaihu_1.transform.position.x - anban.transform.position.x) <= 500 &&

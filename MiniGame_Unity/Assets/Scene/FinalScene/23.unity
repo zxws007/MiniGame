@@ -237,11 +237,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
-    m_FontSize: 30
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -1041,6 +1041,7 @@ GameObject:
   - component: {fileID: 602534504}
   - component: {fileID: 602534503}
   - component: {fileID: 602534502}
+  - component: {fileID: 602534506}
   m_Layer: 5
   m_Name: replay
   m_TagString: Untagged
@@ -1065,7 +1066,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -533.5, y: -232}
-  m_SizeDelta: {x: 200, y: 70}
+  m_SizeDelta: {x: 524, y: 195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602534502
 MonoBehaviour:
@@ -1163,6 +1164,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 602534500}
+--- !u!95 &602534506
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 602534500}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4b505f02a240a24e8be402af3d66d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &678063999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1552,7 @@ GameObject:
   - component: {fileID: 860952306}
   - component: {fileID: 860952305}
   - component: {fileID: 860952308}
+  - component: {fileID: 860952309}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1558,7 +1577,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 546, y: -232}
-  m_SizeDelta: {x: 200, y: 70}
+  m_SizeDelta: {x: 524, y: 195}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &860952305
 MonoBehaviour:
@@ -1656,6 +1675,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63677b42863a3dc4f992cc9c4ca19633, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &860952309
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 860952303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d4b505f02a240a24e8be402af3d66d3a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &895927085
 GameObject:
   m_ObjectHideFlags: 0
@@ -1712,11 +1748,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
-    m_FontSize: 30
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1

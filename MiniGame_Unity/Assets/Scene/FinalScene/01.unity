@@ -448,6 +448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1080156511}
   - component: {fileID: 1080156510}
+  - component: {fileID: 1080156512}
   m_Layer: 0
   m_Name: "\u5BF9\u8BDD1"
   m_TagString: Untagged
@@ -512,6 +513,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1080156512
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1080156509}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33d3dc2e26bd45f428f5d8cc28fdac7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1891361164
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2021118023}
   - component: {fileID: 2021118022}
+  - component: {fileID: 2021118024}
   m_Layer: 0
   m_Name: "\u5BF9\u8BDD2"
   m_TagString: Untagged
@@ -628,6 +647,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2021118024
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2021118021}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 33d3dc2e26bd45f428f5d8cc28fdac7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &2081668379
 GameObject:
   m_ObjectHideFlags: 0
@@ -640,6 +676,7 @@ GameObject:
   - component: {fileID: 2081668382}
   - component: {fileID: 2081668381}
   - component: {fileID: 2081668384}
+  - component: {fileID: 2081668385}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -761,3 +798,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8761f32e7161cb4a81101a9354f2b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2081668385
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2081668379}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: da9521e9150cc0248b0a3bc5f2a5c2cc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1

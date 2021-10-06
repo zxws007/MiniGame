@@ -13,7 +13,6 @@ public class dragherb : MonoBehaviour
     public GameObject popherb;
     public GameObject popcloth;
     public bool HerbReady = false;
-    public Text debug;
     void Start()
     {
         ArrowHerb = GameObject.Find("ArrowHerb");
@@ -49,7 +48,6 @@ public class dragherb : MonoBehaviour
         if (col.gameObject.tag == "panzi")
         {
             // Debug.Log("OnCollisionEnter2D");
-            debug.text = "nmsl";
             PutHerb.SetActive(false);
             ArrowHerb.SetActive(false);
             popherb.SetActive(false);
@@ -72,7 +70,6 @@ public class dragherb : MonoBehaviour
         {
             //Debug.Log("OnCollisionEnter2D");
             PutHerb.SetActive(true);
-            debug.text = "nmsl2";
             ArrowHerb.SetActive(true);
             popherb.SetActive(true);
             //ArrowCloth.SetActive(false);

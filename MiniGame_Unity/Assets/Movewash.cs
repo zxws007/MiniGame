@@ -19,10 +19,12 @@ public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
     public GameObject tishi2;
     public GameObject shui;
     public GameObject shui2;
+    Vector3 beginPos;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         dangguijinzhi.SetActive(false);
+        beginPos = gameObject.transform.position;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -52,5 +54,9 @@ Mathf.Abs(gameObject.transform.position.y - shui.transform.position.y) <= 100f)
     }
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (!pengzhuang)
+        {
+            gameObject.transform.position = beginPos;
+        }
     }
 }
