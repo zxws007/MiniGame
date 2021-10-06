@@ -3888,7 +3888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panding: {fileID: 744895754}
-  panding2: {fileID: 0}
+  panding2: {fileID: 744895754}
   hide: {fileID: 0}
   hide1: {fileID: 1391147293}
 --- !u!222 &1931378338
