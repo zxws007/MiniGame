@@ -1,10 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class FirstManager : MonoBehaviour
-{
+public class Manager18 : MonoBehaviour {
 
     public GameObject bing2;
 
@@ -12,8 +10,7 @@ public class FirstManager : MonoBehaviour
     public GameObject show2;
     public GameObject show3;
     public GameObject show4;
-    public GameObject show5;
-    public GameObject show6;
+
 
     public GameObject hide1;
 
@@ -48,14 +45,6 @@ public class FirstManager : MonoBehaviour
             show4.SetActive(true);
         }
         if (index == 5)
-        {
-            show5.SetActive(true);
-        }
-        if (index == 6)
-        {
-            show6.SetActive(true);
-        }
-        if (index == 7)
         {
             hide1.SetActive(false);
             bing2.SetActive(true);

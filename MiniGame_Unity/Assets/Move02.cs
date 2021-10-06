@@ -37,8 +37,10 @@ public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
         //判定1
         if (i == 0)
         {
-            if (Mathf.Abs(gameObject.transform.position.x - panding.transform.position.x) <= 50f &&
+            if( (Mathf.Abs(gameObject.transform.position.x - panding.transform.position.x) <= 50f &&
               Mathf.Abs(gameObject.transform.position.y - panding.transform.position.y) <= 50f)
+              ||(Mathf.Abs(gameObject.transform.position.x - panding2.transform.position.x) <= 50f &&
+              Mathf.Abs(gameObject.transform.position.y - panding2.transform.position.y) <= 50f))
             {
 
                 gameObject.transform.position = panding.transform.position;
@@ -51,22 +53,7 @@ public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
                 Debug.Log("1");
             }
         }
-        //判定2
-        if (i == 0)
-        {
-            if (Mathf.Abs(gameObject.transform.position.x - panding2.transform.position.x) <= 50f &&
-              Mathf.Abs(gameObject.transform.position.y - panding2.transform.position.y) <= 50f)
-            {
-                gameObject.transform.position = panding2.transform.position;
-                i = 1;
-                //hide.SetActive(false);
-            }
-            else
-            {
-                gameObject.transform.position = startPos;
-                Debug.Log("1");
-            }
-        }
+
         if (i == 1)
         {
             Manager02.index++;
