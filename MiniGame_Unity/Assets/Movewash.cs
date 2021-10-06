@@ -25,6 +25,7 @@ public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         dangguijinzhi.SetActive(false);
         beginPos = gameObject.transform.position;
+        pengzhuang = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
