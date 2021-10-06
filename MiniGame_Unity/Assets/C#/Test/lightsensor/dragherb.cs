@@ -12,9 +12,11 @@ public class dragherb : MonoBehaviour
     public GameObject PutCloth;
     public GameObject popherb;
     public GameObject popcloth;
+    private Vector3 startPoint;
     public bool HerbReady = false;
     void Start()
     {
+        startPoint = transform.position;
         ArrowHerb = GameObject.Find("ArrowHerb");
         PutHerb = GameObject.Find("PutHerb");
     }
@@ -55,14 +57,20 @@ public class dragherb : MonoBehaviour
     }
     void OnMouseUp()
     {
-        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready() == false && transform.position.x > 0.7 && transform.position.y < 1.8 && transform.position.y > -1.3)
+        if (GameObject.Find("GameManager").GetComponent<RunManager>().getHerbready() == false)
         {
-            ArrowCloth.SetActive(true);
-            PutCloth.SetActive(true);
-            popcloth.SetActive(true);
-            GameObject.Find("GameManager").GetComponent<RunManager>().setHerbready(true);
+            if(transform.position.x > 0.7 && transform.position.y < 1.8 && transform.position.y > -1.3)
+            {
+                ArrowCloth.SetActive(true);
+                PutCloth.SetActive(true);
+                popcloth.SetActive(true);
+                GameObject.Find("GameManager").GetComponent<RunManager>().setHerbready(true);
+            }
+            else
+            {
+                transform.position = startPoint;
+            }
         }
-
     }
     void OnCollisionExit2D(Collision2D col)
     {

@@ -9,15 +9,17 @@ public class TestLightSensor : MonoBehaviour
     AndroidJavaClass activityClass = null;
     private float preluxval;
     private float curluxval;
-    private float threshold = 1000;
-    public GameObject luxtext;
-    public GameObject luxprogress;
-    public GameObject luxfinish;
+    private float threshold;
+    public GameObject slidetext;
     public Text text;
+    public GameObject slide;
     // public Text luxtext;
-    private int cnt = 200;
+    private float time;
+    private float slidetime; 
     public GameObject popbottle;
-    //private bool easymode = false;
+    private bool easymode;
+    private bool flag;
+    private bool slideflag;
     // Use this for initialization
     void Start()
     {
@@ -26,32 +28,56 @@ public class TestLightSensor : MonoBehaviour
         jo = new AndroidJavaObject("com.xxww.minigame_android.MainActivity");
         jo.Call("init", activityContext);
         preluxval = getLux();
+        threshold = 1000;
+        time = .0f;
+        slidetime = .0f;
+        slide.GetComponent<Slider>().maxValue = 100f;
+        slide.GetComponent<Slider>().minValue = .0f;
+        easymode = false;
+        flag = false;
+        slideflag = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GameObject.Find("GameManager").GetComponent<RunManager>().getIsGameOver())
+        if (flag==false && !GameObject.Find("GameManager").GetComponent<RunManager>().getIsGameOver())
         {
+            time += Time.deltaTime;
             popbottle.SetActive(true);
-            text.text = "请将药材置于阴暗处";
-            if (cnt <= 0)
+            if (easymode == false)
+            {
+                text.text = "请将药材置于阴暗处";
+            }
+            if (time > 2.0f)
             {
                 text.text = "试着用手盖住整个屏幕";
-                cnt = 200;
+                time=.0f;
                 threshold = threshold / 2.0f;
+                easymode = true;
             }
-            curluxval = getLux();
+           curluxval = getLux();
             //光感计算
-            if (preluxval - curluxval >= threshold)
+            if (slideflag || preluxval - curluxval >= threshold)
             {
-                luxtext.SetActive(true);
-                luxprogress.SetActive(true);
-                GameObject.Find("GameManager").GetComponent<RunManager>().setIsGameOver(true);
-                GameObject.Find("GameManager").GetComponent<RunManager>().Gameover();
+                if (slideflag == false)
+                {
+                    slidetext.SetActive(true);
+                    slide.SetActive(true);
+                    slideflag = true;
+                }           
+                if (slide.GetComponent<Slider>().value < slide.GetComponent<Slider>().maxValue)
+                {
+                    slide.GetComponent<Slider>().value += 1f;
+                }
+                else
+                {
+                    flag = true;
+                    GameObject.Find("GameManager").GetComponent<RunManager>().setIsGameOver(true);
+                    GameObject.Find("GameManager").GetComponent<RunManager>().Gameover();
+                }
             }
             preluxval = curluxval;
-            cnt--;
         }
     }
     public float getLux()

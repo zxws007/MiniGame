@@ -14,8 +14,10 @@ public class RunManager : MonoBehaviour
     public GameObject ClothEnd;
     public GameObject QTEslice;
     public GameObject QTE;
-    public GameObject settleaccounts;
-    public Text settleaccountstext;
+    public GameObject setacccommon;
+    public GameObject setaccexcellent;
+    public GameObject setaccgood;
+    //public Text settleaccountstext;
     public Text txt;
     private Camera mainCamera;
     public GameObject lux;
@@ -102,19 +104,18 @@ public class RunManager : MonoBehaviour
     }
     public void Gameover()
     {
-        settleaccounts.SetActive(true);
         int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
         if (s == 1 || s == 5)
         {
-            settleaccountstext.text = "普通";
+            setacccommon.SetActive(true);
         }
         else if (s == 2 || s == 4)
         {
-            settleaccountstext.text = "良好";
+            setaccgood.SetActive(true);
         }
         else if (s == 3)
         {
-            settleaccountstext.text = "优秀";
+            setaccexcellent.SetActive(true);
         }
     }
     public void PlayAgain()
