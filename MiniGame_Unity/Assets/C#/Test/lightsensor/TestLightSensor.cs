@@ -9,12 +9,15 @@ public class TestLightSensor : MonoBehaviour
     AndroidJavaClass activityClass = null;
     private float preluxval;
     private float curluxval;
-    private float threshold = 100.0f;
+    private float threshold = 1000;
+    public GameObject luxtext;
+    public GameObject luxprogress;
+    public GameObject luxfinish;
     public Text text;
     // public Text luxtext;
-    private int cnt = 400;
+    private int cnt = 200;
     public GameObject popbottle;
-    private bool easymode = false;
+    //private bool easymode = false;
     // Use this for initialization
     void Start()
     {
@@ -35,16 +38,15 @@ public class TestLightSensor : MonoBehaviour
             if (cnt <= 0)
             {
                 text.text = "试着用手盖住整个屏幕";
-                if (easymode == false)
-                {
-                    threshold = threshold / 2.0f;
-                    easymode = true;
-                }
+                cnt = 200;
+                threshold = threshold / 2.0f;
             }
             curluxval = getLux();
             //光感计算
             if (preluxval - curluxval >= threshold)
             {
+                luxtext.SetActive(true);
+                luxprogress.SetActive(true);
                 GameObject.Find("GameManager").GetComponent<RunManager>().setIsGameOver(true);
                 GameObject.Find("GameManager").GetComponent<RunManager>().Gameover();
             }

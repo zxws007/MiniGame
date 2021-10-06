@@ -15,11 +15,13 @@ public class RunManager : MonoBehaviour
     public GameObject QTEslice;
     public GameObject QTE;
     public GameObject settleaccounts;
-    public Text settleaccountstext;
     public Text txt;
     private Camera mainCamera;
     public GameObject lux;
     public GameObject popbottle;
+    public GameObject accountCommon;
+    public GameObject accountGood;
+    public GameObject accountExcellent;
     // Use this for initialization
     float time = .0f;
     void Start()
@@ -102,18 +104,8 @@ public class RunManager : MonoBehaviour
     }
     public void Gameover()
     {
-        settleaccounts.SetActive(true);
-        int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
-        if (s == 1 || s == 5)
-        {
-            settleaccountstext.text = "普通";
-        }else if (s == 2 || s == 4)
-        {
-            settleaccountstext.text = "良好";
-        }else if (s == 3)
-        {
-            settleaccountstext.text = "优秀";
-        }
+        txt.text = " ";
+        StartCoroutine(GameOverAnimation());
     }
     public void PlayAgain()
     {
@@ -148,6 +140,18 @@ public class RunManager : MonoBehaviour
             yield return 0;
         }
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
+        if (s == 1 || s == 5)
+        {
+            accountCommon.SetActive(true);
+        }else if (s == 2 || s == 4)
+        {
+            accountGood.SetActive(true);
+        }else if (s == 3)
+        {
+            accountExcellent.SetActive(true);
+        }
+        settleaccounts.SetActive(true);
     }
 }
