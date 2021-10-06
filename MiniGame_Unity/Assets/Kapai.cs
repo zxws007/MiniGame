@@ -24,13 +24,15 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     }
     void Start()
     {
-        Bamai.my_longPressTime = 1f;
+        Bamai.my_longPressTime = 0.1f;
         myButton1.OnLongPress.AddListener(() =>
         {
             animatorEnter.SetBool("IsUp", true);
             animatorEnter.SetBool("IsDown", false);
             isDown = true;
-            StartCoroutine(Wait());
+            tuodongfalse = false;
+            tishi.SetActive(true);
+            ChangeText(gameObject);
         });
         tishi.SetActive(false);
     }
@@ -44,10 +46,6 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
             isDown = false;
             tishi.SetActive(false);
         }
-        if (tuodongfalse)
-        {
-            tishi.SetActive(false);
-        }
         if (Movekapai.pengzhuagn == true)
         {
             StartCoroutine(WaitClose());
@@ -58,43 +56,40 @@ public class Kapai : MonoBehaviour, IPointerExitHandler, IPointerEnterHandler
     {
         if (_gameObject.name == "1")
         {
-            text.text = "和解表里，疏肝，升阳。用于感冒发热，寒热往来，胸胁胀痛，月经不调，子官脱垂，脱肛";
+            text.text = "用于感冒<color=#ff0000>发热</color>，<color=#ff0000>寒热往来</color>，胸胁胀痛";
         }
         if (_gameObject.name == "2")
         {
-            text.text = "泻实火，除湿热，止血，安胎。治壮热烦渴，肺热咳嗽，湿热泻痢，黄疸，热淋，吐、衄、崩、漏，目赤肿痛，胎动不安，痈肿疔疮";
+            text.text = "用于壮热烦渴，肺热咳嗽，<color=#ff0000>湿热泻痢</color>，<color=#ff0000>吐</color>、崩、<color=#ff0000>目赤肿痛</color>";
         }
         if (_gameObject.name == "3")
         {
-            text.text = "补中益气，健脾益肺。用于脾肺虚弱，气短心悸，食少便溏，虚喘咳嗽，内热消渴";
+            text.text = "用于<color=#ff0000>脾虚湿盛</color>，气短心悸，<color=#ff0000>食欲不振</color>，食少便溏，虚喘咳嗽，内热消渴";
         }
         if (_gameObject.name == "4")
         {
-            text.text = "补气，固脱，生津，安神，益智。用于气短喘促，心悸健忘，口渴多汗，食少无力，一切急慢性疾病及失血后引起的休克、虚脱";
+            text.text = "用于气短喘促，心悸健忘，口渴多汗，<color=#ff0000>食少无力</color>，一切急慢性疾病及失血后引起的<color=#ff0000>休克</color>、<color=#ff0000>虚脱</color>";
         }
         if (_gameObject.name == "5")
         {
-            text.text = "补脾，益胃，燥湿，和中，安胎。治脾胃气弱，不思饮食，倦怠少气，虚胀，泄泻，痰饮，水肿，黄疸，湿痹，小便不利，头晕，自汗，胎气不安";
+            text.text = "用于<color=#ff0000>脾胃虚弱</color>，<color=#ff0000>不思饮食</color>，<color=#ff0000>泄泻</color>，<color=#ff0000>水肿</color>，自汗";
         }
         if (_gameObject.name == "6")
         {
-            text.text = "利水渗湿，健脾宁心。用于水肿尿少，痰饮眩悸，脾虚食少，便溏泄泻，心神不安，惊悸失眠";
+            text.text = "用于水肿尿少，痰饮眩悸，<color=#ff0000>脾虚食少</color>，便溏<color=#ff0000>泄泻</color>";
         }
         if (_gameObject.name == "7")
         {
-            text.text = "补血和血，调经止痛，润燥滑肠。治月经不调，经闭腹痛，症瘕结聚，崩漏；血虚头痛，眩晕，痿痹；肠燥便难，赤痢后重；痈疽疮窃，跌扑损伤";
+            text.text = "用于<color=#ff0000>月经不调</color>，经闭<color=#ff0000>腹痛</color>，血虚<color=#ff0000>头痛</color>，<color=#ff0000>眩晕</color>，痿痹";
         }
         if (_gameObject.name == "8")
         {
-            text.text = "滋阴，补血。治阴虚血少，腰膝痿弱，劳嗽骨蒸，遗精，崩漏，月经不调，消渴，溲数，耳聋，目昏";
+            text.text = "用于<color=#ff0000>阴虚血少</color>，<color=#ff0000>气血不足</color>，<color=#ff0000>月经不调</color>，消渴，耳聋";
         }
     }
     IEnumerator Wait()
     {
         yield return new WaitForSeconds(0.5f);
-        tuodongfalse = false;
-        tishi.SetActive(true);
-        ChangeText(gameObject);
     }
     IEnumerator WaitClose()
     {

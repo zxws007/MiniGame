@@ -248,7 +248,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: sadlfhaosdhfosdifhsdofhsdofihsdofishdf
+  m_Text: '
+
+'
 --- !u!222 &75459301
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -732,6 +734,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &278362613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1048,6 +1052,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &326055509
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1313,6 +1319,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &355995883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1782,6 +1790,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &506788686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2509,6 +2519,7 @@ MonoBehaviour:
   count: 0
   next: {fileID: 1949439945}
   mask: {fileID: 1300121146}
+  tishi: {fileID: 752559667}
 --- !u!1 &774137966
 GameObject:
   m_ObjectHideFlags: 0
@@ -3032,6 +3043,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &914967903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4101,8 +4114,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.3, y: 48.2}
-  m_SizeDelta: {x: 521.1, y: 254.4}
+  m_AnchoredPosition: {x: 6.3, y: 44.7}
+  m_SizeDelta: {x: 521.1, y: 399.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1546018734
 MonoBehaviour:
@@ -4125,11 +4138,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
-    m_FontSize: 31
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4175,8 +4188,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.9, y: 29}
-  m_SizeDelta: {x: 507.31, y: 259.61}
+  m_AnchoredPosition: {x: -2.9, y: 14.5}
+  m_SizeDelta: {x: 507.3, y: 407.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1576040020
 MonoBehaviour:
@@ -4199,11 +4212,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
-    m_FontSize: 31
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 40
+    m_MinSize: 5
+    m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4453,8 +4466,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -12.1, y: 23.8}
-  m_SizeDelta: {x: 521.1, y: 290.8}
+  m_AnchoredPosition: {x: -12.1, y: 6.3}
+  m_SizeDelta: {x: 521.1, y: 456.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1699273731
 MonoBehaviour:
@@ -4477,11 +4490,11 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 0ec8bfec368c79c41b685279b986642c, type: 3}
-    m_FontSize: 31
+    m_FontSize: 51
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
-    m_MaxSize: 40
+    m_MaxSize: 51
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
@@ -4801,6 +4814,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &1802107761
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5297,6 +5312,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &1884730039
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5681,6 +5698,8 @@ MonoBehaviour:
   next: {fileID: 1300121146}
   mask: {fileID: 1949439945}
   anban: {fileID: 1857628667}
+  tishi: {fileID: 752559667}
+  text: {fileID: 75459300}
 --- !u!114 &1969293535
 MonoBehaviour:
   m_ObjectHideFlags: 0

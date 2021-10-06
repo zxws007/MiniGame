@@ -40,6 +40,8 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public GameObject next;
     public GameObject mask;
     public GameObject anban;
+    public GameObject tishi;
+    public Text text;
     void Start()
     {
         if (gameObject.scene.name == "05")
@@ -173,7 +175,9 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         gameObject.GetComponent<Animator>().enabled = false;
         //将鼠标的位置坐标进行钳制，然后加上位置差再赋值给图片position
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
-        Kapai.tuodongfalse = true;
+        //Kapai.tuodongfalse = true;
+        tishi.SetActive(true);
+        ChangeText(gameObject);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -184,8 +188,44 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     {
         gameObject.GetComponent<Animator>().enabled = true;
         gameObject.transform.position = beginTrans;
-        Kapai.tuodongfalse = true;
+        tishi.SetActive(false);
     }
+    void ChangeText(GameObject _gameObject)
+    {
+        if (_gameObject.name == "1")
+        {
+            text.text = "用于感冒<color=#ff0000>发热</color>，<color=#ff0000>寒热往来</color>，胸胁胀痛";
+        }
+        if (_gameObject.name == "2")
+        {
+            text.text = "用于壮热烦渴，肺热咳嗽，<color=#ff0000>湿热泻痢</color>，<color=#ff0000>吐</color>、崩、<color=#ff0000>目赤肿痛</color>";
+        }
+        if (_gameObject.name == "3")
+        {
+            text.text = "用于<color=#ff0000>脾虚湿盛</color>，气短心悸，<color=#ff0000>食欲不振</color>，食少便溏，虚喘咳嗽，内热消渴";
+        }
+        if (_gameObject.name == "4")
+        {
+            text.text = "用于气短喘促，心悸健忘，口渴多汗，<color=#ff0000>食少无力</color>，一切急慢性疾病及失血后引起的<color=#ff0000>休克</color>、<color=#ff0000>虚脱</color>";
+        }
+        if (_gameObject.name == "5")
+        {
+            text.text = "用于<color=#ff0000>脾胃虚弱</color>，<color=#ff0000>不思饮食</color>，<color=#ff0000>泄泻</color>，<color=#ff0000>水肿</color>，自汗";
+        }
+        if (_gameObject.name == "6")
+        {
+            text.text = "用于水肿尿少，痰饮眩悸，<color=#ff0000>脾虚食少</color>，便溏<color=#ff0000>泄泻</color>";
+        }
+        if (_gameObject.name == "7")
+        {
+            text.text = "用于<color=#ff0000>月经不调</color>，经闭<color=#ff0000>腹痛</color>，血虚<color=#ff0000>头痛</color>，<color=#ff0000>眩晕</color>，痿痹";
+        }
+        if (_gameObject.name == "8")
+        {
+            text.text = "用于<color=#ff0000>阴虚血少</color>，<color=#ff0000>气血不足</color>，<color=#ff0000>月经不调</color>，消渴，耳聋";
+        }
+    }
+
     //void OnCollisionEnter2D(Collision2D coll)
     //{
     //    if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&

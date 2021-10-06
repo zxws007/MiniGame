@@ -63,7 +63,7 @@ public class KapaiManager : MonoBehaviour
     bool do8 = false;
     public GameObject next;
     public GameObject mask;
-
+    public GameObject tishi;
     // Use this for initialization
     void Start()
     {
@@ -140,8 +140,8 @@ public class KapaiManager : MonoBehaviour
         if (!b1 && !b2 && !b3 && !b4 && !b5 && !b6 && !b7 && !b8)
         {
             next.SetActive(true);
-            //Time.timeScale = 0;
             mask.SetActive(true);
+            tishi.SetActive(false);
         }
         if (Mathf.Abs(chaihu_1.transform.position.x - anban.transform.position.x) <= 500 &&
 Mathf.Abs(chaihu_1.transform.position.y - anban.transform.position.y) <= 100)
@@ -157,6 +157,7 @@ Mathf.Abs(chaihu_1.transform.position.y - anban.transform.position.y) <= 100)
                 chaihu_1.SetActive(false);
                 do1 = true;
                 b1 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -184,6 +185,7 @@ Mathf.Abs(huagnqin_2.transform.position.y - anban.transform.position.y) <= 100)
                 huagnqin_2.SetActive(false);
                 do2 = true;
                 b2 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -210,6 +212,7 @@ Mathf.Abs(dangshen_3.transform.position.y - anban.transform.position.y) <= 100)
                 dangshen_3.SetActive(false);
                 do3 = true;
                 b3 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -236,6 +239,7 @@ Mathf.Abs(renshen_4.transform.position.y - anban.transform.position.y) <= 100)
                 renshen_4.SetActive(false);
                 do4 = true;
                 b4 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -262,6 +266,7 @@ Mathf.Abs(baishu_5.transform.position.y - anban.transform.position.y) <= 100)
                 baishu_5.SetActive(false);
                 do5 = true;
                 b5 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -288,6 +293,7 @@ Mathf.Abs(fuling_6.transform.position.y - anban.transform.position.y) <= 100)
                 fuling_6.SetActive(false);
                 do6 = true;
                 b6 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -314,6 +320,7 @@ Mathf.Abs(danggui_7.transform.position.y - anban.transform.position.y) <= 100)
                 danggui_7.SetActive(false);
                 do7 = true;
                 b7 = false;
+                tishi.SetActive(false);
             }
             else
             {
@@ -340,6 +347,7 @@ Mathf.Abs(dihuang_8.transform.position.y - anban.transform.position.y) <= 100)
                 dihuang_8.SetActive(false);
                 do8 = true;
                 b8 = false;
+                tishi.SetActive(false);
             }
             else
             {
