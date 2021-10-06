@@ -11,6 +11,9 @@ public class Test : MonoBehaviour
     public Bamai myButton2;
     public Bamai myButton3;
 
+    public GameObject myButton11;
+    public GameObject myButton21;
+    public GameObject myButton31;
     bool b1 = false;
     bool b2 = false;
     bool b3 = false;
@@ -30,8 +33,15 @@ public class Test : MonoBehaviour
     public GameObject wanchegn;
     bool jieshu = false;
     public Text debug;
+    public GameObject btn;
+    public GameObject mask;
+    bool finish = false;
     void Start()
     {
+        if (gameObject.scene.name == "03")
+        {
+            //do something
+        }
         Input.multiTouchEnabled = true;
         myButton1.OnLongPress.AddListener(() =>
         {
@@ -66,7 +76,7 @@ public class Test : MonoBehaviour
         {
             time = 0;
         }
-        if (b1 && b2 && b3 && (Bamai.isp && time > 2.0f))
+        if (b1 && b2 && b3 && (Bamai.isp && time > 2.0f) && !finish)
         {
             sucesstime += Time.deltaTime;
             slider.value = sucesstime / 10f;
@@ -82,10 +92,13 @@ public class Test : MonoBehaviour
             tishitime = 0;
             if (slider.value == 1)
             {
+                finish = true;
                 wanchegn.SetActive(true);
                 text.text = "";
                 xdt.SetActive(false);
                 jieshu = true;
+                btn.SetActive(true);
+                mask.SetActive(true);
             }
         }
         if (!b1 && !b2 && !b3 && Input.GetMouseButton(0) && !Bamai.isp && !jieshu)
@@ -144,7 +157,6 @@ public class Test : MonoBehaviour
                 img.SetActive(true);
                 texts.SetActive(true);
             }
-            xdt.SetActive(false);
             tiaozhegn1.SetActive(false);
             tiaozhegn2.SetActive(false);
             tiaozhegn3.SetActive(false);
@@ -161,14 +173,18 @@ public class Test : MonoBehaviour
     }
     public void XYB()
     {
-        SceneManager.LoadScene("04");
+        SceneManager.LoadSceneAsync("04");
     }
     public void XYB1()
     {
-        SceneManager.LoadScene("12");
+        SceneManager.LoadSceneAsync("12");
     }
     public void XYB2()
     {
-        SceneManager.LoadScene("20");
+        SceneManager.LoadSceneAsync("20");
+    }
+    public void ZWYC()
+    {
+        SceneManager.LoadSceneAsync(gameObject.scene.name);
     }
 }

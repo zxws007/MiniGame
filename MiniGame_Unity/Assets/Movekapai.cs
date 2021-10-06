@@ -38,19 +38,35 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public AudioSource as_dui;
     public AudioSource as_cuo;
     public GameObject next;
+    public GameObject mask;
+    public GameObject anban;
+    public GameObject tishi;
+    public Text text;
     void Start()
     {
         if (gameObject.scene.name == "05")
         {
             liucheng = 0;
+            successList.Clear();
         }
         if (gameObject.scene.name == "13")
         {
             liucheng = 1;
+            successList.Clear();
         }
         if (gameObject.scene.name == "21")
         {
             liucheng = 2;
+            if (!successList.Contains("7"))
+            {
+                successList.Add("7");
+
+            }
+            if (!successList.Contains("8"))
+            {
+                successList.Add("8");
+
+            }
         }
         beginTrans = gameObject.transform.position;
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -97,9 +113,10 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             }
             add = false;
         }
+
         if (liucheng == 1 && add)
         {
-            // SceneManager.LoadScene(5);
+            // SceneManager.LoadSceneAsync(5);
             count = 0;
             hongdui1.SetActive(false);
             hongdui2.SetActive(false);
@@ -129,31 +146,27 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             siwutang.SetActive(true);
             hongquan3.SetActive(false);
             hongquan2.SetActive(true);
-            if (!successList.Contains("7"))
-            {
-                successList.Add("7");
-            }
-            if (!successList.Contains("8"))
-            {
-                successList.Add("8");
-            }
             add = false;
         }
         if (successList.Count == 0 && liucheng == 0)
         {
             next.SetActive(true);
-            liucheng++;
+            Time.timeScale = 0;
+            mask.SetActive(true);
             add = true;
         }
         if (successList.Count == 0 && liucheng == 1)
         {
             next.SetActive(true);
-            liucheng++;
+            Time.timeScale = 0;
+            mask.SetActive(true);
             add = true;
         }
         if (successList.Count == 0 && liucheng == 2)
         {
             next.SetActive(true);
+            Time.timeScale = 0;
+            mask.SetActive(true);
             add = true;
         }
     }
@@ -162,7 +175,9 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         gameObject.GetComponent<Animator>().enabled = false;
         //将鼠标的位置坐标进行钳制，然后加上位置差再赋值给图片position
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
-        Kapai.tuodongfalse = true;
+        //Kapai.tuodongfalse = true;
+        tishi.SetActive(true);
+        ChangeText(gameObject);
     }
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -173,305 +188,362 @@ public class Movekapai : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     {
         gameObject.GetComponent<Animator>().enabled = true;
         gameObject.transform.position = beginTrans;
-        Kapai.tuodongfalse = true;
+        tishi.SetActive(false);
     }
-    void OnCollisionEnter2D(Collision2D coll)
+    void ChangeText(GameObject _gameObject)
     {
-        if (coll.gameObject.tag == "shaizi")
+        if (_gameObject.name == "1")
         {
-            pengzhuagn = true;
-            if (gameObject.name == "1")
-            {
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(chaihu_1, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(chaihu_1, count);
-                        chaihu_1.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "2")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(huagnqin_2, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(huagnqin_2, count);
-                        huagnqin_2.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "3")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(dangshen_3, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(dangshen_3, count);
-                        dangshen_3.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "4")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(renshen_4, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(renshen_4, count);
-                        renshen_4.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "5")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(baishu_5, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(baishu_5, count);
-                        baishu_5.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        Debug.Log("fail" + index);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "6")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(fuling_6, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(fuling_6, count);
-                        fuling_6.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "7")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(danggui_7, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(danggui_7, count);
-                        danggui_7.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
-            if (gameObject.name == "8")
-            {
-                pengzhuagn = true;
-
-                if (successList.Contains(gameObject.name))
-                {
-                    as_dui.Play();
-                    count++;
-                    AddPos(dihuang_8, count);
-                    int index = -1;
-                    for (int i = 0; i < successList.Count; i++)
-                    {
-                        if (successList[i] == gameObject.name)
-                        {
-                            index = i;
-                        }
-                    }
-                    successList.RemoveAt(index);
-                    if (index != -1)
-                    {
-                        Debug.Log(successList.Count);
-                        dui.SetActive(true);
-                        cuo.SetActive(false);
-                        AddPos(dihuang_8, count);
-                        dihuang_8.SetActive(true);
-                        gameObject.SetActive(false);
-                    }
-                }
-                else
-                {
-                    as_cuo.Play();
-                    cuo.SetActive(true);
-                    dui.SetActive(false);
-                    gameObject.transform.position = beginTrans;
-                }
-            }
+            text.text = "用于感冒<color=#ff0000>发热</color>，<color=#ff0000>寒热往来</color>，胸胁胀痛";
+        }
+        if (_gameObject.name == "2")
+        {
+            text.text = "用于壮热烦渴，肺热咳嗽，<color=#ff0000>湿热泻痢</color>，<color=#ff0000>吐</color>、崩、<color=#ff0000>目赤肿痛</color>";
+        }
+        if (_gameObject.name == "3")
+        {
+            text.text = "用于<color=#ff0000>脾虚湿盛</color>，气短心悸，<color=#ff0000>食欲不振</color>，食少便溏，虚喘咳嗽，内热消渴";
+        }
+        if (_gameObject.name == "4")
+        {
+            text.text = "用于气短喘促，心悸健忘，口渴多汗，<color=#ff0000>食少无力</color>，一切急慢性疾病及失血后引起的<color=#ff0000>休克</color>、<color=#ff0000>虚脱</color>";
+        }
+        if (_gameObject.name == "5")
+        {
+            text.text = "用于<color=#ff0000>脾胃虚弱</color>，<color=#ff0000>不思饮食</color>，<color=#ff0000>泄泻</color>，<color=#ff0000>水肿</color>，自汗";
+        }
+        if (_gameObject.name == "6")
+        {
+            text.text = "用于水肿尿少，痰饮眩悸，<color=#ff0000>脾虚食少</color>，便溏<color=#ff0000>泄泻</color>";
+        }
+        if (_gameObject.name == "7")
+        {
+            text.text = "用于<color=#ff0000>月经不调</color>，经闭<color=#ff0000>腹痛</color>，血虚<color=#ff0000>头痛</color>，<color=#ff0000>眩晕</color>，痿痹";
+        }
+        if (_gameObject.name == "8")
+        {
+            text.text = "用于<color=#ff0000>阴虚血少</color>，<color=#ff0000>气血不足</color>，<color=#ff0000>月经不调</color>，消渴，耳聋";
         }
     }
+
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //        Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //    {
+    //        pengzhuagn = true;
+    //        if (gameObject.name == "1")
+    //        {
+    //            if (successList.Contains(gameObject.name))
+    //            {
+    //                as_dui.Play();
+    //                count++;
+    //                AddPos(chaihu_1, count);
+    //                int index = -1;
+    //                for (int i = 0; i < successList.Count; i++)
+    //                {
+    //                    if (successList[i] == gameObject.name)
+    //                    {
+    //                        index = i;
+    //                    }
+    //                }
+    //                successList.RemoveAt(index);
+    //                if (index != -1)
+    //                {
+    //                    Debug.Log(successList.Count);
+    //                    dui.SetActive(true);
+    //                    cuo.SetActive(false);
+    //                    AddPos(chaihu_1, count);
+    //                    chaihu_1.SetActive(true);
+    //                    gameObject.SetActive(false);
+    //                }
+    //            }
+    //            else
+    //            {
+    //                as_cuo.Play();
+    //                cuo.SetActive(true);
+    //                dui.SetActive(false);
+    //                gameObject.transform.position = beginTrans;
+    //            }
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+    //            if (gameObject.name == "2")
+    //            {
+    //                if (successList.Contains(gameObject.name))
+    //                {
+    //                    as_dui.Play();
+    //                    count++;
+    //                    AddPos(huagnqin_2, count);
+    //                    int index = -1;
+    //                    for (int i = 0; i < successList.Count; i++)
+    //                    {
+    //                        if (successList[i] == gameObject.name)
+    //                        {
+    //                            index = i;
+    //                        }
+    //                    }
+    //                    successList.RemoveAt(index);
+    //                    Debug.Log(index);
+
+    //                    if (index != -1)
+    //                    {
+    //                        Debug.Log(successList.Count);
+    //                        dui.SetActive(true);
+    //                        cuo.SetActive(false);
+    //                        AddPos(huagnqin_2, count);
+    //                        huagnqin_2.SetActive(true);
+    //                        gameObject.SetActive(false);
+    //                    }
+    //                }
+    //                else
+    //                {
+    //                    as_cuo.Play();
+    //                    cuo.SetActive(true);
+    //                    dui.SetActive(false);
+    //                    gameObject.transform.position = beginTrans;
+    //                }
+
+    //            }
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+    //            if (successList.Contains(gameObject.name))
+    //            {
+    //                as_dui.Play();
+    //                count++;
+    //                AddPos(dangshen_3, count);
+    //                int index = -1;
+    //                for (int i = 0; i < successList.Count; i++)
+    //                {
+    //                    if (successList[i] == gameObject.name)
+    //                    {
+    //                        index = i;
+    //                    }
+    //                }
+    //                Debug.Log(index);
+    //                successList.RemoveAt(index);
+    //                if (index != -1)
+    //                {
+    //                    Debug.Log(successList.Count);
+    //                    dui.SetActive(true);
+    //                    cuo.SetActive(false);
+    //                    AddPos(dangshen_3, count);
+    //                    dangshen_3.SetActive(true);
+    //                    gameObject.SetActive(false);
+    //                }
+    //            }
+    //            else
+    //            {
+    //                as_cuo.Play();
+    //                cuo.SetActive(true);
+    //                dui.SetActive(false);
+    //                gameObject.transform.position = beginTrans;
+    //            }
+
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+
+    //            if (successList.Contains(gameObject.name))
+    //            {
+    //                as_dui.Play();
+    //                count++;
+    //                AddPos(renshen_4, count);
+    //                int index = -1;
+    //                for (int i = 0; i < successList.Count; i++)
+    //                {
+    //                    if (successList[i] == gameObject.name)
+    //                    {
+    //                        index = i;
+    //                    }
+    //                }
+    //                successList.RemoveAt(index);
+    //                if (index != -1)
+    //                {
+    //                    Debug.Log(successList.Count);
+    //                    dui.SetActive(true);
+    //                    cuo.SetActive(false);
+    //                    AddPos(renshen_4, count);
+    //                    renshen_4.SetActive(true);
+    //                    gameObject.SetActive(false);
+    //                }
+    //            }
+    //            else
+    //            {
+    //                as_cuo.Play();
+    //                cuo.SetActive(true);
+    //                dui.SetActive(false);
+    //                gameObject.transform.position = beginTrans;
+    //            }
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+
+    //            if (successList.Contains(gameObject.name))
+    //            {
+    //                as_dui.Play();
+    //                count++;
+    //                AddPos(baishu_5, count);
+    //                int index = -1;
+    //                for (int i = 0; i < successList.Count; i++)
+    //                {
+    //                    if (successList[i] == gameObject.name)
+    //                    {
+    //                        index = i;
+    //                    }
+    //                }
+    //                successList.RemoveAt(index);
+    //                if (index != -1)
+    //                {
+    //                    Debug.Log(successList.Count);
+    //                    dui.SetActive(true);
+    //                    cuo.SetActive(false);
+    //                    AddPos(baishu_5, count);
+    //                    baishu_5.SetActive(true);
+    //                    gameObject.SetActive(false);
+    //                }
+    //                else
+    //                {
+    //                    Debug.Log("fail" + index);
+    //                }
+    //            }
+    //            else
+    //            {
+    //                as_cuo.Play();
+    //                cuo.SetActive(true);
+    //                dui.SetActive(false);
+    //                gameObject.transform.position = beginTrans;
+    //            }
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //           Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+
+    //            if (successList.Contains(gameObject.name))
+    //            {
+    //                as_dui.Play();
+    //                count++;
+    //                AddPos(fuling_6, count);
+    //                int index = -1;
+    //                for (int i = 0; i < successList.Count; i++)
+    //                {
+    //                    if (successList[i] == gameObject.name)
+    //                    {
+    //                        index = i;
+    //                    }
+    //                }
+    //                successList.RemoveAt(index);
+    //                if (index != -1)
+    //                {
+    //                    Debug.Log(successList.Count);
+    //                    dui.SetActive(true);
+    //                    cuo.SetActive(false);
+    //                    AddPos(fuling_6, count);
+    //                    fuling_6.SetActive(true);
+    //                    gameObject.SetActive(false);
+    //                }
+    //            }
+    //            else
+    //            {
+    //                as_cuo.Play();
+    //                cuo.SetActive(true);
+    //                dui.SetActive(false);
+    //                gameObject.transform.position = beginTrans;
+    //            }
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+    //            if (gameObject.name == "7")
+    //            {
+    //                if (successList.Contains(gameObject.name))
+    //                {
+    //                    as_dui.Play();
+    //                    count++;
+    //                    AddPos(danggui_7, count);
+    //                    int index = -1;
+    //                    for (int i = 0; i < successList.Count; i++)
+    //                    {
+    //                        if (successList[i] == gameObject.name)
+    //                        {
+    //                            index = i;
+    //                        }
+    //                    }
+    //                    successList.RemoveAt(index);
+    //                    if (index != -1)
+    //                    {
+    //                        Debug.Log(successList.Count);
+    //                        dui.SetActive(true);
+    //                        cuo.SetActive(false);
+    //                        AddPos(danggui_7, count);
+    //                        danggui_7.SetActive(true);
+    //                        gameObject.SetActive(false);
+    //                    }
+    //                }
+    //                else
+    //                {
+    //                    as_cuo.Play();
+    //                    cuo.SetActive(true);
+    //                    dui.SetActive(false);
+    //                    gameObject.transform.position = beginTrans;
+    //                }
+
+    //            }
+
+    //        }
+    //        else if (Mathf.Abs(gameObject.transform.position.x - anban.transform.position.x) <= 500 &&
+    //            Mathf.Abs(gameObject.transform.position.y - anban.transform.position.y) <= 200)
+    //        {
+    //            pengzhuagn = true;
+    //            if (gameObject.name == "8")
+    //            {
+    //                if (successList.Contains(gameObject.name))
+    //                {
+    //                    as_dui.Play();
+    //                    count++;
+    //                    AddPos(dihuang_8, count);
+    //                    int index = -1;
+    //                    for (int i = 0; i < successList.Count; i++)
+    //                    {
+    //                        if (successList[i] == gameObject.name)
+    //                        {
+    //                            index = i;
+    //                        }
+    //                    }
+    //                    successList.RemoveAt(index);
+    //                    if (index != -1)
+    //                    {
+    //                        Debug.Log(successList.Count);
+    //                        dui.SetActive(true);
+    //                        cuo.SetActive(false);
+    //                        AddPos(dihuang_8, count);
+    //                        dihuang_8.SetActive(true);
+    //                        gameObject.SetActive(false);
+    //                    }
+    //                }
+    //                else
+    //                {
+    //                    as_cuo.Play();
+    //                    cuo.SetActive(true);
+    //                    dui.SetActive(false);
+    //                    gameObject.transform.position = beginTrans;
+    //                }
+    //            }
+
+    //        }
+    //    }
+    //}
     void AddPos(GameObject _gameObject, int index)
     {
         if (index == 1)

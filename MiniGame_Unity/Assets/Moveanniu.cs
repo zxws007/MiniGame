@@ -7,7 +7,6 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
 {
     private RawImage img;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
-    public bool shuili = false;
     Vector3 v1 = Vector3.zero;
     Vector3 v2 = Vector3.zero;
     public Animator shui2_anim;
@@ -19,6 +18,8 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         shui2_anim.speed = 0;
+        jiesuan.SetActive(false);
+        change = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -38,21 +39,17 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        Zhizhen.taiqi = true;
-        change = true;
-        shui2_anim.speed = 0;
-        jiesuan.SetActive(true);
-    }
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        if (coll.gameObject.tag == "shaizi")
+        if (Movewash.pengzhuang)
         {
-            shuili = true;
+            Zhizhen.taiqi = true;
+            change = true;
+            shui2_anim.speed = 0;
+            jiesuan.SetActive(true);
         }
     }
     void OnCollisionExit2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "shaizi")
+        if (coll.gameObject.tag == "new1")
         {
             Zhizhen.taiqi = true;
             change = true;
@@ -71,6 +68,10 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnClick()
     {
-        SceneManager.LoadScene("23");//level1为我们要切换到的场景
+        SceneManager.LoadSceneAsync("23");//level1为我们要切换到的场景
+    }
+    public void OnClickagain()
+    {
+        SceneManager.LoadSceneAsync(gameObject.scene.name);//level1为我们要切换到的场景
     }
 }

@@ -32,9 +32,10 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     public Text shengyu;
     public AudioSource qie;
     public GameObject go;
-    void Start()
+    public GameObject jiesuan;
+    void Awake()
     {
-        Time.timeScale = 0;
+        jiesuan.SetActive(false);
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         beginPos = gameObject.transform.localPosition;
         dao.SetActive(false);
@@ -46,6 +47,10 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
         lianghao.SetActive(false);
         putong.SetActive(false);
         shengyu.text = "剩余切割次数: 4";
+    }
+    void Start()
+    {
+        Time.timeScale = 0;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -80,7 +85,7 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
             pianpian.SetActive(true);
             var g = Instantiate(mask, new Vector3(0, 0, 0), Quaternion.identity);
             g.SetActive(true);
-            g.transform.localPosition = new Vector3(2000, 650, 0);
+            g.transform.localPosition = new Vector3(1980, 650, 0);
             g.transform.parent = yao.transform;
             if (DaoPanding.success && qiesidao != 4)
             {
@@ -138,6 +143,10 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     }
     public void Move07()
     {
-        SceneManager.LoadScene("07");
+        SceneManager.LoadSceneAsync("07");
+    }
+    public void Move07again()
+    {
+        SceneManager.LoadSceneAsync(gameObject.scene.name);
     }
 }

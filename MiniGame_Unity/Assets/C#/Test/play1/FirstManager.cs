@@ -6,12 +6,6 @@ using UnityEngine.SceneManagement;
 public class FirstManager : MonoBehaviour
 {
 
-    public static int change = 0;
-    public GameObject show;
-    public GameObject hide;
-    public GameObject button;
-
-    public GameObject bing1;
     public GameObject bing2;
 
     public GameObject show1;
@@ -21,25 +15,18 @@ public class FirstManager : MonoBehaviour
     public GameObject show5;
     public GameObject show6;
 
+    public GameObject hide1;
 
     int index = 0;
     // Use this for initialization
     void Start()
     {
-        change = 0;
         index = 0;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (change == 3)
-        {
-            show.SetActive(true);
-            button.SetActive(true);
-            hide.SetActive(false);
-            //SceneManager.LoadScene("1");
-        }
         if (Input.GetMouseButtonDown(0))
         {
             index++;
@@ -67,10 +54,12 @@ public class FirstManager : MonoBehaviour
         if (index == 6)
         {
             show6.SetActive(true);
-            bing1.SetActive(true);
+        }
+        if (index == 7)
+        {
+            hide1.SetActive(false);
             bing2.SetActive(true);
         }
-
     }
 
 }

@@ -15,13 +15,11 @@ public class RunManager : MonoBehaviour
     public GameObject QTEslice;
     public GameObject QTE;
     public GameObject settleaccounts;
+    public Text settleaccountstext;
     public Text txt;
     private Camera mainCamera;
     public GameObject lux;
     public GameObject popbottle;
-    public GameObject accountCommon;
-    public GameObject accountGood;
-    public GameObject accountExcellent;
     // Use this for initialization
     float time = .0f;
     void Start()
@@ -34,7 +32,7 @@ public class RunManager : MonoBehaviour
     {
         Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
 
-        if (bottleready == true&&qteactive==false&&mousePos.x>1700&&mousePos.y<700)
+        if (bottleready == true && qteactive == false && mousePos.x > 1700 && mousePos.y < 700)
         {
             if (Input.GetMouseButton(0))
             {
@@ -59,7 +57,7 @@ public class RunManager : MonoBehaviour
         {
             lux.SetActive(true);
         }
-         //   Debug.Log(mousePos);
+        //   Debug.Log(mousePos);
 
     }
     public bool getHerbready()
@@ -104,28 +102,41 @@ public class RunManager : MonoBehaviour
     }
     public void Gameover()
     {
-        txt.text = " ";
-        StartCoroutine(GameOverAnimation());
+        settleaccounts.SetActive(true);
+        int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
+        if (s == 1 || s == 5)
+        {
+            settleaccountstext.text = "普通";
+        }
+        else if (s == 2 || s == 4)
+        {
+            settleaccountstext.text = "良好";
+        }
+        else if (s == 3)
+        {
+            settleaccountstext.text = "优秀";
+        }
     }
     public void PlayAgain()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
     public void PlayNext()
     {
-        //分数计算
         int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
-        if (s==1||s==5)
+        if (s == 1 || s == 5)
         {
             GlobalScore.Instance.Score2 += 5;
-        } else if (s == 2 || s == 4)
+        }
+        else if (s == 2 || s == 4)
         {
             GlobalScore.Instance.Score2 += 8;
-        }else if (s == 3)
+        }
+        else if (s == 3)
         {
             GlobalScore.Instance.Score2 += 10;
         }
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        SceneManager.LoadSceneAsync("16");
     }
     IEnumerator GameOverAnimation()
     {
@@ -140,18 +151,6 @@ public class RunManager : MonoBehaviour
             yield return 0;
         }
         yield return new WaitForSeconds(1);
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
-        if (s == 1 || s == 5)
-        {
-            accountCommon.SetActive(true);
-        }else if (s == 2 || s == 4)
-        {
-            accountGood.SetActive(true);
-        }else if (s == 3)
-        {
-            accountExcellent.SetActive(true);
-        }
-        settleaccounts.SetActive(true);
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex);
     }
 }

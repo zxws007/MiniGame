@@ -69,7 +69,7 @@ public class WashManager : MonoBehaviour
             hide22.SetActive(false);
             show23.SetActive(true);
             hide23.SetActive(false);
-            //SceneManager.LoadScene("1");
+            //SceneManager.LoadSceneAsync("1");
         }
 
         if (change == 3)

@@ -197,14 +197,13 @@ GameObject:
   - component: {fileID: 336218626}
   - component: {fileID: 336218625}
   - component: {fileID: 336218624}
-  - component: {fileID: 336218627}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &336218623
 RectTransform:
   m_ObjectHideFlags: 0
@@ -263,7 +262,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 336218627}
+      - m_Target: {fileID: 0}
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -309,17 +308,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 336218622}
---- !u!114 &336218627
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 336218622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08cce4f1e0b35534f81fcf8b0f4e8099, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &495420208
 GameObject:
   m_ObjectHideFlags: 0

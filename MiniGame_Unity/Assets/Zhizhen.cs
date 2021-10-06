@@ -16,9 +16,14 @@ public class Zhizhen : MonoBehaviour
     public GameObject lianghao;
     public GameObject putong;
     public GameObject lss;
+    public static int totalscore = 0;
     void Start()
     {
         zhizhen.speed = 0;
+        anxia = false;
+        begin = false;
+        taiqi = false;
+        totalscore = 0;
     }
     void OnCollisionStay2D(Collision2D coll)
     {
@@ -40,7 +45,7 @@ public class Zhizhen : MonoBehaviour
     }
     void Update()
     {
-        if (anxia && Movewash.pengzhuang && !Zhizhen.taiqi)
+        if (anxia && Movewash.pengzhuang && !taiqi)
         {
             time += Time.deltaTime;
             zhizhen.speed = 1;
@@ -51,6 +56,7 @@ public class Zhizhen : MonoBehaviour
             putong.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
+            totalscore += 5;
         }
         if (shiji && taiqi)
         {
@@ -59,6 +65,7 @@ public class Zhizhen : MonoBehaviour
             lss.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
+            totalscore += 10;
         }
         if (lh && taiqi)
         {
@@ -66,6 +73,7 @@ public class Zhizhen : MonoBehaviour
             lianghao.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
+            totalscore += 8;
         }
         taiqi = false;
         anxia = false;

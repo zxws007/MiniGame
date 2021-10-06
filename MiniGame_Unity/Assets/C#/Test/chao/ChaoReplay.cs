@@ -17,6 +17,6 @@ public class ChaoReplay : MonoBehaviour {
 
     public void OnClick()
     {
-        SceneManager.LoadScene("07");
+        SceneManager.LoadSceneAsync("07");
     }
 }

@@ -43,7 +43,7 @@ EditorBuildSettings:
     guid: ee8e14846cdd00c4b88e3b012b4ebbc3
   - enabled: 1
     path: Assets/Scene/FinalScene/13.unity
-    guid: f803b90f73ffc8849bd1f51db80f8e15
+    guid: be3da9f968890eb49b4dbbdf2718a1ba
   - enabled: 1
     path: Assets/Scene/FinalScene/14.unity
     guid: 7ec6e9a90fcd73e4daf43eafc067687a
@@ -67,7 +67,7 @@ EditorBuildSettings:
     guid: 2184723a364491e4897facaae7cc4296
   - enabled: 1
     path: Assets/Scene/FinalScene/21.unity
-    guid: 23100bd6a39199a4d86341aa92f86660
+    guid: 0f954722acc1e814b9114ce8038a3fc7
   - enabled: 1
     path: Assets/Scene/FinalScene/22.unity
     guid: 737543f5971e0754e85c8fd84446b85b

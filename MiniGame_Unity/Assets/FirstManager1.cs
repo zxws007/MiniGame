@@ -24,7 +24,7 @@ public class FirstManager1 : MonoBehaviour
             show.SetActive(true);
             button.SetActive(true);
             hide.SetActive(false);
-            //SceneManager.LoadScene("1");
+            //SceneManager.LoadSceneAsync("1");
         }
     }
 }

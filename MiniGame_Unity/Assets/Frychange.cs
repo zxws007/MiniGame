@@ -14,7 +14,7 @@ public class Frychange : MonoBehaviour {
 
     void OnClick()
     {
-        SceneManager.LoadScene("3");//level1为我们要切换到的场景
+        SceneManager.LoadSceneAsync("3");//level1为我们要切换到的场景
     }
 
     // Update is called once per frame

@@ -19,8 +19,9 @@ public class Move2_24 : MonoBehaviour
     }
     public void OnClick()
     {
+        //
         GlobalScore.Instance.Score3 += Score.totalScore;
-        SceneManager.LoadScene("24");//level1为我们要切换到的场景
+        SceneManager.LoadSceneAsync("24");//level1为我们要切换到的场景
     }
 
 }

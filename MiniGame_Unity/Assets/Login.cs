@@ -38,7 +38,7 @@ public class Login : MonoBehaviour
         else if (password.text == PlayerPrefs.GetString(user_name.text))
         {
             Debug.Log("登录成功！");
-            SceneManager.LoadScene("1");
+            SceneManager.LoadSceneAsync("1");
         }
         else
         {

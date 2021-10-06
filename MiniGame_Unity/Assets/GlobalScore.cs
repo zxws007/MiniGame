@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GlobalScore : MonoBehaviour
 {
-    public static GlobalScore Instance;
+    public static GlobalScore Instance = new GlobalScore();
     public int Score1;
     public int Score2;
     public int Score3;
@@ -17,10 +17,6 @@ public class GlobalScore : MonoBehaviour
             this.Score3 = 0;
             Instance = this;
             DontDestroyOnLoad(gameObject);
-        }
-        else if (Instance != this)
-        {
-            Destroy(gameObject);
         }
     }
 

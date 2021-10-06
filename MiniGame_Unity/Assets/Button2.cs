@@ -38,7 +38,7 @@ public class Button2 : MonoBehaviour
         }
         else
         {
-            SceneManager.LoadScene("result2");
+            SceneManager.LoadSceneAsync("result2");
         }
 
     }

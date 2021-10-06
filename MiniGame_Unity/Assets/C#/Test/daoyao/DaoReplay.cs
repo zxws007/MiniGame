@@ -17,6 +17,6 @@ public class DaoReplay : MonoBehaviour {
 
     public void OnClick()
     {
-        SceneManager.LoadScene("23");
+        SceneManager.LoadSceneAsync("23");
     }
 }

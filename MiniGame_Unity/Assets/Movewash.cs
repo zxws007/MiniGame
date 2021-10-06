@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerUpHandler
 {
@@ -18,22 +19,22 @@ public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
     public GameObject tishi2;
     public GameObject shui;
     public GameObject shui2;
+    Vector3 beginPos;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         dangguijinzhi.SetActive(false);
+        beginPos = gameObject.transform.position;
     }
     public void OnDrag(PointerEventData eventData)
     {
         //将鼠标的位置坐标进行钳制，然后加上位置差再赋值给图片position
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
-    }
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        offsetPos = img.rectTransform.position - Input.mousePosition;
-    }
-    public void OnPointerUp(PointerEventData eventData)
-    {
+        if (Mathf.Abs(gameObject.transform.position.x - shui.transform.position.x) <= 100f &&
+Mathf.Abs(gameObject.transform.position.y - shui.transform.position.y) <= 100f)
+        {
+            pengzhuang = true;
+        }
         if (pengzhuang)
         {
             tishi1.SetActive(false);
@@ -47,12 +48,15 @@ public class Movewash : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoint
             shui2.SetActive(true);
         }
     }
-
-    void OnCollisionEnter2D(Collision2D coll)
+    public void OnPointerDown(PointerEventData eventData)
     {
-        if (coll.gameObject.tag == "shaizi")
+        offsetPos = img.rectTransform.position - Input.mousePosition;
+    }
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (!pengzhuang)
         {
-            pengzhuang = true;
+            gameObject.transform.position = beginPos;
         }
     }
 }

@@ -37,7 +37,7 @@ public class Button1 : MonoBehaviour {
         }
         else
         {
-            SceneManager.LoadScene(scene);
+            SceneManager.LoadSceneAsync(scene);
         }
 
     }

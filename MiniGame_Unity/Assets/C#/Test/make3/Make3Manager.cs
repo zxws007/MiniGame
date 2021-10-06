@@ -70,7 +70,7 @@ public class Make3Manager : MonoBehaviour {
             show22.SetActive(true);
             hide2.SetActive(false);//旧药材片
             hide22.SetActive(false);//新药材片
-            //SceneManager.LoadScene("1");
+            //SceneManager.LoadSceneAsync("1");
         }
 
         if (change == 3)
@@ -82,7 +82,7 @@ public class Make3Manager : MonoBehaviour {
             show32.SetActive(true);
             hide3.SetActive(false);//旧药材片
             hide32.SetActive(false);//新药材片
-            //SceneManager.LoadScene("1");
+            //SceneManager.LoadSceneAsync("1");
         }
         if (change == 4)
         {
@@ -96,7 +96,7 @@ public class Make3Manager : MonoBehaviour {
             button.SetActive(true);
 
 
-            //SceneManager.LoadScene("1");
+            //SceneManager.LoadSceneAsync("1");
         }
     }
 }
