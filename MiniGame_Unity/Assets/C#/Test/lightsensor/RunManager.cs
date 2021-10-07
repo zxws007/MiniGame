@@ -18,6 +18,8 @@ public class RunManager : MonoBehaviour
     public GameObject setacccommon;
     public GameObject setaccexcellent;
     public GameObject setaccgood;
+    public AudioSource water;
+    public AudioSource op_right;
     //public Text settleaccountstext;
     public Text txt;
     private Camera mainCamera;
@@ -53,12 +55,14 @@ public class RunManager : MonoBehaviour
                         QTE.SetActive(true);
                         QTEslice.SetActive(true);
                         qteactive = true;
+                        water.Play();
                     }
                 }
             }
         }
         if (isover == true&&setonce==false)
         {
+            op_right.Play();
             lux.SetActive(true);
             setonce = true;
         }
@@ -126,6 +130,7 @@ public class RunManager : MonoBehaviour
     }
     public void Gameover()
     {
+        op_right.Play();
         isdoneimage.transform.position = cloth.transform.position;
         isdoneimage.SetActive(true);
         flag1 = true;

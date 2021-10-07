@@ -13,6 +13,8 @@ public class dragherb : MonoBehaviour
     public GameObject popherb;
     public GameObject popcloth;
     private Vector3 startPoint;
+    public AudioSource op_right;
+    public AudioSource op_error;
     public bool HerbReady = false;
     void Start()
     {
@@ -61,6 +63,7 @@ public class dragherb : MonoBehaviour
         {
             if(transform.position.x > 0.7 && transform.position.y < 1.8 && transform.position.y > -1.3)
             {
+                op_right.Play();
                 ArrowCloth.SetActive(true);
                 PutCloth.SetActive(true);
                 popcloth.SetActive(true);
@@ -68,6 +71,7 @@ public class dragherb : MonoBehaviour
             }
             else
             {
+                op_error.Play();
                 transform.position = startPoint;
             }
         }

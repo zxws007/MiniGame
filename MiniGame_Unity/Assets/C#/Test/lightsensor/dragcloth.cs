@@ -8,6 +8,8 @@ public class dragcloth : MonoBehaviour
     public GameObject PutCloth;
     public GameObject ArrowBottle;
     private Vector3 startPoint;
+    public AudioSource op_right;
+    public AudioSource op_error;
     public GameObject popcloth;
     // Use this for initialization
     void Start()
@@ -62,11 +64,13 @@ public class dragcloth : MonoBehaviour
         {
             if (transform.position.x < 7 && transform.position.y >= -1.5 && transform.position.y <= 1.5)
             {
+                op_right.Play();
                 GameObject.Find("GameManager").GetComponent<RunManager>().setClothready(true);
                 ArrowBottle.SetActive(true);
             }
             else
             {
+                op_error.Play();
                 transform.position = startPoint;
             }
         }
