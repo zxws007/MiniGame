@@ -290,7 +290,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 510.1, y: -14.3}
-  m_SizeDelta: {x: 112.06, y: 73.45}
+  m_SizeDelta: {x: 130, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232404182
 MonoBehaviour:
@@ -2192,7 +2192,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 385c268a3ed4d5d46a9584ae4b800ba4, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -2532,6 +2532,7 @@ MonoBehaviour:
   act: {fileID: 232404182}
   chu: {fileID: 1294809306}
   audiosource: {fileID: 1247573861}
+  hint: {fileID: 1525101235}
 --- !u!61 &1316027186
 BoxCollider2D:
   m_ObjectHideFlags: 0

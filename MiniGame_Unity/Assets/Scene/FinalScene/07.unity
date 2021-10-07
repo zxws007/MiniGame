@@ -1221,7 +1221,7 @@ MonoBehaviour:
   backButton: {fileID: 1156848093}
   replayButton: {fileID: 1391018580}
   resultImage: {fileID: 1514781059}
-  totalTimes: 5
+  totalTimes: 3
 --- !u!212 &984993739
 SpriteRenderer:
   m_ObjectHideFlags: 0

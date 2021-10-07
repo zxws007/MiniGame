@@ -20,6 +20,7 @@ public class Score : MonoBehaviour
     public Button act;
     public GameObject chu;
     public AudioSource audiosource;
+    public Text hint;
 
 
     private float cnt = 0;
@@ -164,6 +165,7 @@ public class Score : MonoBehaviour
         render.sprite = Sprites[1];
 
         audiosource.Play();
+        hint.text = "再捣一次";
         
         pause = true;
         chuCnt = 0;
@@ -187,5 +189,6 @@ public class Score : MonoBehaviour
         normal.enabled = false;
         act.interactable = true;
         daoyao_score = 5;
+        hint.text = "点击捣按钮开始捣药";
     }
 }
