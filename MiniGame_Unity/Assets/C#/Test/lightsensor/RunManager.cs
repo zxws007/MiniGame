@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -22,8 +23,13 @@ public class RunManager : MonoBehaviour
     private Camera mainCamera;
     public GameObject lux;
     public GameObject popbottle;
+    public GameObject isdoneimage;
+    public GameObject cloth;
+    private bool setonce = false;
+    private bool flag1 = false;
     // Use this for initialization
     float time = .0f;
+    private int cnt = 0;
     void Start()
     {
         mainCamera = Camera.main;
@@ -32,35 +38,51 @@ public class RunManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+        if (qteactive==false) {
+            Vector3 mousePos = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
 
-        if (bottleready == true && qteactive == false && mousePos.x > 1700 && mousePos.y < 700)
-        {
-            if (Input.GetMouseButton(0))
+            if (bottleready == true && qteactive == false && mousePos.x > 1700 && mousePos.y < 700)
             {
-                time += Time.deltaTime;
-                if (time > 1.0f)
+                if (Input.GetMouseButton(0))
                 {
-                    txt.text = " ";
-                    popbottle.SetActive(false);
-                    QTE.SetActive(true);
-                    QTEslice.SetActive(true);
-                    qteactive = true;
+                    time += Time.deltaTime;
+                    if (time > 1.0f)
+                    {
+                        txt.text = " ";
+                        popbottle.SetActive(false);
+                        QTE.SetActive(true);
+                        QTEslice.SetActive(true);
+                        qteactive = true;
+                    }
                 }
             }
         }
-        //if (Input.GetMouseButton(0))
-        //{
-        //    time += Time.deltaTime;
-        //    Debug.Log(time);
-        //}
-
-        if (isover == true)
+        if (isover == true&&setonce==false)
         {
             lux.SetActive(true);
+            setonce = true;
         }
-        //   Debug.Log(mousePos);
-
+        if (flag1 == true)
+        {
+            cnt++;
+            if (cnt>400||Input.GetMouseButtonDown(0))
+            {
+                int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
+                if (s == 1 || s == 5)
+                {
+                    setacccommon.SetActive(true);
+                }
+                else if (s == 2 || s == 4)
+                {
+                    setaccgood.SetActive(true);
+                }
+                else if (s == 3)
+                {
+                    setaccexcellent.SetActive(true);
+                }
+                flag1 = false;
+            }
+        }
     }
     public bool getHerbready()
     {
@@ -104,19 +126,9 @@ public class RunManager : MonoBehaviour
     }
     public void Gameover()
     {
-        int s = GameObject.Find("QTE滑块").GetComponent<qtemove>().stage;
-        if (s == 1 || s == 5)
-        {
-            setacccommon.SetActive(true);
-        }
-        else if (s == 2 || s == 4)
-        {
-            setaccgood.SetActive(true);
-        }
-        else if (s == 3)
-        {
-            setaccexcellent.SetActive(true);
-        }
+        isdoneimage.transform.position = cloth.transform.position;
+        isdoneimage.SetActive(true);
+        flag1 = true;
     }
     public void PlayAgain()
     {

@@ -18,8 +18,8 @@ public class TestLightSensor : MonoBehaviour
     private float slidetime; 
     public GameObject popbottle;
     private bool easymode;
-    private bool flag;
     private bool slideflag;
+    private bool settextonce = false;
     // Use this for initialization
     void Start()
     {
@@ -34,24 +34,24 @@ public class TestLightSensor : MonoBehaviour
         slide.GetComponent<Slider>().maxValue = 100f;
         slide.GetComponent<Slider>().minValue = .0f;
         easymode = false;
-        flag = false;
         slideflag = false;
+        popbottle.SetActive(true);
+        text.text = "请将药材置于阴暗处";
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (flag==false && !GameObject.Find("GameManager").GetComponent<RunManager>().getIsGameOver())
+        if (!GameObject.Find("GameManager").GetComponent<RunManager>().getIsGameOver())
         {
             time += Time.deltaTime;
-            popbottle.SetActive(true);
-            if (easymode == false)
+            if (time > 3.0f)
             {
-                text.text = "请将药材置于阴暗处";
-            }
-            if (time > 2.0f)
-            {
-                text.text = "试着用手盖住整个屏幕";
+                if (!settextonce)
+                {
+                    text.text = "试着用手盖住整个屏幕";
+                    settextonce = true;
+                }
                 time=.0f;
                 threshold = threshold / 2.0f;
                 easymode = true;
@@ -62,6 +62,8 @@ public class TestLightSensor : MonoBehaviour
             {
                 if (slideflag == false)
                 {
+                    popbottle.SetActive(false);
+                    text.text = " ";
                     slidetext.SetActive(true);
                     slide.SetActive(true);
                     slideflag = true;
@@ -69,10 +71,10 @@ public class TestLightSensor : MonoBehaviour
                 if (slide.GetComponent<Slider>().value < slide.GetComponent<Slider>().maxValue)
                 {
                     slide.GetComponent<Slider>().value += 1f;
-                }
-                else
+                }else
                 {
-                    flag = true;
+                    popbottle.SetActive(true);
+                    text.text = "润药成功";
                     GameObject.Find("GameManager").GetComponent<RunManager>().setIsGameOver(true);
                     GameObject.Find("GameManager").GetComponent<RunManager>().Gameover();
                 }
