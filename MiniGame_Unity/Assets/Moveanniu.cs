@@ -31,7 +31,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         change = false;
         jiesuan2.SetActive(false);
         jiesuan1.SetActive(false);
-        Bamai.my_longPressTime = 0.8f;
+        Bamai.my_longPressTime = 0.1f;
         changan = false;
         bamai.OnLongPress.AddListener(() =>
         {
