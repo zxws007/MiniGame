@@ -2145,7 +2145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.778}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -2183,6 +2183,7 @@ MonoBehaviour:
   taiqi: 0
   bamai: {fileID: 1234629609}
   changan: 0
+  jiesuanb: 0
 --- !u!61 &1234629613
 BoxCollider2D:
   m_ObjectHideFlags: 0
