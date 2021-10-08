@@ -13,6 +13,7 @@ public class TriggerLogin : MonoBehaviour {
     public GameObject triggerLogin;
     public GameObject pageLogin;
     public GameObject pageRegiste;
+    public Text hint;
 
     public Sprite[] pannelSprites;
     public Sprite[] actionSprites;
@@ -57,5 +58,6 @@ public class TriggerLogin : MonoBehaviour {
         hide.GetComponent<Image>().sprite = hideSprites[0];
         user.GetComponent<Image>().color = inputColor[0];
         passwd.GetComponent<Image>().color = inputColor[0];
+        hint.text = "";
     }
 }

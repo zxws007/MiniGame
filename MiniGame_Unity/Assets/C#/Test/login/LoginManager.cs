@@ -70,9 +70,9 @@ public class LoginManager : MonoBehaviour {
         }
         else
         {
+            PlayerPrefs.SetString(user.text, passwd.text);
             user.text = "";
             passwd.text = "";
-            PlayerPrefs.SetString(user.text, passwd.text);
             hint.text = "注册成功，请前往登录";
         }
     }
