@@ -14,12 +14,24 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     float b, bb = .0f;
     int index = 0;
     public GameObject jiesuan;
+    public GameObject jiesuan1;
+    public GameObject jiesuan2;
+    public bool taiqi = false;
+    public Bamai bamai;
+    public bool changan = false;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
         shui2_anim.speed = 0;
         jiesuan.SetActive(false);
         change = false;
+        jiesuan2.SetActive(false);
+        jiesuan1.SetActive(false);
+        bamai.OnLongPress.AddListener(() =>
+        {
+            changan = true;
+            Debug.Log("chagnfan");
+        });
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -39,12 +51,12 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Movewash.pengzhuang)
+        if (Movewash.pengzhuang && changan)
         {
             Zhizhen.taiqi = true;
             change = true;
             shui2_anim.speed = 0;
-            jiesuan.SetActive(true);
+            taiqi = true;
         }
     }
     void OnCollisionExit2D(Collision2D coll)
@@ -54,7 +66,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             Zhizhen.taiqi = true;
             change = true;
             shui2_anim.speed = 0;
-            jiesuan.SetActive(true);
+            taiqi = true;
         }
     }
     void Update()
@@ -64,6 +76,22 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         if (Mathf.Abs(b - bb) >= 5 && !change)
         {
             Zhizhen.begin = true;
+        }
+        if (taiqi)
+        {
+            if (Zhizhen.totalscore == 10)
+            {
+                jiesuan.SetActive(true);
+            }
+            else if (Zhizhen.totalscore == 8)
+            {
+                jiesuan1.SetActive(true);
+            }
+            else if (Zhizhen.totalscore == 5)
+            {
+                jiesuan2.SetActive(true);
+            }
+
         }
     }
     public void OnClick()

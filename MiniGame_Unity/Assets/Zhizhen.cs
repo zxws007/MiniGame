@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class Zhizhen : MonoBehaviour
 {
-    public bool shiji = false;
-    public bool lh = false;
-    public bool pt = false;
+    public static bool shiji = false;
+    public static bool lh = false;
+    public static bool pt = false;
     public static bool anxia = false;
     public Animator zhizhen;
     public static bool begin = false;
@@ -52,28 +52,28 @@ public class Zhizhen : MonoBehaviour
         }
         if (pt && taiqi)
         {
+            totalscore += 5;
             zhizhen.speed = 0;
             putong.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
-            totalscore += 5;
         }
         if (shiji && taiqi)
         {
+            totalscore += 10;
             zhizhen.speed = 0;
             youxiu.SetActive(true);
             lss.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
-            totalscore += 10;
         }
         if (lh && taiqi)
         {
+            totalscore += 8;
             zhizhen.speed = 0;
             lianghao.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
-            totalscore += 8;
         }
         taiqi = false;
         anxia = false;

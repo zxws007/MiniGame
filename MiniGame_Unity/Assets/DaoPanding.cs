@@ -11,6 +11,8 @@ public class DaoPanding : MonoBehaviour
     public Text pingji;
     string dengji = "";
     public GameObject jiesuan;
+    public GameObject jiesuan1;
+    public GameObject jiesuan2;
     public Animator yaocai;
     public Animator tiao;
     void Start()
@@ -58,17 +60,19 @@ public class DaoPanding : MonoBehaviour
             if (MoveY.totleScore == 40)
             {
                 dengji = "S";
+                jiesuan.SetActive(true);
             }
             else if (MoveY.totleScore >= 32 && MoveY.totleScore < 40)
             {
                 dengji = "A";
+                jiesuan1.SetActive(true);
             }
             else if (MoveY.totleScore >= 20 && MoveY.totleScore < 32)
             {
                 dengji = "C";
+                jiesuan2.SetActive(true);
             }
             pingji.text = "评级：" + dengji;
-            jiesuan.SetActive(true);
             yaocai.speed = 0;
             tiao.speed = 0;
         }

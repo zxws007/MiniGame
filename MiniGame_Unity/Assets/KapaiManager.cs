@@ -64,6 +64,9 @@ public class KapaiManager : MonoBehaviour
     public GameObject next;
     public GameObject mask;
     public GameObject tishi;
+    public GameObject jieweitup1;
+    public GameObject jieweitup2;
+    public GameObject jieweitup3;
     // Use this for initialization
     void Start()
     {
@@ -113,6 +116,9 @@ public class KapaiManager : MonoBehaviour
         hongdui1.SetActive(false);
         hongdui2.SetActive(false);
         hongdui3.SetActive(false);
+        jieweitup1.SetActive(false);
+        jieweitup2.SetActive(false);
+        jieweitup3.SetActive(false);
 
     }
     void AddPos(GameObject _gameObject, int index)
@@ -142,6 +148,18 @@ public class KapaiManager : MonoBehaviour
             next.SetActive(true);
             mask.SetActive(true);
             tishi.SetActive(false);
+            if (gameObject.scene.name == "05")
+            {
+                jieweitup1.SetActive(true);
+            }
+            if (gameObject.scene.name == "13")
+            {
+                jieweitup2.SetActive(true);
+            }
+            if (gameObject.scene.name == "21")
+            {
+                jieweitup3.SetActive(true);
+            }
         }
         if (Mathf.Abs(chaihu_1.transform.position.x - anban.transform.position.x) <= 500 &&
 Mathf.Abs(chaihu_1.transform.position.y - anban.transform.position.y) <= 100)
