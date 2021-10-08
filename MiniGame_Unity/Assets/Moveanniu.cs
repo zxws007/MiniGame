@@ -19,6 +19,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public bool taiqi = false;
     public Bamai bamai;
     public bool changan = false;
+    public bool jiesuanb = false;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -39,10 +40,11 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         v2 = img.rectTransform.position;
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
         v1 = img.rectTransform.position;
-        if (Zhizhen.begin && Movewash.pengzhuang && !change)
+        if (Zhizhen.begin && Movewash.pengzhuang && !change && changan && !jiesuanb)
         {
             Zhizhen.anxia = true;
             shui2_anim.speed = 1;
+            jiesuanb = true;
         }
     }
     public void OnPointerDown(PointerEventData eventData)
@@ -51,12 +53,13 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (Movewash.pengzhuang && changan)
+        if (Movewash.pengzhuang && changan && !jiesuanb)
         {
             Zhizhen.taiqi = true;
             change = true;
             shui2_anim.speed = 0;
             taiqi = true;
+            jiesuanb = true;
         }
     }
     void OnCollisionExit2D(Collision2D coll)
