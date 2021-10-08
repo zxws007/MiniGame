@@ -20,7 +20,6 @@ public class Chao : MonoBehaviour {
     public Text chaoText;
     public GameObject backButton;
     public GameObject replayButton;
-    public Image resultImage;
     public int totalTimes;
     public AudioSource chaoAudio;
     public GameObject resultNormal;
@@ -51,7 +50,6 @@ public class Chao : MonoBehaviour {
         good.enabled = false;
         normal.enabled = false;
         pause = false;
-        resultImage.enabled = false;
         totalScore = 0;
         resultNormal.SetActive(false);
         resultGood.SetActive(false);
@@ -224,17 +222,14 @@ public class Chao : MonoBehaviour {
         pointer.SetActive(false);
         if (totalScore == 30)
         {
-            //resultImage.sprite = resultSprites[0];
             resultBest.SetActive(true);
         }
         else if (totalScore>=24 && totalScore < 30)
         {
             resultGood.SetActive(true);
-            //resultImage.sprite = resultSprites[1];
         }
         else
         {
-            //resultImage.sprite = resultSprites[2];
             resultNormal.SetActive(true);
         }
         //resultImage.enabled = true;
