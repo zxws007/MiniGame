@@ -11,7 +11,8 @@ public class ChaoHerb : MonoBehaviour
     public GameObject bar;
     public GameObject pointer;
     public Transform correctTrans;
-    
+    public AudioSource rightAudio;
+
 
     public Text herbText;
     public Text chaoText;
@@ -59,6 +60,7 @@ public class ChaoHerb : MonoBehaviour
             chaoText.enabled = true;
             bar.GetComponent<SpriteRenderer>().enabled = true;
             pointer.GetComponent<SpriteRenderer>().enabled = true;
+            rightAudio.Play();
         }
         else
         {

@@ -1813,6 +1813,7 @@ MonoBehaviour:
   triggerLogin: {fileID: 1495074912}
   pageLogin: {fileID: 240639792}
   pageRegiste: {fileID: 2139148358}
+  hint: {fileID: 30886183}
   pannelSprites:
   - {fileID: 21300000, guid: a81656dbc1121904aa40bf9114614f10, type: 3}
   - {fileID: 21300000, guid: 393d5b0034b41fe46a11fa8c34ad54f3, type: 3}
@@ -2123,6 +2124,7 @@ MonoBehaviour:
   triggerLogin: {fileID: 1495074912}
   pageLogin: {fileID: 240639792}
   pageRegiste: {fileID: 2139148358}
+  hint: {fileID: 30886183}
   pannelSprites:
   - {fileID: 21300000, guid: 393d5b0034b41fe46a11fa8c34ad54f3, type: 3}
   - {fileID: 21300000, guid: a81656dbc1121904aa40bf9114614f10, type: 3}

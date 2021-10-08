@@ -7,6 +7,8 @@ public class DaoYaoHerb : MonoBehaviour {
     public Text hint;
     public GameObject arrowLeft;
     [SerializeField] public Transform correctTrans;
+    public AudioSource rightAudio;
+
     private Vector3 OriginalPos;
     private bool IsFinished = false;
     private Renderer Renderer;
@@ -43,6 +45,7 @@ public class DaoYaoHerb : MonoBehaviour {
             Mathf.Abs(transform.position.y - correctTrans.position.y) <= 2f)
         {
             //消失
+            rightAudio.Play();
             hint.text = "请合上盖子";
             arrowLeft.SetActive(false);
             IsFinished = true;

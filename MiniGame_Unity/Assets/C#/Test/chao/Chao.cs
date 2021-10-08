@@ -22,6 +22,7 @@ public class Chao : MonoBehaviour {
     public GameObject replayButton;
     public Image resultImage;
     public int totalTimes;
+    public AudioSource chaoAudio;
 
     private SpriteRenderer render;
     private Vector3 originPos;
@@ -88,6 +89,7 @@ public class Chao : MonoBehaviour {
                     isWorking = true;
                     chaoHerb.GetComponent<SpriteRenderer>().sprite = herbSprites[0];
                     isMove = true;
+                    chaoAudio.Play();
                 }
             }
             if (!isMove && Mathf.Abs(transform.position.x - correctTrans.position.x) <= 1.5f &&
