@@ -20,6 +20,7 @@ public class Kaijumanager : MonoBehaviour {
         {
             index++;
         }
+        StartCoroutine(Wait2());
         if (index == 1)
         {
             show1.SetActive(true);
@@ -41,5 +42,10 @@ public class Kaijumanager : MonoBehaviour {
     {
         yield return new WaitForSeconds(0.7f);
         SceneManager.LoadScene(scene);
+    }
+    IEnumerator Wait2()
+    {
+        yield return new WaitForSeconds(1.5f);
+        show1.SetActive(true);
     }
 }

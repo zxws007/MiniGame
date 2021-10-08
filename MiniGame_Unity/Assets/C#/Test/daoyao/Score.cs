@@ -25,12 +25,12 @@ public class Score : MonoBehaviour
 
 
     private float cnt = 0;
-    private Vector3 start = new Vector3(-3f, -4f, 0);
-    private Vector3 end = new Vector3(-3f, 4f, 0);
-    private Vector3 center = new Vector3(-4.3f, 0f, 0);
+    private Vector3 start = new Vector3(-3.3f, -5f, 0);
+    private Vector3 end = new Vector3(-3.3f, 7.8f, 0);
+    private Vector3 center = new Vector3(-5f, 1.7f, 0);
     private SpriteRenderer render;
-    private Vector3 chuStart = new Vector3(-0.1f, 1f, 0);
-    private Vector3 chuEnd = new Vector3(-0.1f, 3f, 0);
+    private Vector3 chuStart = new Vector3(1.5f, 3.8f, 0);
+    private Vector3 chuEnd = new Vector3(1.5f, 7f, 0);
     private float chuCnt = 0;
 
 
@@ -61,7 +61,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (cnt == 100)
+        if (cnt == 300)
         {
             cnt += 1;
             showStop();
@@ -76,8 +76,8 @@ public class Score : MonoBehaviour
         {
             cnt += 1;
             chuCnt += 1;
-            transform.position = GetBezierPoint(cnt / 100, start, center, end);
-            chu.transform.position = GetChuPoint(chuCnt / 100, chuStart, chuEnd);
+            transform.position = GetBezierPoint(cnt / 300, start, center, end);
+            chu.transform.position = GetChuPoint(chuCnt / 300, chuStart, chuEnd);
         }
         
     }
