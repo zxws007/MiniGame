@@ -20,6 +20,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     public Bamai bamai;
     public bool changan = false;
     public bool jiesuanb = false;
+    Vector3 beginPos;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -28,11 +29,13 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         change = false;
         jiesuan2.SetActive(false);
         jiesuan1.SetActive(false);
+        Bamai.my_longPressTime = 0.8f;
         bamai.OnLongPress.AddListener(() =>
         {
             changan = true;
-            Debug.Log("chagnfan");
+            Debug.Log("changan");
         });
+        beginPos = gameObject.transform.position;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -40,7 +43,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         v2 = img.rectTransform.position;
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
         v1 = img.rectTransform.position;
-        if (Zhizhen.begin && Movewash.pengzhuang && !change && changan )
+        if (Zhizhen.begin && Movewash.pengzhuang && !change && changan)
         {
             Zhizhen.anxia = true;
             shui2_anim.speed = 1;
@@ -60,10 +63,12 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             taiqi = true;
             jiesuanb = true;
         }
+        gameObject.transform.position = beginPos;
+        changan = false;
     }
     void OnCollisionExit2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "new1" && !jiesuanb)
+        if (coll.gameObject.tag == "new1" && !jiesuanb && Movewash.pengzhuang)
         {
             Zhizhen.taiqi = true;
             change = true;
