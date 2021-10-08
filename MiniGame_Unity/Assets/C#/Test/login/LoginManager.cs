@@ -10,6 +10,7 @@ public class LoginManager : MonoBehaviour {
     public InputField user;
     public InputField passwd;
     public Text hint;
+    public string scene;
 
     // Use this for initialization
     void Start () {
@@ -45,7 +46,7 @@ public class LoginManager : MonoBehaviour {
         }
         else if (passwd.text == PlayerPrefs.GetString(user.text))
         {
-            SceneManager.LoadSceneAsync("01");
+            SceneManager.LoadSceneAsync(scene);
         }
         else
         {
