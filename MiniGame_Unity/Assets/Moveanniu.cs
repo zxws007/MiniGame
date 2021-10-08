@@ -40,11 +40,10 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         v2 = img.rectTransform.position;
         img.rectTransform.position = new Vector3(Mathf.Clamp(Input.mousePosition.x, 0, Screen.width), Mathf.Clamp(Input.mousePosition.y, 0, Screen.height), 0) + offsetPos;
         v1 = img.rectTransform.position;
-        if (Zhizhen.begin && Movewash.pengzhuang && !change && changan && !jiesuanb)
+        if (Zhizhen.begin && Movewash.pengzhuang && !change && changan )
         {
             Zhizhen.anxia = true;
             shui2_anim.speed = 1;
-            jiesuanb = true;
         }
     }
     public void OnPointerDown(PointerEventData eventData)
@@ -64,12 +63,13 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     void OnCollisionExit2D(Collision2D coll)
     {
-        if (coll.gameObject.tag == "new1")
+        if (coll.gameObject.tag == "new1" && !jiesuanb)
         {
             Zhizhen.taiqi = true;
             change = true;
             shui2_anim.speed = 0;
             taiqi = true;
+            jiesuanb = true;
         }
     }
     void Update()
