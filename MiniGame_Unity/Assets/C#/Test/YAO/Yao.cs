@@ -31,6 +31,7 @@ public class Yao : MonoBehaviour
     public Text debug;
     public GameObject ljj;
     public AudioSource source;
+    bool jieshu = false;
     void Start()
     {
         animator.speed = 0;
@@ -67,7 +68,10 @@ public class Yao : MonoBehaviour
                     jingzhi.SetActive(false);
                     huangdong.SetActive(true);
                     i++;
-                    source.Play();
+                    if (!jieshu)
+                    {
+                        source.Play();
+                    }
                 }
                 else
                 {
@@ -104,6 +108,7 @@ public class Yao : MonoBehaviour
                 button1.SetActive(false);
                 button2.SetActive(true);
                 ljj.SetActive(true);
+                jieshu = true;
             }
         }
         if (i != 0 && i < 100 && Move.isOK)
