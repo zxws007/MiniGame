@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d3cb2fa213290a45bb264a397e2292f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scene: kaiju3
   danchu: {fileID: 1485768901}
 --- !u!1 &887539642
 GameObject:
@@ -395,10 +396,10 @@ RectTransform:
   m_Father: {fileID: 475185682}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 136.22284, y: 173.5}
-  m_SizeDelta: {x: 442, y: 518}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &887539644
 MonoBehaviour:
@@ -419,7 +420,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: a8b3fba7e3dee4647b9aad08a0ec1618, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f5eb8b1794bd8dc4489d1a5355a58168, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
