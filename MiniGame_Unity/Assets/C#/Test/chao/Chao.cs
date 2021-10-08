@@ -216,11 +216,11 @@ public class Chao : MonoBehaviour {
         xunArrow.SetActive(false);
         bar.SetActive(false);
         pointer.SetActive(false);
-        if (totalScore == 50)
+        if (totalScore == 30)
         {
             resultImage.sprite = resultSprites[0];
         }
-        else if (totalScore>=40 && totalScore < 50)
+        else if (totalScore>=24 && totalScore < 30)
         {
             resultImage.sprite = resultSprites[1];
         }

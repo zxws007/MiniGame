@@ -73,11 +73,11 @@ public class YaoChu : MonoBehaviour {
             //hint.text = "药材全部处理完毕";
             //Debug.LogFormat("totalscore is {0}", Score.totalScore);
             hint.text = "";
-            if (Score.totalScore == 50)
+            if (Score.totalScore == 30)
             {
                 resultImage.sprite = resultSprites[0];
             }
-            else if (Score.totalScore >= 40 && Score.totalScore < 50)
+            else if (Score.totalScore >= 24 && Score.totalScore < 30)
             {
                 resultImage.sprite = resultSprites[1];
             }
