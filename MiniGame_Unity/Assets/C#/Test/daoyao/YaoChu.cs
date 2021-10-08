@@ -20,6 +20,9 @@ public class YaoChu : MonoBehaviour {
     public GameObject bar;
     public GameObject bottom;
     public GameObject halfBottom;
+    public GameObject resultNormal;
+    public GameObject resultGood;
+    public GameObject resultBest;
 
     public Image best;
     public Image good;
@@ -44,7 +47,10 @@ public class YaoChu : MonoBehaviour {
         RegisterCallbacks();
         showResting();
         resultImage.enabled = false;
-	}
+        resultNormal.SetActive(false);
+        resultGood.SetActive(false);
+        resultBest.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -75,17 +81,20 @@ public class YaoChu : MonoBehaviour {
             hint.text = "";
             if (Score.totalScore == 30)
             {
-                resultImage.sprite = resultSprites[0];
+                //resultImage.sprite = resultSprites[0];
+                resultBest.SetActive(true);
             }
             else if (Score.totalScore >= 24 && Score.totalScore < 30)
             {
-                resultImage.sprite = resultSprites[1];
+                //resultImage.sprite = resultSprites[1];
+                resultGood.SetActive(true);
             }
             else
             {
-                resultImage.sprite = resultSprites[2];
+                //resultImage.sprite = resultSprites[2];
+                resultNormal.SetActive(true);
             }
-            resultImage.enabled = true;
+            //resultImage.enabled = true;
             arrowLeft.SetActive(false);
             backButton.SetActive(true);
             replayButton.SetActive(true);

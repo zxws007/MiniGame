@@ -17,6 +17,7 @@ public class Score : MonoBehaviour
     public Image best;
     public Image good;
     public Image normal;
+    
     public Button act;
     public GameObject chu;
     public AudioSource audiosource;
@@ -54,6 +55,7 @@ public class Score : MonoBehaviour
         best.enabled = false;
         good.enabled = false;
         normal.enabled = false;
+        
         totalScore = 0;
     }
     // Update is called once per frame

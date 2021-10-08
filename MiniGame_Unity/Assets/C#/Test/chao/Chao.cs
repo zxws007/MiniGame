@@ -23,6 +23,9 @@ public class Chao : MonoBehaviour {
     public Image resultImage;
     public int totalTimes;
     public AudioSource chaoAudio;
+    public GameObject resultNormal;
+    public GameObject resultGood;
+    public GameObject resultBest;
 
     private SpriteRenderer render;
     private Vector3 originPos;
@@ -50,6 +53,9 @@ public class Chao : MonoBehaviour {
         pause = false;
         resultImage.enabled = false;
         totalScore = 0;
+        resultNormal.SetActive(false);
+        resultGood.SetActive(false);
+        resultBest.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -218,17 +224,20 @@ public class Chao : MonoBehaviour {
         pointer.SetActive(false);
         if (totalScore == 30)
         {
-            resultImage.sprite = resultSprites[0];
+            //resultImage.sprite = resultSprites[0];
+            resultBest.SetActive(true);
         }
         else if (totalScore>=24 && totalScore < 30)
         {
-            resultImage.sprite = resultSprites[1];
+            resultGood.SetActive(true);
+            //resultImage.sprite = resultSprites[1];
         }
         else
         {
-            resultImage.sprite = resultSprites[2];
+            //resultImage.sprite = resultSprites[2];
+            resultNormal.SetActive(true);
         }
-        resultImage.enabled = true;
+        //resultImage.enabled = true;
         chaoText.text = "";
         chaoHerb.GetComponent<SpriteRenderer>().sprite = herbSprites[1];
     }
