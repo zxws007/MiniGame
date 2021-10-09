@@ -9,9 +9,11 @@ public class Kaijumanager : MonoBehaviour {
     public GameObject show1;
     public GameObject danchu;
     public string scene;
+    int pan;
     // Use this for initialization
     void Start () {
-        index = 0;	
+        index = 0;
+        pan = 0;
 	}
 	
 	// Update is called once per frame
@@ -24,11 +26,13 @@ public class Kaijumanager : MonoBehaviour {
         if (index == 1)
         {
             show1.SetActive(true);
+            pan++;
         }
         if (index == 2)
         {
             Next2Scene();
         }
+        Debug.Log(index);
     }
     public void Next2Scene()
     {
@@ -47,5 +51,9 @@ public class Kaijumanager : MonoBehaviour {
     {
         yield return new WaitForSeconds(1.5f);
         show1.SetActive(true);
+        if (pan == 0)
+        {
+            index=1;
+        }
     }
 }
