@@ -24,6 +24,9 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     bool nochangan = false;
     public static bool sjd = false;
     public static bool qzjs = false;
+    public GameObject tub1;
+    public GameObject tub2;
+    public GameObject tub3;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -122,6 +125,9 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             jiesuan.SetActive(false);
             jiesuan1.SetActive(false);
             jiesuan2.SetActive(true);
+            //tub1.SetActive(false);
+            //tub2.SetActive(false);
+            //tub3.SetActive(true);
         }
     }
     public void OnClick()

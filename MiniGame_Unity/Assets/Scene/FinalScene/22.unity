@@ -2184,6 +2184,9 @@ MonoBehaviour:
   bamai: {fileID: 1234629609}
   changan: 0
   jiesuanb: 0
+  tub1: {fileID: 347859302}
+  tub2: {fileID: 830533002}
+  tub3: {fileID: 2036689568}
 --- !u!61 &1234629613
 BoxCollider2D:
   m_ObjectHideFlags: 0
