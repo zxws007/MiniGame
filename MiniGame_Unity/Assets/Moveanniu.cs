@@ -69,6 +69,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     {
         if (Movewash.pengzhuang && changan && !jiesuanb && Zhizhen.begin)
         {
+            Debug.Log("go");
             Zhizhen.taiqi = true;
             change = true;
             shui2_anim.speed = 0;
@@ -115,7 +116,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             }
 
         }
-        if (qzjs)
+        if (qzjs && !jiesuanb)
         {
             Zhizhen.taiqi = true;
             change = true;
