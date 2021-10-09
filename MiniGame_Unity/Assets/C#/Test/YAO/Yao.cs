@@ -44,6 +44,7 @@ public class Yao : MonoBehaviour
         i = 0;
         C = false;
         isshake = false;
+        gameObject.GetComponent<AudioSource>().enabled = true;
     }
     public void Move15()
     {
@@ -71,6 +72,7 @@ public class Yao : MonoBehaviour
                     if (!jieshu)
                     {
                         source.Play();
+                        gameObject.GetComponent<AudioSource>().enabled = false;
                     }
                 }
                 else
