@@ -126,9 +126,6 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             jiesuan.SetActive(false);
             jiesuan1.SetActive(false);
             jiesuan2.SetActive(true);
-            //tub1.SetActive(false);
-            //tub2.SetActive(false);
-            //tub3.SetActive(true);
         }
     }
     public void OnClick()

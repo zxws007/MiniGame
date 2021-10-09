@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Zhizhen : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class Zhizhen : MonoBehaviour
     public static int totalscore = 0;
     bool timeb = false;
     float timef = .0f;
+    public Text text;
+    bool debug = false;
     void Start()
     {
         zhizhen.speed = 0;
@@ -28,24 +31,33 @@ public class Zhizhen : MonoBehaviour
         totalscore = 0;
         timef = 0;
         timeb = false;
+        pt = false;
+        shiji = false;
+        lh = false;
     }
     void OnCollisionStay2D(Collision2D coll)
     {
-        shiji = false;
-        lh = false;
-        pt = false;
         if (coll.gameObject.tag == "shaizi")
         {
             shiji = true;
+            lh = false;
+            pt = false;
         }
-        if (coll.gameObject.tag == "Finish")
+        else if (coll.gameObject.tag == "Finish")
         {
             lh = true;
+            shiji = false;
+            pt = false;
         }
-        if (coll.gameObject.tag == "Respawn")
+        else if (coll.gameObject.tag == "Respawn")
         {
             pt = true;
+            shiji = false;
+            lh = false;
         }
+        Debug.Log("yx " + shiji);
+        //Debug.Log("lh " + lh);
+        //Debug.Log("pt " + pt);
     }
     void Update()
     {
@@ -91,6 +103,11 @@ public class Zhizhen : MonoBehaviour
             if (timef > 8.8f)
             {
                 Moveanniu.qzjs = true;
+                debug = true;
+            }
+            if (!debug)
+            {
+                text.text = timef + "";
             }
         }
     }
