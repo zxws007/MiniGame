@@ -62,6 +62,7 @@ public class Zhizhen : MonoBehaviour
             putong.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
+            pt = false;
         }
         if (shiji && taiqi)
         {
@@ -71,6 +72,7 @@ public class Zhizhen : MonoBehaviour
             lss.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
+            shiji = false;
         }
         if (lh && taiqi)
         {
@@ -79,6 +81,7 @@ public class Zhizhen : MonoBehaviour
             lianghao.SetActive(true);
             StartCoroutine(Wait());
             anxia = false;
+            lh = false;
         }
         taiqi = false;
         anxia = false;

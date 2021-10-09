@@ -71,7 +71,10 @@ public class Yao : MonoBehaviour
                     i++;
                     if (!jieshu)
                     {
-                        source.Play();
+                        if (i % 3 == 0)
+                        {
+                            source.Play();
+                        }
                     }
                 }
                 else
