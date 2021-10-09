@@ -17,6 +17,9 @@ public class FirstManager : MonoBehaviour
 
     public GameObject hide1;
 
+    public GameObject hide2;
+    public GameObject hide3;
+
     int index = 0;
     // Use this for initialization
     void Start()
@@ -37,11 +40,13 @@ public class FirstManager : MonoBehaviour
         }
         if (index == 2)
         {
+            hide2.SetActive(false);
             show2.SetActive(true);
         }
         if (index == 3)
         {
             show3.SetActive(true);
+
         }
         if (index == 4)
         {
@@ -49,6 +54,7 @@ public class FirstManager : MonoBehaviour
         }
         if (index == 5)
         {
+            hide3.SetActive(false);
             show5.SetActive(true);
         }
         if (index == 6)

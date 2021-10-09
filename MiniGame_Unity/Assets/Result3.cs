@@ -2,36 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Result : MonoBehaviour {
+public class Result3 : MonoBehaviour {
 
     public GameObject show1;
     public GameObject show2;
     public GameObject show3;
-    int pan;
     // Use this for initialization
-    void Start () {
-
-        if (pan < 47)
+    void Start()
+    {
+        if (GlobalScore.Instance.Score3 <= 31)
         {
-            show1.SetActive(true);
             GlobalScore.Instance.yiban++;
+            show1.SetActive(true);
         }
-        if (pan < 64 && pan >= 47)
+        if (GlobalScore.Instance.Score3 > 31 && GlobalScore.Instance.Score3 < 38)
         {
-            show2.SetActive(true);
             GlobalScore.Instance.lianghao++;
+            show2.SetActive(true);
         }
-        if (pan >= 64)
+        if (GlobalScore.Instance.Score3 >= 38)
         {
             GlobalScore.Instance.wanmei++;
             show3.SetActive(true);
         }
-
     }
-    
-	// Update is called once per frame
-	void Update () {
-        
+
+    // Update is called once per frame
+    void Update()
+    {
+
         
     }
 }

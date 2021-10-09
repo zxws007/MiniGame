@@ -143,6 +143,7 @@ public class MoveY : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointerU
     }
     public void Move07()
     {
+        GlobalScore.Instance.Score1 = GlobalScore.Instance.Score1 + totleScore;
         SceneManager.LoadSceneAsync("07");
     }
     public void Move07again()

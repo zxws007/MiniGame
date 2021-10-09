@@ -8,13 +8,19 @@ public class GlobalScore : MonoBehaviour
     public int Score1;
     public int Score2;
     public int Score3;
+    public int wanmei;
+    public int lianghao;
+    public int yiban;
     void Awake()
     {
         if (Instance == null)
         {
-            this.Score1 = 0;
+            this.Score1 = 65;
             this.Score2 = 0;
             this.Score3 = 0;
+            this.wanmei = 0;
+            this.lianghao = 0;
+            this.yiban = 0;
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }

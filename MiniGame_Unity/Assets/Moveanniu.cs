@@ -126,6 +126,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     }
     public void OnClick()
     {
+        GlobalScore.Instance.Score3 = GlobalScore.Instance.Score3 + Zhizhen.totalscore;
         SceneManager.LoadSceneAsync("23");//level1为我们要切换到的场景
     }
     public void OnClickagain()
