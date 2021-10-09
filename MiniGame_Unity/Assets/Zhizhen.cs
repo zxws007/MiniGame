@@ -17,6 +17,8 @@ public class Zhizhen : MonoBehaviour
     public GameObject putong;
     public GameObject lss;
     public static int totalscore = 0;
+    bool timeb = false;
+    float timef = .0f;
     void Start()
     {
         zhizhen.speed = 0;
@@ -24,6 +26,8 @@ public class Zhizhen : MonoBehaviour
         begin = false;
         taiqi = false;
         totalscore = 0;
+        timef = 0;
+        timeb = false;
     }
     void OnCollisionStay2D(Collision2D coll)
     {
@@ -49,6 +53,7 @@ public class Zhizhen : MonoBehaviour
         {
             time += Time.deltaTime;
             zhizhen.speed = 1;
+            timeb = true;
         }
         if (pt && taiqi)
         {
@@ -77,6 +82,14 @@ public class Zhizhen : MonoBehaviour
         }
         taiqi = false;
         anxia = false;
+        if (timeb)
+        {
+            timef += Time.deltaTime;
+            if (timef > 8.8f)
+            {
+                Moveanniu.qzjs = true;
+            }
+        }
     }
     IEnumerator Wait()
     {

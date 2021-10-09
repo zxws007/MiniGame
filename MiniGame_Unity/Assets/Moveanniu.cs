@@ -23,6 +23,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
     Vector3 beginPos;
     bool nochangan = false;
     public static bool sjd = false;
+    public static bool qzjs = false;
     void Start()
     {
         img = GetComponent<RawImage>();//获取图片，因为我们要获取他的RectTransform
@@ -43,6 +44,7 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
         });
         beginPos = gameObject.transform.position;
         sjd = false;
+        qzjs = false;
     }
     public void OnDrag(PointerEventData eventData)
     {
@@ -108,6 +110,15 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             {
                 jiesuan2.SetActive(true);
             }
+
+        }
+        if (qzjs)
+        {
+            Zhizhen.taiqi = true;
+            change = true;
+            shui2_anim.speed = 0;
+            taiqi = true;
+            jiesuanb = true;
 
         }
     }
