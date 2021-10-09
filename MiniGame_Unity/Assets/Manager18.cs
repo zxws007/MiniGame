@@ -13,6 +13,7 @@ public class Manager18 : MonoBehaviour {
 
 
     public GameObject hide1;
+    public GameObject hide2;
 
     int index = 0;
     // Use this for initialization
@@ -34,6 +35,7 @@ public class Manager18 : MonoBehaviour {
         }
         if (index == 2)
         {
+            hide1.SetActive(false);
             show2.SetActive(true);
         }
         if (index == 3)
@@ -46,7 +48,7 @@ public class Manager18 : MonoBehaviour {
         }
         if (index == 5)
         {
-            hide1.SetActive(false);
+            hide2.SetActive(false);
             bing2.SetActive(true);
         }
     }

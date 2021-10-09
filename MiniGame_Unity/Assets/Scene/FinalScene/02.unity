@@ -3509,7 +3509,7 @@ MonoBehaviour:
   show5: {fileID: 1403365051}
   show6: {fileID: 172098669}
   hide1: {fileID: 1975049051}
-  hide2: {fileID: 1975049051}
+  hide2: {fileID: 1351183765}
   hide3: {fileID: 1403365051}
 --- !u!1 &1761754384
 GameObject:
