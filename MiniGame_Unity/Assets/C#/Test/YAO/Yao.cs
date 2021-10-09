@@ -72,7 +72,6 @@ public class Yao : MonoBehaviour
                     if (!jieshu)
                     {
                         source.Play();
-                        gameObject.GetComponent<AudioSource>().enabled = false;
                     }
                 }
                 else
@@ -111,6 +110,7 @@ public class Yao : MonoBehaviour
                 button2.SetActive(true);
                 ljj.SetActive(true);
                 jieshu = true;
+                gameObject.GetComponent<AudioSource>().enabled = false;
             }
         }
         if (i != 0 && i < 100 && Move.isOK)
