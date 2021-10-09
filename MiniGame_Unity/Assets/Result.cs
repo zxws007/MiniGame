@@ -10,7 +10,7 @@ public class Result : MonoBehaviour {
     int pan;
     // Use this for initialization
     void Start () {
-
+        pan = GlobalScore.Instance.Score1;
         if (pan < 47)
         {
             show1.SetActive(true);
