@@ -119,7 +119,9 @@ public class Moveanniu : MonoBehaviour, IDragHandler, IPointerDownHandler, IPoin
             shui2_anim.speed = 0;
             taiqi = true;
             jiesuanb = true;
-
+            jiesuan.SetActive(false);
+            jiesuan1.SetActive(false);
+            jiesuan2.SetActive(true);
         }
     }
     public void OnClick()
