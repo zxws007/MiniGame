@@ -101,3 +101,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/FinalScene/kaiju7.unity
     guid: 2cecac648cb53ea4489c1b514952238c
+  - enabled: 1
+    path: Assets/Scene/FinalScene/jieju1.unity
+    guid: e011b920b1d014a46bff19d6990fb1a7
+  - enabled: 1
+    path: Assets/Scene/FinalScene/jieju2.unity
+    guid: d562d263f9892d447a9ebb236f46c6e2
+  - enabled: 1
+    path: Assets/Scene/FinalScene/jieju3.unity
+    guid: 3c7bcf918bf3d3049893d912bbc410db

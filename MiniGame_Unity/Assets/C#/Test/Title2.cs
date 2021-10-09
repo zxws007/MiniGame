@@ -9,7 +9,7 @@ public class Title2 : MonoBehaviour
 {
     public GameObject show1;
     public GameObject hide1;
-
+    public AudioSource chaoAudio;
     public GameObject show11;
     public GameObject show12;
 
@@ -26,6 +26,7 @@ public class Title2 : MonoBehaviour
     
     IEnumerator MyMethod()
     {
+        chaoAudio.Play();
         show1.SetActive(true);
         yield return new WaitForSeconds(1.5f);
         show11.SetActive(true);

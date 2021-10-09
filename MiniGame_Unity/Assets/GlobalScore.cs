@@ -15,7 +15,7 @@ public class GlobalScore : MonoBehaviour
     {
         if (Instance == null)
         {
-            this.Score1 = 65;
+            this.Score1 = 0;
             this.Score2 = 0;
             this.Score3 = 0;
             this.wanmei = 0;

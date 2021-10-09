@@ -32,7 +32,6 @@ public class Kaijumanager : MonoBehaviour {
         {
             Next2Scene();
         }
-        Debug.Log(index);
     }
     public void Next2Scene()
     {
