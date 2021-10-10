@@ -9,10 +9,8 @@ public class Manager02 : MonoBehaviour {
     public GameObject show3;
     public GameObject show4;
     public GameObject show5;
-    public GameObject show6;
 
     public GameObject hide1;
-
     public static int index;
     // Use this for initialization
     void Start()
@@ -44,7 +42,6 @@ public class Manager02 : MonoBehaviour {
             show5.SetActive(true);
 
         }
-        
     }
 
 }

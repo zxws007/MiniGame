@@ -7,9 +7,10 @@ using UnityEngine.SceneManagement;
 public class Body : MonoBehaviour {
     int i = 0;
     public GameObject show;
+    public GameObject show1;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         this.GetComponent<Button>().onClick.AddListener(OnClick);
     }
     void OnClick()
@@ -22,6 +23,10 @@ public class Body : MonoBehaviour {
         if (i % 2 == 0)
         {
             show.SetActive(false);
+        }
+        if (Changmove.body == 1)
+        {
+            show1.SetActive(true);
         }
     }
 
