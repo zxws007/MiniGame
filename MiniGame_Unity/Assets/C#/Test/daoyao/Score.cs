@@ -195,6 +195,14 @@ public class Score : MonoBehaviour
         normal.enabled = false;
         act.interactable = true;
         daoyao_score = 5;
-        hint.text = "点击捣按钮开始捣药";
+        if (stop_cnt == 3)
+        {
+            hint.text = "";
+        }
+        else
+        {
+            hint.text = "点击捣按钮开始捣药";
+        }
+       
     }
 }
