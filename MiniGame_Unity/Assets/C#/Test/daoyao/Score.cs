@@ -171,6 +171,10 @@ public class Score : MonoBehaviour
         {
             hint.text = "再捣一次";
         }
+        else
+        {
+            hint.text = "";
+        }
         
         
         pause = true;
