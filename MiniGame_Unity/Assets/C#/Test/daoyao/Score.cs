@@ -167,7 +167,11 @@ public class Score : MonoBehaviour
         render.sprite = Sprites[1];
 
         audiosource.Play();
-        hint.text = "再捣一次";
+        if (stop_cnt < 2)
+        {
+            hint.text = "再捣一次";
+        }
+        
         
         pause = true;
         chuCnt = 0;

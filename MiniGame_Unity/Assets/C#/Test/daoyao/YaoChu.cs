@@ -27,7 +27,7 @@ public class YaoChu : MonoBehaviour {
     public Image best;
     public Image good;
     public Image normal;
-    public Image resultImage;
+    //public Image resultImage;
 
     public Text hint;
     public Button act;
@@ -46,7 +46,7 @@ public class YaoChu : MonoBehaviour {
     {
         RegisterCallbacks();
         showResting();
-        resultImage.enabled = false;
+        //resultImage.enabled = false;
         resultNormal.SetActive(false);
         resultGood.SetActive(false);
         resultBest.SetActive(false);
