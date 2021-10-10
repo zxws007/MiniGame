@@ -11,6 +11,7 @@ public class GlobalScore : MonoBehaviour
     public int wanmei;
     public int lianghao;
     public int yiban;
+    public string username;
     void Awake()
     {
         if (Instance == null)
@@ -21,6 +22,7 @@ public class GlobalScore : MonoBehaviour
             this.wanmei = 0;
             this.lianghao = 0;
             this.yiban = 0;
+            this.username = "";
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }

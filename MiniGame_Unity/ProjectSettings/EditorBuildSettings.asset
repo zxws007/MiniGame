@@ -110,3 +110,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scene/FinalScene/jieju3.unity
     guid: 3c7bcf918bf3d3049893d912bbc410db
+  - enabled: 1
+    path: Assets/Scene/FinalScene/again.unity
+    guid: ef06ba749e41c604e854ff79a96150d5

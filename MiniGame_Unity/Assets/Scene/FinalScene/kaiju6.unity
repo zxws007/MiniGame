@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 601449262}
   - component: {fileID: 601449261}
   - component: {fileID: 601449265}
+  - component: {fileID: 601449266}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -594,6 +595,17 @@ MonoBehaviour:
   hide5: {fileID: 1831075259}
   danchu: {fileID: 1485768901}
   scene: kaiju7
+--- !u!114 &601449266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601449260}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d634480413757c749aae796b3cadab11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626187393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1414,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1307425456
 RectTransform:
   m_ObjectHideFlags: 0

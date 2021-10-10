@@ -11,6 +11,8 @@ public class LoginManager : MonoBehaviour {
     public InputField passwd;
     public Text hint;
     public string scene;
+    string cundangname;
+    string cundangscene;
 
     // Use this for initialization
     void Start () {
@@ -46,7 +48,15 @@ public class LoginManager : MonoBehaviour {
         }
         else if (passwd.text == PlayerPrefs.GetString(user.text))
         {
-            SceneManager.LoadSceneAsync(scene);
+            GlobalScore.Instance.username = user.text;
+            if (cundangscene == "")
+            {
+                SceneManager.LoadSceneAsync(scene);
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync("again");
+            }
         }
         else
         {
