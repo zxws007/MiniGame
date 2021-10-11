@@ -28,14 +28,20 @@ public class DaoPanding : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             success = true;
+            lianghao = false;
+            yiban = false;
         }
         if (coll.gameObject.tag == "Finish")
         {
             lianghao = true;
+            success = false;
+            yiban = false;
         }
         if (coll.gameObject.tag == "Respawn")
         {
             yiban = true;
+            success = false;
+            lianghao = false;
         }
     }
     void OnCollisionExit2D(Collision2D coll)
