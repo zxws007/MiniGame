@@ -13,6 +13,7 @@ public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
     public GameObject hide1;
     private Vector3 startPos;
     private RawImage img;
+    public AudioSource chaoAudio;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
     void Start()
     {
@@ -56,6 +57,7 @@ public class Move02 : MonoBehaviour, IDragHandler, IPointerDownHandler, IPointer
 
         if (i == 1)
         {
+            chaoAudio.Play();
             Manager02.index++;
             hide1.SetActive(false);
             hide.SetActive(false);

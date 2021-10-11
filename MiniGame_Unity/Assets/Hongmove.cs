@@ -19,6 +19,7 @@ public class Hongmove : MonoBehaviour,IDragHandler, IPointerDownHandler, IPointe
     public GameObject show3;
     private Vector3 startPos;
     private RawImage img;
+    public AudioSource sound;
     Vector3 offsetPos; //存储按下鼠标时的图片-鼠标位置差
     void Start()
     {
@@ -66,6 +67,7 @@ public class Hongmove : MonoBehaviour,IDragHandler, IPointerDownHandler, IPointe
 
         if (i == 1)
         {
+            sound.Play();
             hide3.SetActive(false);
             Manager02.index++;
             hide1.SetActive(false);
