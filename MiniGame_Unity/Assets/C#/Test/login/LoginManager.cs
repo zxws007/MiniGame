@@ -49,6 +49,7 @@ public class LoginManager : MonoBehaviour {
         else if (passwd.text == PlayerPrefs.GetString(user.text))
         {
             GlobalScore.Instance.username = user.text;
+            cundangscene = PlayerPrefs.GetString(user.text + "scene");
             if (cundangscene == "")
             {
                 SceneManager.LoadSceneAsync(scene);
